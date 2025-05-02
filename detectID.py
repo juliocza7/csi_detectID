@@ -231,7 +231,13 @@ def viz(x, tf, ridge_idxs, yticks=None, ssq=False, transform='cwt', show_x=False
     plt.plot(ridge_idxs, 'r')
     plt.show()
 
+
+
+
+
+
 ##########################################################################################################
+################# funciones de algoritmos machine learning
 
 def random_forest_ml(train_norm, test_norm, train_labels, test_labels):
     print("\n--Random Forest--")
@@ -343,8 +349,8 @@ def select_subcarries(X, y):
 
 
 
-
-#################################### Funções para manipular dados CSI ###########################
+#################################################################################################
+#################################### funciones  para manipular datos CSI ###########################
 
 def generateIntervals(ini_, end_, flag):
 
@@ -471,7 +477,12 @@ def dataModelStandardize(np_matriz0, targets0, np_matriz1, targets1):
 
 
 
-#################################### DETEÇÂO DE PRESENÇA EM TEMPO REAL ###############################################
+
+
+
+
+######################################################################################################################
+#################################### detecctión de persona en tiempo real ###############################################
 
 def presence_real_time(sec):
     print('\n#############################################################################################')
