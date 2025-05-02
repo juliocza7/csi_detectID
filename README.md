@@ -1,6 +1,6 @@
 # CSI DetectID
 
-This outlines a proposal for the detection and identification of individuals in critical security physical spaces.
+DetectID is a proposal for the detection and identification of individuals in critical security physical spaces.
 
 Initially, we have an environment or baseline for the development of experiments already prepared, along with some of the methods utilized for the detection and identification of individuals.
 
