@@ -1,3 +1,4 @@
+/*
 # CSI Explorer
 
 A fast and simple CSI decoder written in Python.
@@ -58,3 +59,4 @@ samples.print(200)
 * [@Gi-z](https://github.com/Gi-z) - Glenn Forbes
 * [@zeroby0](https://github.com/zeroby0) - Aravind Voggu
 * [@tweigel-dev](https://github.com/tweigel-dev) - Thomas Weigel
+*/
