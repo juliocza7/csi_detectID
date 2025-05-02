@@ -2,12 +2,14 @@
 
 DetectID is a proposal for the detection and identification of individuals in critical security physical spaces.
 
-Initially, we have an environment or baseline for the development of experiments already prepared, along with some of the methods utilized for the detection and identification of individuals.
+Initially, we have an environment for the development of experiments already prepared, along with some of the methods utilized for the detection and identification of individuals. Our dataset used for the experiments is specified in the following journal:
+
+[^1]: I. Galdino et al., "eHealth CSI: A Wi-Fi CSI Dataset of Human Activities," in IEEE Access, vol. 11, pp. 71003-71012, 2023, doi: 10.1109/ACCESS.2023.3294429. https://ieeexplore.ieee.org/document/10177905
 
 Note: Our experimental environment is based on the proposal developed by https://github.com/zeroby0/csi-explorer for the extraction of CSI data from collected samples.
 
 
-[@juliocza7](https://github.com/juliocza7) - Julio C. H. Soto
+[@JulioCza7](https://github.com/juliocza7) - Julio C. H. Soto
 
 <!-- 
 # CSI Explorer
