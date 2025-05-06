@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from filtros_old import iq_samples_abs
 
-file_path = 'vacio.csv'  # Reemplaza 'tu_archivo.csv' con el nombre de tu archivo CSV
+file_path = './data_example/lleno.csv'  # Reemplaza 'tu_archivo.csv' con el nombre de tu archivo CSV
 
 try:
     df = pd.read_csv(file_path, index_col=0)  # Lee el CSV, asumiendo que la primera columna es el índice
@@ -44,16 +44,19 @@ try:
         plt.subplot(8, 8, i + 1)
         #plt.plot(range(num_samples), np.abs(df.iloc[:, i])) # Magnitud de la señal
         plt.plot(range(num_samples), df.iloc[:,i]) # Magnitud de la señal
-        plt.title(f'SP: {df.columns[i]} -- SNR: {snr_db.iloc[i]:.2f} dB', fontsize=8)
-        plt.xlabel('Muestra', fontsize=6)
-        plt.ylabel('Magnitud', fontsize=6)
+        #plt.title(f'SP: {df.columns[i]} -- SNR: {snr_db.iloc[i]:.2f} dB', fontsize=8)
+        plt.title(f'Subportadora: {df.columns[i]}', fontsize=8, pad=1)
+        plt.xlabel('amostras', fontsize=6, labelpad=0)
+        plt.ylabel('db', fontsize=6, labelpad=0)
         plt.xticks(fontsize=5)
         #plt.yticks(fontsize=2)
         plt.ylim(0,100)
+        plt.xlim(0,500)
         # Modificación para labels del eje y de 10 en 10
         #max_y = np.ceil(np.max(np.abs(df.iloc[:, i]))) # Obtiene el valor máximo redondeado hacia arriba
         #plt.yticks(np.arange(0, max_y + 1, 10), fontsize=3.7)
-        plt.yticks(np.arange(0, 101, 10), fontsize=3.7) # Usar el límite superior de ylim para las etiquetas
+        plt.yticks(np.arange(0, 101, 20), fontsize=4.5) # Usar el límite superior de ylim para las etiquetas
+        plt.xticks(np.arange(0, 501, 100), fontsize=4.5) # Usar el límite superior de ylim para las etiquetas
         ax = plt.gca() # Obtener el objeto Axes actual
         ax.tick_params(axis='y', pad=1) # Ajustar el padding de las etiquetas del eje Y
         plt.grid(True)
@@ -76,8 +79,8 @@ try:
             #plt.plot(range(num_samples), np.abs(df.iloc[:, subcarrier_index])) # Magnitud de la señal
             plt.plot(range(num_samples), df.iloc[:,subcarrier_index]) # Magnitud de la señal
             plt.title(f'SP: {df.columns[subcarrier_index]} -- SNR: {snr_db.iloc[subcarrier_index]:.2f} dB', fontsize=8)
-            plt.xlabel('Muestra', fontsize=6)
-            plt.ylabel('Magnitud', fontsize=6)
+            plt.xlabel('amostras', fontsize=6)
+            plt.ylabel('db', fontsize=6)
             plt.xticks(fontsize=5)
             #plt.yticks(fontsize=5)
             plt.ylim(0,100)

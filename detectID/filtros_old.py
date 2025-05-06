@@ -23,7 +23,7 @@ from sklearn.cluster import KMeans
 from prettytable import PrettyTable
 '''
 
-from decoders import interleaved as decoder
+#from csiexplorer.decoders import interleaved as decoder
 
 '''
 from keras.layers import Flatten

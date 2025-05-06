@@ -33,14 +33,15 @@ def get_processing_csi_data_x_participant_from_csv_pcap(participant, position):
     df_csi_data = df_csi_data.apply(lambda col: col.apply(lambda val: complex(val.strip('()'))))
 
     if df_csi_data.shape[0] > 500:
-        df_csi_data = df_csi_data.iloc[0:WINDOWS_SIZE] #[::4]
+        df_csi_data = df_csi_data.iloc[0:SAMPLES] #[::4]
         df_csi_data = df_csi_data.reset_index(drop=True)
     else:
-        df_csi_data = df_csi_data.iloc[0:WINDOWS_SIZE] # utilizando la VENTANA DESLIZANTE para las salas llenas
+        df_csi_data = df_csi_data.iloc[0:SAMPLES] # utilizando la VENTANA DESLIZANTE para las salas llenas
 
     df_csi_data = get_amplitudes_from_filters(df_csi_data)
 
     return df_csi_data.to_numpy()
+
 
 def labels_generator(label, shapedim): # genera los labels binarios 0 o 1
     return np.repeat(label, shapedim)
@@ -54,10 +55,10 @@ def get_processing_csi_data_x_room_from_csv_pcap(room):
     df_csi_data = df_csi_data.apply(lambda col: col.apply(lambda val: complex(val.strip('()'))))
 
     if df_csi_data.shape[0] > 500:
-        df_csi_data = df_csi_data.iloc[0:WINDOWS_SIZE] #[::4]
+        df_csi_data = df_csi_data.iloc[0:SAMPLES] #[::4]
         df_csi_data = df_csi_data.reset_index(drop=True)
     else:
-        df_csi_data = df_csi_data.iloc[0:WINDOWS_SIZE] # utilizando la VENTANA DESLIZANTE para las salas llenas
+        df_csi_data = df_csi_data.iloc[0:SAMPLES] # utilizando la VENTANA DESLIZANTE para las salas llenas
 
     df_csi_data = get_amplitudes_from_filters(df_csi_data)
 
@@ -93,17 +94,55 @@ def get_csi_data_to_presencedetection():
 
     return np_fullrooms, np_emptyrooms
 
+def ratio_data():
+    participants_training = PARTICIPANTS[:RATIO[0]]
+    participants_validate = PARTICIPANTS[RATIO[0]:RATIO[0] + RATIO[1]]
+    participants_test = PARTICIPANTS[RATIO[0] + RATIO[1]:]
 
-def real_time_presencedetection():
+    return participants_training, participants_validate, participants_test
+
+def real_time_presencedetection(window):
+    dict_training_results = {}  # Diccionario para almacenar los resultados
+    participants_training, participants_validate, participants_test = ratio_data() # division de cantidad de participantes 
     
-    np_fullrooms, np_emptyrooms = get_csi_data_to_presencedetection()
-    targets_fullrooms = labels_generator(1,np_fullrooms.shape[0])
-    targets_emptyrooms = labels_generator(0,np_emptyrooms.shape[0])
+    for participant in participants_training:
+        np_fullrooms, np_emptyrooms = get_csi_data_to_presencedetection()
+        targets_fullrooms = labels_generator(1,np_fullrooms.shape[0])
+        targets_emptyrooms = labels_generator(0,np_emptyrooms.shape[0])
+
+        # TO DO
+        # aqui llama modelo para entrenar
+        # Simulación del entrenamiento del modelo y obtención de métricas
+        # (Reemplaza esto con tu código real de entrenamiento y evaluación)
+        accuracy = 0.85 + random.uniform(-0.05, 0.05)
+        precision = 0.78 + random.uniform(-0.05, 0.05)
+        recall = 0.92 + random.uniform(-0.05, 0.05)
+        f1 = 0.84 + random.uniform(-0.05, 0.05)
+        time_taken = 1.2 + random.uniform(-0.2, 0.2)
+        ##### borrar hasta TO DO cuando se implemente modelo
+
+        dict_training_results = {
+            'accuracy': accuracy,
+            'precision': precision,
+            'recall': recall,
+            'f1': f1,
+            'time': time_taken
+        }
+
+    return dict_training_results
+
+def presence_results():
+    general_results = {}
+    for window in WINDOWS_SIZES_TO_ROUNDS:
+        dict_training_results = real_time_presencedetection(window)
+        general_results[window] = dict_training_results
+        
 
 
 
 
-########################################################################################################################
+
+###########################################################################################################################
 ############################################ IDENTIFICACION EN TIEMPO REAL ################################################  
 def get_csi_data_group_identification(participant): #retorna las amplitudes de todas las posiciones de un participante
 
@@ -115,122 +154,75 @@ def get_csi_data_group_identification(participant): #retorna las amplitudes de t
     return position_matrix
 
 
-def get_csi_data_to_indentification(grupo): # retorna las dos matrices, una con los datos del princiapl y otra con datos de los restantes o secundarios
+def get_csi_data_to_indentification(group): # retorna las dos matrices, una con los datos del princiapl y otra con datos de los restantes o secundarios
 
-    np_principal = get_csi_data_group_identification(grupo[0])
+    np_principal = get_csi_data_group_identification(group[0])
 
     np_secondaries = np.empty((0, 234))
-    for participant in grupo[1:]:
+    for participant in group[1:]:
         tmp_matrix_participant = get_csi_data_group_identification(participant)
         random_number = random.randint(0, 13)
-        tmp_matrix_participant = tmp_matrix_participant[random_number * WINDOWS_SIZE : (random_number * WINDOWS_SIZE) + 1700, :]
+        tmp_matrix_participant = tmp_matrix_participant[random_number * SAMPLES : (random_number * SAMPLES) + 1700, :] # 1700 es el numero de samples calculado para 5 personas y quede balanceado los dos grupos con 8500 samples cada uno
         np_secondaries = np.concatenate((np_secondaries, tmp_matrix_participant), axis=0)
 
     return np_principal, np_secondaries
     
 
-def real_time_identification(grupo):
-    
-    np_principal, np_secondaries = get_csi_data_to_indentification(grupo)
-    targets_principal = labels_generator(1,np_principal.shape[0])
-    targets_secondaries = labels_generator(0,np_secondaries.shape[0])
+def real_time_identification(group, window):
+    dict_training_results = {} # diccionario para almacenar resultados para todos los modelos del grupo actual
+    for principal in group:
+        list_group = []
+        list_group.append(principal)
+        for secondaries in group:
+            if principal != secondaries:
+                list_group.append(secondaries)
 
+        np_principal, np_secondaries = get_csi_data_to_indentification(list_group) # recibe todos los datos procesados
 
+        targets_principal = labels_generator(1,np_principal.shape[0])
+        targets_secondaries = labels_generator(0,np_secondaries.shape[0])
 
+        # TO DO
+        # aqui llama modelo para entrenar
+        # Simulación del entrenamiento del modelo y obtención de métricas
+        # (Reemplaza esto con tu código real de entrenamiento y evaluación)
+        accuracy = 0.85 + random.uniform(-0.05, 0.05)
+        precision = 0.78 + random.uniform(-0.05, 0.05)
+        recall = 0.92 + random.uniform(-0.05, 0.05)
+        f1 = 0.84 + random.uniform(-0.05, 0.05)
+        time_taken = 1.2 + random.uniform(-0.2, 0.2)
+        ##### borrar hasta TO DO cuando se implemente modelo
 
-###################################################################################################
-########################################## RESULTADO DE LOS MODELOS ###############################
-def presence_results():
+        list_group_tuple = tuple(list_group) # Usar la tupla tal cual del orden de list_group
+        dict_training_results[list_group_tuple] = {
+            'accuracy': accuracy,
+            'precision': precision,
+            'recall': recall,
+            'f1': f1,
+            'time': time_taken
+        }
 
-    seconds = [1,2,3,5,9,11,21,30,40,50,60]
-    for sec in seconds: 
-        accTotal_, timeTotal_, precTotal_, recTotal_, f1Total_ = presence_real_time(sec) 
-    
-        # resultados
-        confidence = 0.95 # intervalo de confianza
+    return dict_training_results
 
-        accTotal_ = np.array(accTotal_).T
-        print('\n#############################################################################################')
-        print('lista de acuracias: ',accTotal_)
-        print('lista de precisions: ',precTotal_)
-        print('lista de recalls: ',recTotal_)
-        print('lista de f1scores: ',f1Total_)
-        print('lista de tiempos: ',timeTotal_)
-
-        print('\n\n#############################################################################################')
-        print('#############################################################################################')
-        print('Window size (<seconds> | <packets>): ', sec, sec * 8)          
-        #----- accuracia ------
-        val = [np.random.choice(accTotal_,size=len(accTotal_),replace=True).mean() for i in range(1000)] 
-        print('accuracia mean: ', np.mean(accTotal_),
-                '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-         #----- precision ------
-        val = [np.random.choice(precTotal_,size=len(precTotal_),replace=True).mean() for i in range(1000)] 
-        print('precision mean: ', np.mean(precTotal_),
-                '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-         #----- recall ------
-        val = [np.random.choice(recTotal_,size=len(recTotal_),replace=True).mean() for i in range(1000)] 
-        print('recall mean: ', np.mean(recTotal_),
-                '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-         #----- f1_score ------
-        val = [np.random.choice(f1Total_,size=len(f1Total_),replace=True).mean() for i in range(1000)] 
-        print('f1-score mean: ', np.mean(f1Total_),
-                '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-        #----- tiempo ------
-        val = [np.random.choice(timeTotal_,size=len(timeTotal_),replace=True).mean() for i in range(1000)] 
-        print('tiempo mean: ', np.mean(timeTotal_), #*1000 para pasar a milisegundos
-                '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-        print('#############################################################################################')
-        print('#############################################################################################')
-
-
-def identification_results(participantes):
-    
-    #list_pre_select = ['006','007','010','017','036','112']
-    
-    #seleção de 10 grupos de 6 pessoas
+###
+def identification_results():
+    general_results = {}  # Diccionario general para almacenar los resultados
+    participantes = PARTICIPANTS.copy()
     random.shuffle(participantes)
 
     if len(participantes) >= 60:
         groups = participantes[:60]
         groups = np.array(groups).reshape(10, 6)
         groups = groups.tolist()
-        print("Grupos creados exitosamente:")
         for indice, grupo in enumerate(groups):
             print('grupo ', indice + 1, ': ', grupo)
     else:
         print(f"No hay suficientes participantes (solo {len(participantes)}) para formar 10 grupos de 6.")
-        # Aquí podrías manejar el caso en que no hay suficientes participantes
 
-    accT = []
-    timeT = []
-
-    window = 500 ####tamanho da janela
-
-    for g in groups:
-        acc, tim = identification_real_time_processing_CSI_data(g, window)
-        accT.append(acc)
-        timeT.append(tim)
-
-    confidence = 0.95
-
-    accT = np.array(accT).T
-    print('\n---------------------------------------------------------------------------------------------------------------------\n')
-    print('lista de acuracias: ',accT)
-    print('lista de tiempos: ',timeT)
-
-    print('#############################################################################################')
-    print('Windows size: ', window)
-    print('----- accuracia ------')
-    val = [np.random.choice(accT,size=len(accT),replace=True).mean() for i in range(1000)] 
-    print(' mean: ', np.mean(accT),
-            '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-
-    print('----- tiempo ------')
-    val = [np.random.choice(timeT,size=len(timeT),replace=True).mean() for i in range(1000)] 
-    print(' mean: ', np.mean(timeT),
-            '  -----  interval: ', np.percentile(val,[100*(1-confidence)/2,100*(1-(1-confidence)/2)]))
-    
+    for window in WINDOWS_SIZES_TO_ROUNDS:
+        for group in groups:
+            dict_training_results = real_time_identification(group, window)
+            general_results[window] = dict_training_results
 
 
 
@@ -262,6 +254,9 @@ def config_scheme():
         WINDOWS_SIZES_TO_ROUNDS #, \
         #WINDOWS_IDENTIFICATON
 
+    global WINDOWS_SIZE #temporal solo testeo  --- borrar
+    WINDOWS_SIZE = 500 #temporal solo testeo  --- borrar
+
     SAMPLES = 500
     PARTICIPANTS = participantes
     PATH_PARTICIPANT_COMPLEX_CSV = '/home/jsoto/exe_remoto_presencia/scans_csv/'
@@ -278,7 +273,7 @@ if __name__ == "__main__":
     ###### configuration scheme
     config_scheme()
 
-    presence_results()
+    #presence_results()
     identification_results()
 
     print("\nfinalizado con exito")
