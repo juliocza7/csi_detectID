@@ -1,33 +1,26 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from decoders import interleaved as decoder
+import sys
 import os
-import time
 
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.join(current_script_dir, '..')
+sys.path.append(project_root)
 
-diretorio = 'D:\\ULima\\PosDoc\\code\\csi_detectID\\1_2022_04_28_-_15_17_32_bw_80_ch_36.pcap'
+from csiexplorer.decoders import interleaved as decoder
 
-samples = decoder.read_pcap(diretorio)
-csi_data = samples.get_pd_csi()
+diretorio = 'D:\\ULima\\PosDoc\\code\\dataset_empty_csv\\500_coletas_vazias\\'
 
-csi_data.to_csv('D:\\ULima\\PosDoc\\code\\csi_detectID\\lleno.csv', sep=',')
-
-'''
 contenido = os.listdir(diretorio)
 print('Quant_file: ', len(contenido), '\n')
-cont = 0
+name_fil = 1710
 
 for i in contenido:
-
-    name_fil = i[0:i.find("_2023_")]
-    print('file #: ', name_fil)
-
+    print('obteniendo dados CSI del pcap: ', i)
     samples = decoder.read_pcap(diretorio + i)
     csi_data = samples.get_pd_csi()
-    #os.rename(diretorio + i, diretorio + str(seq) + '.pcap')
-    #time.sleep(1)
-    
-    csi_data.to_csv('D:\\ULima\\PosDoc\\code\\csi_detectID\\' + name_fil + '.csv', sep=',')
-    cont +=1
-'''
+
+    name_fil += 1
+    print('creando archivo csv: ', name_fil)
+    csi_data.to_csv('D:\\ULima\\PosDoc\\code\\dataset_empty_csv\\csv_newemptyrooms\\' + str(name_fil) + '.csv', sep=',')

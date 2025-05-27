@@ -57,6 +57,37 @@ def remove_avg(series):
 
     return removed_avg
 
+def hampel_filter_complex(series):
+    # 1. Calculate magnitude and phase
+    magnitude = np.abs(series)
+    phase = np.angle(series)
+
+    # Convert to pandas Series (important for older hampel versions or strict type checks)
+    #print('>>>> magnitude')
+    magnitude_series = pd.Series(magnitude, index=series.index)
+    #print('>>>> phase')
+    phase_series = pd.Series(phase, index=series.index)
+
+    # 2. Apply Hampel filter and access the filtered data from the returned object
+    # ESTO ES LO QUE NECESITAS CONFIRMAR EN TU ARCHIVO HAMPL.PY:
+    # ¿Es '.filtered_data'? ¿Es '.result'? ¿Otro nombre?
+    hampel_result_mag = hampel(magnitude_series, window_size=31)
+    hampel_result_phase = hampel(phase_series, window_size=31)
+
+    # Suponiendo que el atributo se llama 'filtered_data' (¡confírmalo en tu hampel.py!)
+    filtered_magnitude = hampel_result_mag.filtered_data
+    filtered_phase = hampel_result_phase.filtered_data
+
+    # Aseguramos que son arrays de numpy para la operación
+    filtered_magnitude_np = np.asarray(filtered_magnitude)
+    filtered_phase_np = np.asarray(filtered_phase)
+
+    # 3. Combine filtered magnitude and phase back into complex numbers
+    filtered_complex_array = filtered_magnitude_np * np.exp(1j * filtered_phase_np)
+
+    # Convert the resulting NumPy array back to a Pandas Series with the original index
+    return pd.Series(filtered_complex_array, index=series.index)
+
 
 def hampel_filter(series):
     filtered = {}
@@ -65,6 +96,36 @@ def hampel_filter(series):
     filtered = pd.DataFrame(filtered)
 
     return filtered
+
+def moving_avg_filter_complex(series: pd.Series, window: int = 10) -> pd.Series:
+    """
+    Applies a moving average filter to the real and imaginary parts of a complex Pandas Series separately.
+
+    Args:
+        series (pd.Series): A Pandas Series of complex numbers.
+        window (int, optional): The window size for the rolling average. Defaults to 10.
+
+    Returns:
+        pd.Series: A Pandas Series of complex numbers after applying the moving average.
+    """
+    # 1. Acceder a las partes real e imaginaria del array NumPy subyacente.
+    #    'series.values' te da el array NumPy. Si es complejo, .real y .imag funcionarán.
+    real_part_np = series.values.real
+    imag_part_np = series.values.imag
+
+    # 2. Convertir estas partes (que son arrays NumPy) de nuevo a Pandas Series
+    #    para poder usar el método .rolling() de Pandas y mantener el índice original.
+    real_part_pd = pd.Series(real_part_np, index=series.index)
+    imag_part_pd = pd.Series(imag_part_np, index=series.index)
+
+    # 3. Aplicar rolling mean a las partes real e imaginaria por separado
+    real_mean = real_part_pd.rolling(window=window, min_periods=1, center=True).mean()
+    imag_mean = imag_part_pd.rolling(window=window, min_periods=1, center=True).mean()
+
+    # 4. Combinar las medias de nuevo en números complejos
+    complex_mean = real_mean + 1j * imag_mean
+
+    return complex_mean
 
 
 def moving_avg_filter(series):
