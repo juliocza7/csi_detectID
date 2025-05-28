@@ -175,7 +175,7 @@ def real_time_presencedetection(window, model_name):
     dict_presencedetection_results = {}  # Diccionario para almacenar los resultados
 
     # --- Ruta donde guardar/cargar los archivos CSV ---
-    PROCESSED_DATA_DIR = '\\processed_data\\presence\\'
+    PROCESSED_DATA_DIR = './processed_data/presence/'
     if not os.path.exists(PROCESSED_DATA_DIR):
         os.makedirs(PROCESSED_DATA_DIR) # Crea el directorio si no existe
 
@@ -419,7 +419,7 @@ def real_time_identification(group, window, model_name):
     dict_identification_results = {} # diccionario para almacenar resultados para todos los modelos del grupo actual
 
     # --- Ruta donde guardar/cargar los archivos CSV ---
-    PROCESSED_DATA_DIR = '\\processed_data\\identification\\'
+    PROCESSED_DATA_DIR = './processed_data/identification/'
     if not os.path.exists(PROCESSED_DATA_DIR):
         os.makedirs(PROCESSED_DATA_DIR) # Crea el directorio si no existe
 
@@ -636,8 +636,8 @@ def config_scheme():
     #MODEL_NAMES = ['RF', 'LSTM', 'AE']
     SAMPLES = 500
     PARTICIPANTS = participantes
-    PATH_PARTICIPANT_COMPLEX_CSV = 'D:\\ULima\\PosDoc\\code\\dataset_full_csv\\'
-    PATH_EMPTYROOM_COMPLEX_CSV = 'D:\\ULima\\PosDoc\\code\\dataset_empty_csv\\'
+    PATH_PARTICIPANT_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_full_csv/'
+    PATH_EMPTYROOM_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_empty_csv/'
     PARTICIPANTS_NUMBER = len(participantes)
     POSITIONS_PARTICIPANT = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17']
     RATIO = [80,20,25]
