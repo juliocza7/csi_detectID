@@ -23,10 +23,16 @@ def iq_samples_abs(series):
                 valor = -1 * 100
             else:
                 valor = 20 * np.log10(valor)
+
             if key in abs_series:
+                # Si la clave ya existe, añade el nuevo valor al array existente
                 abs_series[key] = np.append(abs_series[key], valor)
             else:
-                abs_series[key] = np.array(valor)
+                # ¡AQUÍ ESTÁ EL CAMBIO CLAVE!
+                # Inicializa abs_series[key] como un array NumPy de 1 dimensión
+                # que contiene 'valor'. Esto asegura que siempre sea una secuencia.
+                abs_series[key] = np.array([valor]) # Envuelve 'valor' en una lista para crear un array 1D
+
 
     abs_series = pd.DataFrame(abs_series)
 

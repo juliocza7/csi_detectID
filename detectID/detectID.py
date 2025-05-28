@@ -356,7 +356,7 @@ def presence_results(model_name):
     general_results = {}
     for window in WINDOWS_SIZES_TO_ROUNDS:
         general_results[window] = {}  # Inicializar un diccionario para los resultados de esta ventana
-        dict_model_results = real_time_presencedetection(window, model_name)
+        dict_model_results = real_time_presencedetection(int(window)*8, model_name)
         general_results[window].update(dict_model_results)
 
     file_name = 'indetification_results_' + model_name + '.json'
