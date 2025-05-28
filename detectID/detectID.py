@@ -129,11 +129,12 @@ def get_csi_data_from_participant_to_presencedetection(participant, flag_window=
 
     return np_fullroom_participant
 
-def get_procesing_emptyrooms_data_per_set(range, flag_window = False, window = None):
+def get_procesing_emptyrooms_data_per_set(range_data, flag_window = False, window = None):
     np_emptyrooms = np.empty((0, 52))
-    start_num, end_num = range
+    start_num, end_num = range_data
     for room in range(start_num + 1, end_num + 1):
-        np_emptyrooms_tmp = get_csi_data_from_emptyrooms_to_presencedetection(room, flag_window, window)
+        print('room: ', room)
+        np_emptyrooms_tmp = get_csi_data_from_emptyrooms_to_presencedetection(str(room), flag_window, window)
         np_emptyrooms = np.concatenate((np_emptyrooms, np_emptyrooms_tmp), axis=0)
 
     return np_emptyrooms
@@ -172,7 +173,10 @@ def split_data_emptyrooms_to_presencedetection(train_size, val_size, test_size):
 
 
 def real_time_presencedetection(window, model_name):
-    dict_presencedetection_results = {}  # Diccionario para almacenar los resultados
+    dict_presencedetection_results = {}  # Diccionario para almacenar los 
+    
+    participants_training, participants_validate, participants_test = split_data_participants_to_presencedetection() # division de cantidad de participantes 
+
 
     # --- Ruta donde guardar/cargar los archivos CSV ---
     PROCESSED_DATA_DIR = '\\processed_data\\presence\\'
@@ -182,11 +186,11 @@ def real_time_presencedetection(window, model_name):
     # Definir los nombres de archivo SOLO para los datos
     data_files = {
         'fullrooms_training': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_training.csv'),
-        'fullrooms_validate': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_validate.csv'),
-        'fullrooms_test': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_test.csv'),
+        #'fullrooms_validate': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_validate.csv'),
+        #'fullrooms_test': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_test.csv'),
         'emptyrooms_training': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_training.csv'),
-        'emptyrooms_validate': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_validate.csv'),
-        'emptyrooms_test': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_test.csv'),
+        #'emptyrooms_validate': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_validate.csv'),
+        #'emptyrooms_test': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_test.csv'),
     }
 
     # Verificar si todos los archivos de datos existen
@@ -194,20 +198,29 @@ def real_time_presencedetection(window, model_name):
     for file_path in data_files.values():
         if not os.path.exists(file_path):
             all_data_files_exist = False
-            print(f"Archivo de datos de presencia NO encontrado: {file_path}")
+            print(f"Archivo de datos de training para presencia NO encontrado: {file_path}")
             break
 
     # Si todos los archivos de datos existen, cargarlos
     if all_data_files_exist:
-        print(f"Todos los archivos de datos de presencia encontrados en '{PROCESSED_DATA_DIR}'. Cargando...")
+        print(f"Archivos de datos de training para presencia encontrados en '{PROCESSED_DATA_DIR}'. Cargando...")
         np_fullrooms_training = np.loadtxt(data_files['fullrooms_training'], delimiter=',')
-        np_fullrooms_validate = np.loadtxt(data_files['fullrooms_validate'], delimiter=',')
-        np_fullrooms_test = np.loadtxt(data_files['fullrooms_test'], delimiter=',')
+        #np_fullrooms_validate = np.loadtxt(data_files['fullrooms_validate'], delimiter=',')
+        #np_fullrooms_test = np.loadtxt(data_files['fullrooms_test'], delimiter=',')
         np_emptyrooms_training = np.loadtxt(data_files['emptyrooms_training'], delimiter=',')
-        np_emptyrooms_validate = np.loadtxt(data_files['emptyrooms_validate'], delimiter=',')
-        np_emptyrooms_test = np.loadtxt(data_files['emptyrooms_test'], delimiter=',')
+        #np_emptyrooms_validate = np.loadtxt(data_files['emptyrooms_validate'], delimiter=',')
+        #np_emptyrooms_test = np.loadtxt(data_files['emptyrooms_test'], delimiter=',')
         
         print("Datos de presencia cargados exitosamente. Generando etiquetas...")
+
+
+        #np_fullrooms_training = get_processing_fullrooms_data_per_set(participants_training)
+        print('generando datos de validacion...')
+        np_fullrooms_validate = get_processing_fullrooms_data_per_set(participants_validate, True, window)
+        print('generando datos de test...')
+        np_fullrooms_test = get_processing_fullrooms_data_per_set(participants_test, True, window)
+
+
 
         targets_fullrooms_training = labels_generator(1,np_fullrooms_training.shape[0])
         targets_fullrooms_validate = labels_generator(1,np_fullrooms_validate.shape[0])
@@ -264,10 +277,7 @@ def real_time_presencedetection(window, model_name):
 
         '''
 
-    else:
-
-        participants_training, participants_validate, participants_test = split_data_participants_to_presencedetection() # division de cantidad de participantes 
-        
+    else:        
         np_fullrooms_training = get_processing_fullrooms_data_per_set(participants_training)
         np_fullrooms_validate = get_processing_fullrooms_data_per_set(participants_validate, True, window)
         np_fullrooms_test = get_processing_fullrooms_data_per_set(participants_test, True, window)
@@ -279,8 +289,11 @@ def real_time_presencedetection(window, model_name):
                                                 np_fullrooms_validate.shape[0], 
                                                 np_fullrooms_test.shape[0])
 
+        print('generando datos de training...')
         np_emptyrooms_training = get_procesing_emptyrooms_data_per_set(train_range)
+        print('generando datos de validacion...')
         np_emptyrooms_validate = get_procesing_emptyrooms_data_per_set(val_range, True, window)
+        print('generando datos de test...')
         np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
 
 
@@ -294,11 +307,11 @@ def real_time_presencedetection(window, model_name):
 
         # Guardar los arrays de datos en archivos CSV
         np.savetxt(data_files['fullrooms_training'], np_fullrooms_training, delimiter=',')
-        np.savetxt(data_files['fullrooms_validate'], np_fullrooms_validate, delimiter=',')
-        np.savetxt(data_files['fullrooms_test'], np_fullrooms_test, delimiter=',')
+        #np.savetxt(data_files['fullrooms_validate'], np_fullrooms_validate, delimiter=',')
+        #np.savetxt(data_files['fullrooms_test'], np_fullrooms_test, delimiter=',')
         np.savetxt(data_files['emptyrooms_training'], np_emptyrooms_training, delimiter=',')
-        np.savetxt(data_files['emptyrooms_validate'], np_emptyrooms_validate, delimiter=',')
-        np.savetxt(data_files['emptyrooms_test'], np_emptyrooms_test, delimiter=',')
+        #np.savetxt(data_files['emptyrooms_validate'], np_emptyrooms_validate, delimiter=',')
+        #np.savetxt(data_files['emptyrooms_test'], np_emptyrooms_test, delimiter=',')
         
         print("Datos de presencia generados y guardados exitosamente. Generando etiquetas...")
 
