@@ -1,0 +1,6704 @@
+Usando dispositivo: cpu
+Usando dispositivo: cpu
+Ejecutando solo la tarea de Detección de Presencia con modelo: 1
+Archivos de datos de training para presencia encontrados en './processed_data/presence/'. Cargando...
+Datos de training de presencia cargados exitosamente. (full & empty)...
+generando datos de salas llenas para validacion...
+participant:  081  position:  1
+participant:  081  position:  2
+participant:  081  position:  3
+participant:  081  position:  4
+participant:  081  position:  5
+participant:  081  position:  6
+participant:  081  position:  7
+participant:  081  position:  8
+participant:  081  position:  9
+participant:  081  position:  10
+participant:  081  position:  11
+participant:  081  position:  12
+participant:  081  position:  13
+participant:  081  position:  14
+participant:  081  position:  15
+participant:  081  position:  16
+participant:  081  position:  17
+participant:  082  position:  1
+participant:  082  position:  2
+participant:  082  position:  3
+participant:  082  position:  4
+participant:  082  position:  5
+participant:  082  position:  6
+participant:  082  position:  7
+participant:  082  position:  8
+participant:  082  position:  9
+participant:  082  position:  10
+participant:  082  position:  11
+participant:  082  position:  12
+participant:  082  position:  13
+participant:  082  position:  14
+participant:  082  position:  15
+participant:  082  position:  16
+participant:  082  position:  17
+participant:  083  position:  1
+participant:  083  position:  2
+participant:  083  position:  3
+participant:  083  position:  4
+participant:  083  position:  5
+participant:  083  position:  6
+participant:  083  position:  7
+participant:  083  position:  8
+participant:  083  position:  9
+participant:  083  position:  10
+participant:  083  position:  11
+participant:  083  position:  12
+participant:  083  position:  13
+participant:  083  position:  14
+participant:  083  position:  15
+participant:  083  position:  16
+participant:  083  position:  17
+participant:  084  position:  1
+participant:  084  position:  2
+participant:  084  position:  3
+participant:  084  position:  4
+participant:  084  position:  5
+participant:  084  position:  6
+participant:  084  position:  7
+participant:  084  position:  8
+participant:  084  position:  9
+participant:  084  position:  10
+participant:  084  position:  11
+participant:  084  position:  12
+participant:  084  position:  13
+participant:  084  position:  14
+participant:  084  position:  15
+participant:  084  position:  16
+participant:  084  position:  17
+participant:  085  position:  1
+participant:  085  position:  2
+participant:  085  position:  3
+participant:  085  position:  4
+participant:  085  position:  5
+participant:  085  position:  6
+participant:  085  position:  7
+participant:  085  position:  8
+participant:  085  position:  9
+participant:  085  position:  10
+participant:  085  position:  11
+participant:  085  position:  12
+participant:  085  position:  13
+participant:  085  position:  14
+participant:  085  position:  15
+participant:  085  position:  16
+participant:  085  position:  17
+participant:  086  position:  1
+participant:  086  position:  2
+participant:  086  position:  3
+participant:  086  position:  4
+participant:  086  position:  5
+participant:  086  position:  6
+participant:  086  position:  7
+participant:  086  position:  8
+participant:  086  position:  9
+participant:  086  position:  10
+participant:  086  position:  11
+participant:  086  position:  12
+participant:  086  position:  13
+participant:  086  position:  14
+participant:  086  position:  15
+participant:  086  position:  16
+participant:  086  position:  17
+participant:  087  position:  1
+participant:  087  position:  2
+participant:  087  position:  3
+participant:  087  position:  4
+participant:  087  position:  5
+participant:  087  position:  6
+participant:  087  position:  7
+participant:  087  position:  8
+participant:  087  position:  9
+participant:  087  position:  10
+participant:  087  position:  11
+participant:  087  position:  12
+participant:  087  position:  13
+participant:  087  position:  14
+participant:  087  position:  15
+participant:  087  position:  16
+participant:  087  position:  17
+participant:  088  position:  1
+participant:  088  position:  2
+participant:  088  position:  3
+participant:  088  position:  4
+participant:  088  position:  5
+participant:  088  position:  6
+participant:  088  position:  7
+participant:  088  position:  8
+participant:  088  position:  9
+participant:  088  position:  10
+participant:  088  position:  11
+participant:  088  position:  12
+participant:  088  position:  13
+participant:  088  position:  14
+participant:  088  position:  15
+participant:  088  position:  16
+participant:  088  position:  17
+participant:  089  position:  1
+participant:  089  position:  2
+participant:  089  position:  3
+participant:  089  position:  4
+participant:  089  position:  5
+participant:  089  position:  6
+participant:  089  position:  7
+participant:  089  position:  8
+participant:  089  position:  9
+participant:  089  position:  10
+participant:  089  position:  11
+participant:  089  position:  12
+participant:  089  position:  13
+participant:  089  position:  14
+participant:  089  position:  15
+participant:  089  position:  16
+participant:  089  position:  17
+participant:  090  position:  1
+participant:  090  position:  2
+participant:  090  position:  3
+participant:  090  position:  4
+participant:  090  position:  5
+participant:  090  position:  6
+participant:  090  position:  7
+participant:  090  position:  8
+participant:  090  position:  9
+participant:  090  position:  10
+participant:  090  position:  11
+participant:  090  position:  12
+participant:  090  position:  13
+participant:  090  position:  14
+participant:  090  position:  15
+participant:  090  position:  16
+participant:  090  position:  17
+participant:  091  position:  1
+participant:  091  position:  2
+participant:  091  position:  3
+participant:  091  position:  4
+participant:  091  position:  5
+participant:  091  position:  6
+participant:  091  position:  7
+participant:  091  position:  8
+participant:  091  position:  9
+participant:  091  position:  10
+participant:  091  position:  11
+participant:  091  position:  12
+participant:  091  position:  13
+participant:  091  position:  14
+participant:  091  position:  15
+participant:  091  position:  16
+participant:  091  position:  17
+participant:  092  position:  1
+participant:  092  position:  2
+participant:  092  position:  3
+participant:  092  position:  4
+participant:  092  position:  5
+participant:  092  position:  6
+participant:  092  position:  7
+participant:  092  position:  8
+participant:  092  position:  9
+participant:  092  position:  10
+participant:  092  position:  11
+participant:  092  position:  12
+participant:  092  position:  13
+participant:  092  position:  14
+participant:  092  position:  15
+participant:  092  position:  16
+participant:  092  position:  17
+participant:  093  position:  1
+participant:  093  position:  2
+participant:  093  position:  3
+participant:  093  position:  4
+participant:  093  position:  5
+participant:  093  position:  6
+participant:  093  position:  7
+participant:  093  position:  8
+participant:  093  position:  9
+participant:  093  position:  10
+participant:  093  position:  11
+participant:  093  position:  12
+participant:  093  position:  13
+participant:  093  position:  14
+participant:  093  position:  15
+participant:  093  position:  16
+participant:  093  position:  17
+participant:  094  position:  1
+participant:  094  position:  2
+participant:  094  position:  3
+participant:  094  position:  4
+participant:  094  position:  5
+participant:  094  position:  6
+participant:  094  position:  7
+participant:  094  position:  8
+participant:  094  position:  9
+participant:  094  position:  10
+participant:  094  position:  11
+participant:  094  position:  12
+participant:  094  position:  13
+participant:  094  position:  14
+participant:  094  position:  15
+participant:  094  position:  16
+participant:  094  position:  17
+participant:  095  position:  1
+participant:  095  position:  2
+participant:  095  position:  3
+participant:  095  position:  4
+participant:  095  position:  5
+participant:  095  position:  6
+participant:  095  position:  7
+participant:  095  position:  8
+participant:  095  position:  9
+participant:  095  position:  10
+participant:  095  position:  11
+participant:  095  position:  12
+participant:  095  position:  13
+participant:  095  position:  14
+participant:  095  position:  15
+participant:  095  position:  16
+participant:  095  position:  17
+participant:  096  position:  1
+participant:  096  position:  2
+participant:  096  position:  3
+participant:  096  position:  4
+participant:  096  position:  5
+participant:  096  position:  6
+participant:  096  position:  7
+participant:  096  position:  8
+participant:  096  position:  9
+participant:  096  position:  10
+participant:  096  position:  11
+participant:  096  position:  12
+participant:  096  position:  13
+participant:  096  position:  14
+participant:  096  position:  15
+participant:  096  position:  16
+participant:  096  position:  17
+participant:  097  position:  1
+participant:  097  position:  2
+participant:  097  position:  3
+participant:  097  position:  4
+participant:  097  position:  5
+participant:  097  position:  6
+participant:  097  position:  7
+participant:  097  position:  8
+participant:  097  position:  9
+participant:  097  position:  10
+participant:  097  position:  11
+participant:  097  position:  12
+participant:  097  position:  13
+participant:  097  position:  14
+participant:  097  position:  15
+participant:  097  position:  16
+participant:  097  position:  17
+participant:  098  position:  1
+participant:  098  position:  2
+participant:  098  position:  3
+participant:  098  position:  4
+participant:  098  position:  5
+participant:  098  position:  6
+participant:  098  position:  7
+participant:  098  position:  8
+participant:  098  position:  9
+participant:  098  position:  10
+participant:  098  position:  11
+participant:  098  position:  12
+participant:  098  position:  13
+participant:  098  position:  14
+participant:  098  position:  15
+participant:  098  position:  16
+participant:  098  position:  17
+participant:  099  position:  1
+participant:  099  position:  2
+participant:  099  position:  3
+participant:  099  position:  4
+participant:  099  position:  5
+participant:  099  position:  6
+participant:  099  position:  7
+participant:  099  position:  8
+participant:  099  position:  9
+participant:  099  position:  10
+participant:  099  position:  11
+participant:  099  position:  12
+participant:  099  position:  13
+participant:  099  position:  14
+participant:  099  position:  15
+participant:  099  position:  16
+participant:  099  position:  17
+participant:  100  position:  1
+participant:  100  position:  2
+participant:  100  position:  3
+participant:  100  position:  4
+participant:  100  position:  5
+participant:  100  position:  6
+participant:  100  position:  7
+participant:  100  position:  8
+participant:  100  position:  9
+participant:  100  position:  10
+participant:  100  position:  11
+participant:  100  position:  12
+participant:  100  position:  13
+participant:  100  position:  14
+participant:  100  position:  15
+participant:  100  position:  16
+participant:  100  position:  17
+generando datos de salas llenas para test...
+participant:  101  position:  1
+participant:  101  position:  2
+participant:  101  position:  3
+participant:  101  position:  4
+participant:  101  position:  5
+participant:  101  position:  6
+participant:  101  position:  7
+participant:  101  position:  8
+participant:  101  position:  9
+participant:  101  position:  10
+participant:  101  position:  11
+participant:  101  position:  12
+participant:  101  position:  13
+participant:  101  position:  14
+participant:  101  position:  15
+participant:  101  position:  16
+participant:  101  position:  17
+participant:  102  position:  1
+participant:  102  position:  2
+participant:  102  position:  3
+participant:  102  position:  4
+participant:  102  position:  5
+participant:  102  position:  6
+participant:  102  position:  7
+participant:  102  position:  8
+participant:  102  position:  9
+participant:  102  position:  10
+participant:  102  position:  11
+participant:  102  position:  12
+participant:  102  position:  13
+participant:  102  position:  14
+participant:  102  position:  15
+participant:  102  position:  16
+participant:  102  position:  17
+participant:  103  position:  1
+participant:  103  position:  2
+participant:  103  position:  3
+participant:  103  position:  4
+participant:  103  position:  5
+participant:  103  position:  6
+participant:  103  position:  7
+participant:  103  position:  8
+participant:  103  position:  9
+participant:  103  position:  10
+participant:  103  position:  11
+participant:  103  position:  12
+participant:  103  position:  13
+participant:  103  position:  14
+participant:  103  position:  15
+participant:  103  position:  16
+participant:  103  position:  17
+participant:  104  position:  1
+participant:  104  position:  2
+participant:  104  position:  3
+participant:  104  position:  4
+participant:  104  position:  5
+participant:  104  position:  6
+participant:  104  position:  7
+participant:  104  position:  8
+participant:  104  position:  9
+participant:  104  position:  10
+participant:  104  position:  11
+participant:  104  position:  12
+participant:  104  position:  13
+participant:  104  position:  14
+participant:  104  position:  15
+participant:  104  position:  16
+participant:  104  position:  17
+participant:  105  position:  1
+participant:  105  position:  2
+participant:  105  position:  3
+participant:  105  position:  4
+participant:  105  position:  5
+participant:  105  position:  6
+participant:  105  position:  7
+participant:  105  position:  8
+participant:  105  position:  9
+participant:  105  position:  10
+participant:  105  position:  11
+participant:  105  position:  12
+participant:  105  position:  13
+participant:  105  position:  14
+participant:  105  position:  15
+participant:  105  position:  16
+participant:  105  position:  17
+participant:  106  position:  1
+participant:  106  position:  2
+participant:  106  position:  3
+participant:  106  position:  4
+participant:  106  position:  5
+participant:  106  position:  6
+participant:  106  position:  7
+participant:  106  position:  8
+participant:  106  position:  9
+participant:  106  position:  10
+participant:  106  position:  11
+participant:  106  position:  12
+participant:  106  position:  13
+participant:  106  position:  14
+participant:  106  position:  15
+participant:  106  position:  16
+participant:  106  position:  17
+participant:  107  position:  1
+participant:  107  position:  2
+participant:  107  position:  3
+participant:  107  position:  4
+participant:  107  position:  5
+participant:  107  position:  6
+participant:  107  position:  7
+participant:  107  position:  8
+participant:  107  position:  9
+participant:  107  position:  10
+participant:  107  position:  11
+participant:  107  position:  12
+participant:  107  position:  13
+participant:  107  position:  14
+participant:  107  position:  15
+participant:  107  position:  16
+participant:  107  position:  17
+participant:  108  position:  1
+participant:  108  position:  2
+participant:  108  position:  3
+participant:  108  position:  4
+participant:  108  position:  5
+participant:  108  position:  6
+participant:  108  position:  7
+participant:  108  position:  8
+participant:  108  position:  9
+participant:  108  position:  10
+participant:  108  position:  11
+participant:  108  position:  12
+participant:  108  position:  13
+participant:  108  position:  14
+participant:  108  position:  15
+participant:  108  position:  16
+participant:  108  position:  17
+participant:  109  position:  1
+participant:  109  position:  2
+participant:  109  position:  3
+participant:  109  position:  4
+participant:  109  position:  5
+participant:  109  position:  6
+participant:  109  position:  7
+participant:  109  position:  8
+participant:  109  position:  9
+participant:  109  position:  10
+participant:  109  position:  11
+participant:  109  position:  12
+participant:  109  position:  13
+participant:  109  position:  14
+participant:  109  position:  15
+participant:  109  position:  16
+participant:  109  position:  17
+participant:  110  position:  1
+participant:  110  position:  2
+participant:  110  position:  3
+participant:  110  position:  4
+participant:  110  position:  5
+participant:  110  position:  6
+participant:  110  position:  7
+participant:  110  position:  8
+participant:  110  position:  9
+participant:  110  position:  10
+participant:  110  position:  11
+participant:  110  position:  12
+participant:  110  position:  13
+participant:  110  position:  14
+participant:  110  position:  15
+participant:  110  position:  16
+participant:  110  position:  17
+participant:  111  position:  1
+participant:  111  position:  2
+participant:  111  position:  3
+participant:  111  position:  4
+participant:  111  position:  5
+participant:  111  position:  6
+participant:  111  position:  7
+participant:  111  position:  8
+participant:  111  position:  9
+participant:  111  position:  10
+participant:  111  position:  11
+participant:  111  position:  12
+participant:  111  position:  13
+participant:  111  position:  14
+participant:  111  position:  15
+participant:  111  position:  16
+participant:  111  position:  17
+participant:  112  position:  1
+participant:  112  position:  2
+participant:  112  position:  3
+participant:  112  position:  4
+participant:  112  position:  5
+participant:  112  position:  6
+participant:  112  position:  7
+participant:  112  position:  8
+participant:  112  position:  9
+participant:  112  position:  10
+participant:  112  position:  11
+participant:  112  position:  12
+participant:  112  position:  13
+participant:  112  position:  14
+participant:  112  position:  15
+participant:  112  position:  16
+participant:  112  position:  17
+participant:  113  position:  1
+participant:  113  position:  2
+participant:  113  position:  3
+participant:  113  position:  4
+participant:  113  position:  5
+participant:  113  position:  6
+participant:  113  position:  7
+participant:  113  position:  8
+participant:  113  position:  9
+participant:  113  position:  10
+participant:  113  position:  11
+participant:  113  position:  12
+participant:  113  position:  13
+participant:  113  position:  14
+participant:  113  position:  15
+participant:  113  position:  16
+participant:  113  position:  17
+participant:  114  position:  1
+participant:  114  position:  2
+participant:  114  position:  3
+participant:  114  position:  4
+participant:  114  position:  5
+participant:  114  position:  6
+participant:  114  position:  7
+participant:  114  position:  8
+participant:  114  position:  9
+participant:  114  position:  10
+participant:  114  position:  11
+participant:  114  position:  12
+participant:  114  position:  13
+participant:  114  position:  14
+participant:  114  position:  15
+participant:  114  position:  16
+participant:  114  position:  17
+participant:  115  position:  1
+participant:  115  position:  2
+participant:  115  position:  3
+participant:  115  position:  4
+participant:  115  position:  5
+participant:  115  position:  6
+participant:  115  position:  7
+participant:  115  position:  8
+participant:  115  position:  9
+participant:  115  position:  10
+participant:  115  position:  11
+participant:  115  position:  12
+participant:  115  position:  13
+participant:  115  position:  14
+participant:  115  position:  15
+participant:  115  position:  16
+participant:  115  position:  17
+participant:  116  position:  1
+participant:  116  position:  2
+participant:  116  position:  3
+participant:  116  position:  4
+participant:  116  position:  5
+participant:  116  position:  6
+participant:  116  position:  7
+participant:  116  position:  8
+participant:  116  position:  9
+participant:  116  position:  10
+participant:  116  position:  11
+participant:  116  position:  12
+participant:  116  position:  13
+participant:  116  position:  14
+participant:  116  position:  15
+participant:  116  position:  16
+participant:  116  position:  17
+participant:  117  position:  1
+participant:  117  position:  2
+participant:  117  position:  3
+participant:  117  position:  4
+participant:  117  position:  5
+participant:  117  position:  6
+participant:  117  position:  7
+participant:  117  position:  8
+participant:  117  position:  9
+participant:  117  position:  10
+participant:  117  position:  11
+participant:  117  position:  12
+participant:  117  position:  13
+participant:  117  position:  14
+participant:  117  position:  15
+participant:  117  position:  16
+participant:  117  position:  17
+participant:  118  position:  1
+participant:  118  position:  2
+participant:  118  position:  3
+participant:  118  position:  4
+participant:  118  position:  5
+participant:  118  position:  6
+participant:  118  position:  7
+participant:  118  position:  8
+participant:  118  position:  9
+participant:  118  position:  10
+participant:  118  position:  11
+participant:  118  position:  12
+participant:  118  position:  13
+participant:  118  position:  14
+participant:  118  position:  15
+participant:  118  position:  16
+participant:  118  position:  17
+participant:  119  position:  1
+participant:  119  position:  2
+participant:  119  position:  3
+participant:  119  position:  4
+participant:  119  position:  5
+participant:  119  position:  6
+participant:  119  position:  7
+participant:  119  position:  8
+participant:  119  position:  9
+participant:  119  position:  10
+participant:  119  position:  11
+participant:  119  position:  12
+participant:  119  position:  13
+participant:  119  position:  14
+participant:  119  position:  15
+participant:  119  position:  16
+participant:  119  position:  17
+participant:  120  position:  1
+participant:  120  position:  2
+participant:  120  position:  3
+participant:  120  position:  4
+participant:  120  position:  5
+participant:  120  position:  6
+participant:  120  position:  7
+participant:  120  position:  8
+participant:  120  position:  9
+participant:  120  position:  10
+participant:  120  position:  11
+participant:  120  position:  12
+participant:  120  position:  13
+participant:  120  position:  14
+participant:  120  position:  15
+participant:  120  position:  16
+participant:  120  position:  17
+participant:  121  position:  1
+participant:  121  position:  2
+participant:  121  position:  3
+participant:  121  position:  4
+participant:  121  position:  5
+participant:  121  position:  6
+participant:  121  position:  7
+participant:  121  position:  8
+participant:  121  position:  9
+participant:  121  position:  10
+participant:  121  position:  11
+participant:  121  position:  12
+participant:  121  position:  13
+participant:  121  position:  14
+participant:  121  position:  15
+participant:  121  position:  16
+participant:  121  position:  17
+participant:  122  position:  1
+participant:  122  position:  2
+participant:  122  position:  3
+participant:  122  position:  4
+participant:  122  position:  5
+participant:  122  position:  6
+participant:  122  position:  7
+participant:  122  position:  8
+participant:  122  position:  9
+participant:  122  position:  10
+participant:  122  position:  11
+participant:  122  position:  12
+participant:  122  position:  13
+participant:  122  position:  14
+participant:  122  position:  15
+participant:  122  position:  16
+participant:  122  position:  17
+participant:  123  position:  1
+participant:  123  position:  2
+participant:  123  position:  3
+participant:  123  position:  4
+participant:  123  position:  5
+participant:  123  position:  6
+participant:  123  position:  7
+participant:  123  position:  8
+participant:  123  position:  9
+participant:  123  position:  10
+participant:  123  position:  11
+participant:  123  position:  12
+participant:  123  position:  13
+participant:  123  position:  14
+participant:  123  position:  15
+participant:  123  position:  16
+participant:  123  position:  17
+participant:  124  position:  1
+participant:  124  position:  2
+participant:  124  position:  3
+participant:  124  position:  4
+participant:  124  position:  5
+participant:  124  position:  6
+participant:  124  position:  7
+participant:  124  position:  8
+participant:  124  position:  9
+participant:  124  position:  10
+participant:  124  position:  11
+participant:  124  position:  12
+participant:  124  position:  13
+participant:  124  position:  14
+participant:  124  position:  15
+participant:  124  position:  16
+participant:  124  position:  17
+participant:  125  position:  1
+participant:  125  position:  2
+participant:  125  position:  3
+participant:  125  position:  4
+participant:  125  position:  5
+participant:  125  position:  6
+participant:  125  position:  7
+participant:  125  position:  8
+participant:  125  position:  9
+participant:  125  position:  10
+participant:  125  position:  11
+participant:  125  position:  12
+participant:  125  position:  13
+participant:  125  position:  14
+participant:  125  position:  15
+participant:  125  position:  16
+participant:  125  position:  17
+generando datos de salas vacias para validacion...
+room:  1361
+room:  1362
+room:  1363
+room:  1364
+room:  1365
+room:  1366
+room:  1367
+room:  1368
+room:  1369
+room:  1370
+room:  1371
+room:  1372
+room:  1373
+room:  1374
+room:  1375
+room:  1376
+room:  1377
+room:  1378
+room:  1379
+room:  1380
+room:  1381
+room:  1382
+room:  1383
+room:  1384
+room:  1385
+room:  1386
+room:  1387
+room:  1388
+room:  1389
+room:  1390
+room:  1391
+room:  1392
+room:  1393
+room:  1394
+room:  1395
+room:  1396
+room:  1397
+room:  1398
+room:  1399
+room:  1400
+room:  1401
+room:  1402
+room:  1403
+room:  1404
+room:  1405
+room:  1406
+room:  1407
+room:  1408
+room:  1409
+room:  1410
+room:  1411
+room:  1412
+room:  1413
+room:  1414
+room:  1415
+room:  1416
+room:  1417
+room:  1418
+room:  1419
+room:  1420
+room:  1421
+room:  1422
+room:  1423
+room:  1424
+room:  1425
+room:  1426
+room:  1427
+room:  1428
+room:  1429
+room:  1430
+room:  1431
+room:  1432
+room:  1433
+room:  1434
+room:  1435
+room:  1436
+room:  1437
+room:  1438
+room:  1439
+room:  1440
+room:  1441
+room:  1442
+room:  1443
+room:  1444
+room:  1445
+room:  1446
+room:  1447
+room:  1448
+room:  1449
+room:  1450
+room:  1451
+room:  1452
+room:  1453
+room:  1454
+room:  1455
+room:  1456
+room:  1457
+room:  1458
+room:  1459
+room:  1460
+room:  1461
+room:  1462
+room:  1463
+room:  1464
+room:  1465
+room:  1466
+room:  1467
+room:  1468
+room:  1469
+room:  1470
+room:  1471
+room:  1472
+room:  1473
+room:  1474
+room:  1475
+room:  1476
+room:  1477
+room:  1478
+room:  1479
+room:  1480
+room:  1481
+room:  1482
+room:  1483
+room:  1484
+room:  1485
+room:  1486
+room:  1487
+room:  1488
+room:  1489
+room:  1490
+room:  1491
+room:  1492
+room:  1493
+room:  1494
+room:  1495
+room:  1496
+room:  1497
+room:  1498
+room:  1499
+room:  1500
+room:  1501
+room:  1502
+room:  1503
+room:  1504
+room:  1505
+room:  1506
+room:  1507
+room:  1508
+room:  1509
+room:  1510
+room:  1511
+room:  1512
+room:  1513
+room:  1514
+room:  1515
+room:  1516
+room:  1517
+room:  1518
+room:  1519
+room:  1520
+room:  1521
+room:  1522
+room:  1523
+room:  1524
+room:  1525
+room:  1526
+room:  1527
+room:  1528
+room:  1529
+room:  1530
+room:  1531
+room:  1532
+room:  1533
+room:  1534
+room:  1535
+room:  1536
+room:  1537
+room:  1538
+room:  1539
+room:  1540
+room:  1541
+room:  1542
+room:  1543
+room:  1544
+room:  1545
+room:  1546
+room:  1547
+room:  1548
+room:  1549
+room:  1550
+room:  1551
+room:  1552
+room:  1553
+room:  1554
+room:  1555
+room:  1556
+room:  1557
+room:  1558
+room:  1559
+room:  1560
+room:  1561
+room:  1562
+room:  1563
+room:  1564
+room:  1565
+room:  1566
+room:  1567
+room:  1568
+room:  1569
+room:  1570
+room:  1571
+room:  1572
+room:  1573
+room:  1574
+room:  1575
+room:  1576
+room:  1577
+room:  1578
+room:  1579
+room:  1580
+room:  1581
+room:  1582
+room:  1583
+room:  1584
+room:  1585
+room:  1586
+room:  1587
+room:  1588
+room:  1589
+room:  1590
+room:  1591
+room:  1592
+room:  1593
+room:  1594
+room:  1595
+room:  1596
+room:  1597
+room:  1598
+room:  1599
+room:  1600
+room:  1601
+room:  1602
+room:  1603
+room:  1604
+room:  1605
+room:  1606
+room:  1607
+room:  1608
+room:  1609
+room:  1610
+room:  1611
+room:  1612
+room:  1613
+room:  1614
+room:  1615
+room:  1616
+room:  1617
+room:  1618
+room:  1619
+room:  1620
+room:  1621
+room:  1622
+room:  1623
+room:  1624
+room:  1625
+room:  1626
+room:  1627
+room:  1628
+room:  1629
+room:  1630
+room:  1631
+room:  1632
+room:  1633
+room:  1634
+room:  1635
+room:  1636
+room:  1637
+room:  1638
+room:  1639
+room:  1640
+room:  1641
+room:  1642
+room:  1643
+room:  1644
+room:  1645
+room:  1646
+room:  1647
+room:  1648
+room:  1649
+room:  1650
+room:  1651
+room:  1652
+room:  1653
+room:  1654
+room:  1655
+room:  1656
+room:  1657
+room:  1658
+room:  1659
+room:  1660
+room:  1661
+room:  1662
+room:  1663
+room:  1664
+room:  1665
+room:  1666
+room:  1667
+room:  1668
+room:  1669
+room:  1670
+room:  1671
+room:  1672
+room:  1673
+room:  1674
+room:  1675
+room:  1676
+room:  1677
+room:  1678
+room:  1679
+room:  1680
+room:  1681
+room:  1682
+room:  1683
+room:  1684
+room:  1685
+room:  1686
+room:  1687
+room:  1688
+room:  1689
+room:  1690
+room:  1691
+room:  1692
+room:  1693
+room:  1694
+room:  1695
+room:  1696
+room:  1697
+room:  1698
+room:  1699
+room:  1700
+generando datos de salas vacias para  test...
+room:  1701
+room:  1702
+room:  1703
+room:  1704
+room:  1705
+room:  1706
+room:  1707
+room:  1708
+room:  1709
+room:  1710
+room:  1711
+room:  1712
+room:  1713
+room:  1714
+room:  1715
+room:  1716
+room:  1717
+room:  1718
+room:  1719
+room:  1720
+room:  1721
+room:  1722
+room:  1723
+room:  1724
+room:  1725
+room:  1726
+room:  1727
+room:  1728
+room:  1729
+room:  1730
+room:  1731
+room:  1732
+room:  1733
+room:  1734
+room:  1735
+room:  1736
+room:  1737
+room:  1738
+room:  1739
+room:  1740
+room:  1741
+room:  1742
+room:  1743
+room:  1744
+room:  1745
+room:  1746
+room:  1747
+room:  1748
+room:  1749
+room:  1750
+room:  1751
+room:  1752
+room:  1753
+room:  1754
+room:  1755
+room:  1756
+room:  1757
+room:  1758
+room:  1759
+room:  1760
+room:  1761
+room:  1762
+room:  1763
+room:  1764
+room:  1765
+room:  1766
+room:  1767
+room:  1768
+room:  1769
+room:  1770
+room:  1771
+room:  1772
+room:  1773
+room:  1774
+room:  1775
+room:  1776
+room:  1777
+room:  1778
+room:  1779
+room:  1780
+room:  1781
+room:  1782
+room:  1783
+room:  1784
+room:  1785
+room:  1786
+room:  1787
+room:  1788
+room:  1789
+room:  1790
+room:  1791
+room:  1792
+room:  1793
+room:  1794
+room:  1795
+room:  1796
+room:  1797
+room:  1798
+room:  1799
+room:  1800
+room:  1801
+room:  1802
+room:  1803
+room:  1804
+room:  1805
+room:  1806
+room:  1807
+room:  1808
+room:  1809
+room:  1810
+room:  1811
+room:  1812
+room:  1813
+room:  1814
+room:  1815
+room:  1816
+room:  1817
+room:  1818
+room:  1819
+room:  1820
+room:  1821
+room:  1822
+room:  1823
+room:  1824
+room:  1825
+room:  1826
+room:  1827
+room:  1828
+room:  1829
+room:  1830
+room:  1831
+room:  1832
+room:  1833
+room:  1834
+room:  1835
+room:  1836
+room:  1837
+room:  1838
+room:  1839
+room:  1840
+room:  1841
+room:  1842
+room:  1843
+room:  1844
+room:  1845
+room:  1846
+room:  1847
+room:  1848
+room:  1849
+room:  1850
+room:  1851
+room:  1852
+room:  1853
+room:  1854
+room:  1855
+room:  1856
+room:  1857
+room:  1858
+room:  1859
+room:  1860
+room:  1861
+room:  1862
+room:  1863
+room:  1864
+room:  1865
+room:  1866
+room:  1867
+room:  1868
+room:  1869
+room:  1870
+room:  1871
+room:  1872
+room:  1873
+room:  1874
+room:  1875
+room:  1876
+room:  1877
+room:  1878
+room:  1879
+room:  1880
+room:  1881
+room:  1882
+room:  1883
+room:  1884
+room:  1885
+room:  1886
+room:  1887
+room:  1888
+room:  1889
+room:  1890
+room:  1891
+room:  1892
+room:  1893
+room:  1894
+room:  1895
+room:  1896
+room:  1897
+room:  1898
+room:  1899
+room:  1900
+room:  1901
+room:  1902
+room:  1903
+room:  1904
+room:  1905
+room:  1906
+room:  1907
+room:  1908
+room:  1909
+room:  1910
+room:  1911
+room:  1912
+room:  1913
+room:  1914
+room:  1915
+room:  1916
+room:  1917
+room:  1918
+room:  1919
+room:  1920
+room:  1921
+room:  1922
+room:  1923
+room:  1924
+room:  1925
+room:  1926
+room:  1927
+room:  1928
+room:  1929
+room:  1930
+room:  1931
+room:  1932
+room:  1933
+room:  1934
+room:  1935
+room:  1936
+room:  1937
+room:  1938
+room:  1939
+room:  1940
+room:  1941
+room:  1942
+room:  1943
+room:  1944
+room:  1945
+room:  1946
+room:  1947
+room:  1948
+room:  1949
+room:  1950
+room:  1951
+room:  1952
+room:  1953
+room:  1954
+room:  1955
+room:  1956
+room:  1957
+room:  1958
+room:  1959
+room:  1960
+room:  1961
+room:  1962
+room:  1963
+room:  1964
+room:  1965
+room:  1966
+room:  1967
+room:  1968
+room:  1969
+room:  1970
+room:  1971
+room:  1972
+room:  1973
+room:  1974
+room:  1975
+room:  1976
+room:  1977
+room:  1978
+room:  1979
+room:  1980
+room:  1981
+room:  1982
+room:  1983
+room:  1984
+room:  1985
+room:  1986
+room:  1987
+room:  1988
+room:  1989
+room:  1990
+room:  1991
+room:  1992
+room:  1993
+room:  1994
+room:  1995
+room:  1996
+room:  1997
+room:  1998
+room:  1999
+room:  2000
+room:  2001
+room:  2002
+room:  2003
+room:  2004
+room:  2005
+room:  2006
+room:  2007
+room:  2008
+room:  2009
+room:  2010
+room:  2011
+room:  2012
+room:  2013
+room:  2014
+room:  2015
+room:  2016
+room:  2017
+room:  2018
+room:  2019
+room:  2020
+room:  2021
+room:  2022
+room:  2023
+room:  2024
+room:  2025
+room:  2026
+room:  2027
+room:  2028
+room:  2029
+room:  2030
+room:  2031
+room:  2032
+room:  2033
+room:  2034
+room:  2035
+room:  2036
+room:  2037
+room:  2038
+room:  2039
+room:  2040
+room:  2041
+room:  2042
+room:  2043
+room:  2044
+room:  2045
+room:  2046
+room:  2047
+room:  2048
+room:  2049
+room:  2050
+room:  2051
+room:  2052
+room:  2053
+room:  2054
+room:  2055
+room:  2056
+room:  2057
+room:  2058
+room:  2059
+room:  2060
+room:  2061
+room:  2062
+room:  2063
+room:  2064
+room:  2065
+room:  2066
+room:  2067
+room:  2068
+room:  2069
+room:  2070
+room:  2071
+room:  2072
+room:  2073
+room:  2074
+room:  2075
+room:  2076
+room:  2077
+room:  2078
+room:  2079
+room:  2080
+room:  2081
+room:  2082
+room:  2083
+room:  2084
+room:  2085
+room:  2086
+room:  2087
+room:  2088
+room:  2089
+room:  2090
+room:  2091
+room:  2092
+room:  2093
+room:  2094
+room:  2095
+room:  2096
+room:  2097
+room:  2098
+room:  2099
+room:  2100
+room:  2101
+room:  2102
+room:  2103
+room:  2104
+room:  2105
+room:  2106
+room:  2107
+room:  2108
+room:  2109
+room:  2110
+room:  2111
+room:  2112
+room:  2113
+room:  2114
+room:  2115
+room:  2116
+room:  2117
+room:  2118
+room:  2119
+room:  2120
+room:  2121
+room:  2122
+room:  2123
+room:  2124
+room:  2125
+#####################################
+################# Salas llenas
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+################# Salanas vacias
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+#####################################
+Archivos de datos de training para presencia encontrados en './processed_data/presence/'. Cargando...
+Datos de training de presencia cargados exitosamente. (full & empty)...
+generando datos de salas llenas para validacion...
+participant:  081  position:  1
+participant:  081  position:  2
+participant:  081  position:  3
+participant:  081  position:  4
+participant:  081  position:  5
+participant:  081  position:  6
+participant:  081  position:  7
+participant:  081  position:  8
+participant:  081  position:  9
+participant:  081  position:  10
+participant:  081  position:  11
+participant:  081  position:  12
+participant:  081  position:  13
+participant:  081  position:  14
+participant:  081  position:  15
+participant:  081  position:  16
+participant:  081  position:  17
+participant:  082  position:  1
+participant:  082  position:  2
+participant:  082  position:  3
+participant:  082  position:  4
+participant:  082  position:  5
+participant:  082  position:  6
+participant:  082  position:  7
+participant:  082  position:  8
+participant:  082  position:  9
+participant:  082  position:  10
+participant:  082  position:  11
+participant:  082  position:  12
+participant:  082  position:  13
+participant:  082  position:  14
+participant:  082  position:  15
+participant:  082  position:  16
+participant:  082  position:  17
+participant:  083  position:  1
+participant:  083  position:  2
+participant:  083  position:  3
+participant:  083  position:  4
+participant:  083  position:  5
+participant:  083  position:  6
+participant:  083  position:  7
+participant:  083  position:  8
+participant:  083  position:  9
+participant:  083  position:  10
+participant:  083  position:  11
+participant:  083  position:  12
+participant:  083  position:  13
+participant:  083  position:  14
+participant:  083  position:  15
+participant:  083  position:  16
+participant:  083  position:  17
+participant:  084  position:  1
+participant:  084  position:  2
+participant:  084  position:  3
+participant:  084  position:  4
+participant:  084  position:  5
+participant:  084  position:  6
+participant:  084  position:  7
+participant:  084  position:  8
+participant:  084  position:  9
+participant:  084  position:  10
+participant:  084  position:  11
+participant:  084  position:  12
+participant:  084  position:  13
+participant:  084  position:  14
+participant:  084  position:  15
+participant:  084  position:  16
+participant:  084  position:  17
+participant:  085  position:  1
+participant:  085  position:  2
+participant:  085  position:  3
+participant:  085  position:  4
+participant:  085  position:  5
+participant:  085  position:  6
+participant:  085  position:  7
+participant:  085  position:  8
+participant:  085  position:  9
+participant:  085  position:  10
+participant:  085  position:  11
+participant:  085  position:  12
+participant:  085  position:  13
+participant:  085  position:  14
+participant:  085  position:  15
+participant:  085  position:  16
+participant:  085  position:  17
+participant:  086  position:  1
+participant:  086  position:  2
+participant:  086  position:  3
+participant:  086  position:  4
+participant:  086  position:  5
+participant:  086  position:  6
+participant:  086  position:  7
+participant:  086  position:  8
+participant:  086  position:  9
+participant:  086  position:  10
+participant:  086  position:  11
+participant:  086  position:  12
+participant:  086  position:  13
+participant:  086  position:  14
+participant:  086  position:  15
+participant:  086  position:  16
+participant:  086  position:  17
+participant:  087  position:  1
+participant:  087  position:  2
+participant:  087  position:  3
+participant:  087  position:  4
+participant:  087  position:  5
+participant:  087  position:  6
+participant:  087  position:  7
+participant:  087  position:  8
+participant:  087  position:  9
+participant:  087  position:  10
+participant:  087  position:  11
+participant:  087  position:  12
+participant:  087  position:  13
+participant:  087  position:  14
+participant:  087  position:  15
+participant:  087  position:  16
+participant:  087  position:  17
+participant:  088  position:  1
+participant:  088  position:  2
+participant:  088  position:  3
+participant:  088  position:  4
+participant:  088  position:  5
+participant:  088  position:  6
+participant:  088  position:  7
+participant:  088  position:  8
+participant:  088  position:  9
+participant:  088  position:  10
+participant:  088  position:  11
+participant:  088  position:  12
+participant:  088  position:  13
+participant:  088  position:  14
+participant:  088  position:  15
+participant:  088  position:  16
+participant:  088  position:  17
+participant:  089  position:  1
+participant:  089  position:  2
+participant:  089  position:  3
+participant:  089  position:  4
+participant:  089  position:  5
+participant:  089  position:  6
+participant:  089  position:  7
+participant:  089  position:  8
+participant:  089  position:  9
+participant:  089  position:  10
+participant:  089  position:  11
+participant:  089  position:  12
+participant:  089  position:  13
+participant:  089  position:  14
+participant:  089  position:  15
+participant:  089  position:  16
+participant:  089  position:  17
+participant:  090  position:  1
+participant:  090  position:  2
+participant:  090  position:  3
+participant:  090  position:  4
+participant:  090  position:  5
+participant:  090  position:  6
+participant:  090  position:  7
+participant:  090  position:  8
+participant:  090  position:  9
+participant:  090  position:  10
+participant:  090  position:  11
+participant:  090  position:  12
+participant:  090  position:  13
+participant:  090  position:  14
+participant:  090  position:  15
+participant:  090  position:  16
+participant:  090  position:  17
+participant:  091  position:  1
+participant:  091  position:  2
+participant:  091  position:  3
+participant:  091  position:  4
+participant:  091  position:  5
+participant:  091  position:  6
+participant:  091  position:  7
+participant:  091  position:  8
+participant:  091  position:  9
+participant:  091  position:  10
+participant:  091  position:  11
+participant:  091  position:  12
+participant:  091  position:  13
+participant:  091  position:  14
+participant:  091  position:  15
+participant:  091  position:  16
+participant:  091  position:  17
+participant:  092  position:  1
+participant:  092  position:  2
+participant:  092  position:  3
+participant:  092  position:  4
+participant:  092  position:  5
+participant:  092  position:  6
+participant:  092  position:  7
+participant:  092  position:  8
+participant:  092  position:  9
+participant:  092  position:  10
+participant:  092  position:  11
+participant:  092  position:  12
+participant:  092  position:  13
+participant:  092  position:  14
+participant:  092  position:  15
+participant:  092  position:  16
+participant:  092  position:  17
+participant:  093  position:  1
+participant:  093  position:  2
+participant:  093  position:  3
+participant:  093  position:  4
+participant:  093  position:  5
+participant:  093  position:  6
+participant:  093  position:  7
+participant:  093  position:  8
+participant:  093  position:  9
+participant:  093  position:  10
+participant:  093  position:  11
+participant:  093  position:  12
+participant:  093  position:  13
+participant:  093  position:  14
+participant:  093  position:  15
+participant:  093  position:  16
+participant:  093  position:  17
+participant:  094  position:  1
+participant:  094  position:  2
+participant:  094  position:  3
+participant:  094  position:  4
+participant:  094  position:  5
+participant:  094  position:  6
+participant:  094  position:  7
+participant:  094  position:  8
+participant:  094  position:  9
+participant:  094  position:  10
+participant:  094  position:  11
+participant:  094  position:  12
+participant:  094  position:  13
+participant:  094  position:  14
+participant:  094  position:  15
+participant:  094  position:  16
+participant:  094  position:  17
+participant:  095  position:  1
+participant:  095  position:  2
+participant:  095  position:  3
+participant:  095  position:  4
+participant:  095  position:  5
+participant:  095  position:  6
+participant:  095  position:  7
+participant:  095  position:  8
+participant:  095  position:  9
+participant:  095  position:  10
+participant:  095  position:  11
+participant:  095  position:  12
+participant:  095  position:  13
+participant:  095  position:  14
+participant:  095  position:  15
+participant:  095  position:  16
+participant:  095  position:  17
+participant:  096  position:  1
+participant:  096  position:  2
+participant:  096  position:  3
+participant:  096  position:  4
+participant:  096  position:  5
+participant:  096  position:  6
+participant:  096  position:  7
+participant:  096  position:  8
+participant:  096  position:  9
+participant:  096  position:  10
+participant:  096  position:  11
+participant:  096  position:  12
+participant:  096  position:  13
+participant:  096  position:  14
+participant:  096  position:  15
+participant:  096  position:  16
+participant:  096  position:  17
+participant:  097  position:  1
+participant:  097  position:  2
+participant:  097  position:  3
+participant:  097  position:  4
+participant:  097  position:  5
+participant:  097  position:  6
+participant:  097  position:  7
+participant:  097  position:  8
+participant:  097  position:  9
+participant:  097  position:  10
+participant:  097  position:  11
+participant:  097  position:  12
+participant:  097  position:  13
+participant:  097  position:  14
+participant:  097  position:  15
+participant:  097  position:  16
+participant:  097  position:  17
+participant:  098  position:  1
+participant:  098  position:  2
+participant:  098  position:  3
+participant:  098  position:  4
+participant:  098  position:  5
+participant:  098  position:  6
+participant:  098  position:  7
+participant:  098  position:  8
+participant:  098  position:  9
+participant:  098  position:  10
+participant:  098  position:  11
+participant:  098  position:  12
+participant:  098  position:  13
+participant:  098  position:  14
+participant:  098  position:  15
+participant:  098  position:  16
+participant:  098  position:  17
+participant:  099  position:  1
+participant:  099  position:  2
+participant:  099  position:  3
+participant:  099  position:  4
+participant:  099  position:  5
+participant:  099  position:  6
+participant:  099  position:  7
+participant:  099  position:  8
+participant:  099  position:  9
+participant:  099  position:  10
+participant:  099  position:  11
+participant:  099  position:  12
+participant:  099  position:  13
+participant:  099  position:  14
+participant:  099  position:  15
+participant:  099  position:  16
+participant:  099  position:  17
+participant:  100  position:  1
+participant:  100  position:  2
+participant:  100  position:  3
+participant:  100  position:  4
+participant:  100  position:  5
+participant:  100  position:  6
+participant:  100  position:  7
+participant:  100  position:  8
+participant:  100  position:  9
+participant:  100  position:  10
+participant:  100  position:  11
+participant:  100  position:  12
+participant:  100  position:  13
+participant:  100  position:  14
+participant:  100  position:  15
+participant:  100  position:  16
+participant:  100  position:  17
+generando datos de salas llenas para test...
+participant:  101  position:  1
+participant:  101  position:  2
+participant:  101  position:  3
+participant:  101  position:  4
+participant:  101  position:  5
+participant:  101  position:  6
+participant:  101  position:  7
+participant:  101  position:  8
+participant:  101  position:  9
+participant:  101  position:  10
+participant:  101  position:  11
+participant:  101  position:  12
+participant:  101  position:  13
+participant:  101  position:  14
+participant:  101  position:  15
+participant:  101  position:  16
+participant:  101  position:  17
+participant:  102  position:  1
+participant:  102  position:  2
+participant:  102  position:  3
+participant:  102  position:  4
+participant:  102  position:  5
+participant:  102  position:  6
+participant:  102  position:  7
+participant:  102  position:  8
+participant:  102  position:  9
+participant:  102  position:  10
+participant:  102  position:  11
+participant:  102  position:  12
+participant:  102  position:  13
+participant:  102  position:  14
+participant:  102  position:  15
+participant:  102  position:  16
+participant:  102  position:  17
+participant:  103  position:  1
+participant:  103  position:  2
+participant:  103  position:  3
+participant:  103  position:  4
+participant:  103  position:  5
+participant:  103  position:  6
+participant:  103  position:  7
+participant:  103  position:  8
+participant:  103  position:  9
+participant:  103  position:  10
+participant:  103  position:  11
+participant:  103  position:  12
+participant:  103  position:  13
+participant:  103  position:  14
+participant:  103  position:  15
+participant:  103  position:  16
+participant:  103  position:  17
+participant:  104  position:  1
+participant:  104  position:  2
+participant:  104  position:  3
+participant:  104  position:  4
+participant:  104  position:  5
+participant:  104  position:  6
+participant:  104  position:  7
+participant:  104  position:  8
+participant:  104  position:  9
+participant:  104  position:  10
+participant:  104  position:  11
+participant:  104  position:  12
+participant:  104  position:  13
+participant:  104  position:  14
+participant:  104  position:  15
+participant:  104  position:  16
+participant:  104  position:  17
+participant:  105  position:  1
+participant:  105  position:  2
+participant:  105  position:  3
+participant:  105  position:  4
+participant:  105  position:  5
+participant:  105  position:  6
+participant:  105  position:  7
+participant:  105  position:  8
+participant:  105  position:  9
+participant:  105  position:  10
+participant:  105  position:  11
+participant:  105  position:  12
+participant:  105  position:  13
+participant:  105  position:  14
+participant:  105  position:  15
+participant:  105  position:  16
+participant:  105  position:  17
+participant:  106  position:  1
+participant:  106  position:  2
+participant:  106  position:  3
+participant:  106  position:  4
+participant:  106  position:  5
+participant:  106  position:  6
+participant:  106  position:  7
+participant:  106  position:  8
+participant:  106  position:  9
+participant:  106  position:  10
+participant:  106  position:  11
+participant:  106  position:  12
+participant:  106  position:  13
+participant:  106  position:  14
+participant:  106  position:  15
+participant:  106  position:  16
+participant:  106  position:  17
+participant:  107  position:  1
+participant:  107  position:  2
+participant:  107  position:  3
+participant:  107  position:  4
+participant:  107  position:  5
+participant:  107  position:  6
+participant:  107  position:  7
+participant:  107  position:  8
+participant:  107  position:  9
+participant:  107  position:  10
+participant:  107  position:  11
+participant:  107  position:  12
+participant:  107  position:  13
+participant:  107  position:  14
+participant:  107  position:  15
+participant:  107  position:  16
+participant:  107  position:  17
+participant:  108  position:  1
+participant:  108  position:  2
+participant:  108  position:  3
+participant:  108  position:  4
+participant:  108  position:  5
+participant:  108  position:  6
+participant:  108  position:  7
+participant:  108  position:  8
+participant:  108  position:  9
+participant:  108  position:  10
+participant:  108  position:  11
+participant:  108  position:  12
+participant:  108  position:  13
+participant:  108  position:  14
+participant:  108  position:  15
+participant:  108  position:  16
+participant:  108  position:  17
+participant:  109  position:  1
+participant:  109  position:  2
+participant:  109  position:  3
+participant:  109  position:  4
+participant:  109  position:  5
+participant:  109  position:  6
+participant:  109  position:  7
+participant:  109  position:  8
+participant:  109  position:  9
+participant:  109  position:  10
+participant:  109  position:  11
+participant:  109  position:  12
+participant:  109  position:  13
+participant:  109  position:  14
+participant:  109  position:  15
+participant:  109  position:  16
+participant:  109  position:  17
+participant:  110  position:  1
+participant:  110  position:  2
+participant:  110  position:  3
+participant:  110  position:  4
+participant:  110  position:  5
+participant:  110  position:  6
+participant:  110  position:  7
+participant:  110  position:  8
+participant:  110  position:  9
+participant:  110  position:  10
+participant:  110  position:  11
+participant:  110  position:  12
+participant:  110  position:  13
+participant:  110  position:  14
+participant:  110  position:  15
+participant:  110  position:  16
+participant:  110  position:  17
+participant:  111  position:  1
+participant:  111  position:  2
+participant:  111  position:  3
+participant:  111  position:  4
+participant:  111  position:  5
+participant:  111  position:  6
+participant:  111  position:  7
+participant:  111  position:  8
+participant:  111  position:  9
+participant:  111  position:  10
+participant:  111  position:  11
+participant:  111  position:  12
+participant:  111  position:  13
+participant:  111  position:  14
+participant:  111  position:  15
+participant:  111  position:  16
+participant:  111  position:  17
+participant:  112  position:  1
+participant:  112  position:  2
+participant:  112  position:  3
+participant:  112  position:  4
+participant:  112  position:  5
+participant:  112  position:  6
+participant:  112  position:  7
+participant:  112  position:  8
+participant:  112  position:  9
+participant:  112  position:  10
+participant:  112  position:  11
+participant:  112  position:  12
+participant:  112  position:  13
+participant:  112  position:  14
+participant:  112  position:  15
+participant:  112  position:  16
+participant:  112  position:  17
+participant:  113  position:  1
+participant:  113  position:  2
+participant:  113  position:  3
+participant:  113  position:  4
+participant:  113  position:  5
+participant:  113  position:  6
+participant:  113  position:  7
+participant:  113  position:  8
+participant:  113  position:  9
+participant:  113  position:  10
+participant:  113  position:  11
+participant:  113  position:  12
+participant:  113  position:  13
+participant:  113  position:  14
+participant:  113  position:  15
+participant:  113  position:  16
+participant:  113  position:  17
+participant:  114  position:  1
+participant:  114  position:  2
+participant:  114  position:  3
+participant:  114  position:  4
+participant:  114  position:  5
+participant:  114  position:  6
+participant:  114  position:  7
+participant:  114  position:  8
+participant:  114  position:  9
+participant:  114  position:  10
+participant:  114  position:  11
+participant:  114  position:  12
+participant:  114  position:  13
+participant:  114  position:  14
+participant:  114  position:  15
+participant:  114  position:  16
+participant:  114  position:  17
+participant:  115  position:  1
+participant:  115  position:  2
+participant:  115  position:  3
+participant:  115  position:  4
+participant:  115  position:  5
+participant:  115  position:  6
+participant:  115  position:  7
+participant:  115  position:  8
+participant:  115  position:  9
+participant:  115  position:  10
+participant:  115  position:  11
+participant:  115  position:  12
+participant:  115  position:  13
+participant:  115  position:  14
+participant:  115  position:  15
+participant:  115  position:  16
+participant:  115  position:  17
+participant:  116  position:  1
+participant:  116  position:  2
+participant:  116  position:  3
+participant:  116  position:  4
+participant:  116  position:  5
+participant:  116  position:  6
+participant:  116  position:  7
+participant:  116  position:  8
+participant:  116  position:  9
+participant:  116  position:  10
+participant:  116  position:  11
+participant:  116  position:  12
+participant:  116  position:  13
+participant:  116  position:  14
+participant:  116  position:  15
+participant:  116  position:  16
+participant:  116  position:  17
+participant:  117  position:  1
+participant:  117  position:  2
+participant:  117  position:  3
+participant:  117  position:  4
+participant:  117  position:  5
+participant:  117  position:  6
+participant:  117  position:  7
+participant:  117  position:  8
+participant:  117  position:  9
+participant:  117  position:  10
+participant:  117  position:  11
+participant:  117  position:  12
+participant:  117  position:  13
+participant:  117  position:  14
+participant:  117  position:  15
+participant:  117  position:  16
+participant:  117  position:  17
+participant:  118  position:  1
+participant:  118  position:  2
+participant:  118  position:  3
+participant:  118  position:  4
+participant:  118  position:  5
+participant:  118  position:  6
+participant:  118  position:  7
+participant:  118  position:  8
+participant:  118  position:  9
+participant:  118  position:  10
+participant:  118  position:  11
+participant:  118  position:  12
+participant:  118  position:  13
+participant:  118  position:  14
+participant:  118  position:  15
+participant:  118  position:  16
+participant:  118  position:  17
+participant:  119  position:  1
+participant:  119  position:  2
+participant:  119  position:  3
+participant:  119  position:  4
+participant:  119  position:  5
+participant:  119  position:  6
+participant:  119  position:  7
+participant:  119  position:  8
+participant:  119  position:  9
+participant:  119  position:  10
+participant:  119  position:  11
+participant:  119  position:  12
+participant:  119  position:  13
+participant:  119  position:  14
+participant:  119  position:  15
+participant:  119  position:  16
+participant:  119  position:  17
+participant:  120  position:  1
+participant:  120  position:  2
+participant:  120  position:  3
+participant:  120  position:  4
+participant:  120  position:  5
+participant:  120  position:  6
+participant:  120  position:  7
+participant:  120  position:  8
+participant:  120  position:  9
+participant:  120  position:  10
+participant:  120  position:  11
+participant:  120  position:  12
+participant:  120  position:  13
+participant:  120  position:  14
+participant:  120  position:  15
+participant:  120  position:  16
+participant:  120  position:  17
+participant:  121  position:  1
+participant:  121  position:  2
+participant:  121  position:  3
+participant:  121  position:  4
+participant:  121  position:  5
+participant:  121  position:  6
+participant:  121  position:  7
+participant:  121  position:  8
+participant:  121  position:  9
+participant:  121  position:  10
+participant:  121  position:  11
+participant:  121  position:  12
+participant:  121  position:  13
+participant:  121  position:  14
+participant:  121  position:  15
+participant:  121  position:  16
+participant:  121  position:  17
+participant:  122  position:  1
+participant:  122  position:  2
+participant:  122  position:  3
+participant:  122  position:  4
+participant:  122  position:  5
+participant:  122  position:  6
+participant:  122  position:  7
+participant:  122  position:  8
+participant:  122  position:  9
+participant:  122  position:  10
+participant:  122  position:  11
+participant:  122  position:  12
+participant:  122  position:  13
+participant:  122  position:  14
+participant:  122  position:  15
+participant:  122  position:  16
+participant:  122  position:  17
+participant:  123  position:  1
+participant:  123  position:  2
+participant:  123  position:  3
+participant:  123  position:  4
+participant:  123  position:  5
+participant:  123  position:  6
+participant:  123  position:  7
+participant:  123  position:  8
+participant:  123  position:  9
+participant:  123  position:  10
+participant:  123  position:  11
+participant:  123  position:  12
+participant:  123  position:  13
+participant:  123  position:  14
+participant:  123  position:  15
+participant:  123  position:  16
+participant:  123  position:  17
+participant:  124  position:  1
+participant:  124  position:  2
+participant:  124  position:  3
+participant:  124  position:  4
+participant:  124  position:  5
+participant:  124  position:  6
+participant:  124  position:  7
+participant:  124  position:  8
+participant:  124  position:  9
+participant:  124  position:  10
+participant:  124  position:  11
+participant:  124  position:  12
+participant:  124  position:  13
+participant:  124  position:  14
+participant:  124  position:  15
+participant:  124  position:  16
+participant:  124  position:  17
+participant:  125  position:  1
+participant:  125  position:  2
+participant:  125  position:  3
+participant:  125  position:  4
+participant:  125  position:  5
+participant:  125  position:  6
+participant:  125  position:  7
+participant:  125  position:  8
+participant:  125  position:  9
+participant:  125  position:  10
+participant:  125  position:  11
+participant:  125  position:  12
+participant:  125  position:  13
+participant:  125  position:  14
+participant:  125  position:  15
+participant:  125  position:  16
+participant:  125  position:  17
+generando datos de salas vacias para validacion...
+room:  1361
+room:  1362
+room:  1363
+room:  1364
+room:  1365
+room:  1366
+room:  1367
+room:  1368
+room:  1369
+room:  1370
+room:  1371
+room:  1372
+room:  1373
+room:  1374
+room:  1375
+room:  1376
+room:  1377
+room:  1378
+room:  1379
+room:  1380
+room:  1381
+room:  1382
+room:  1383
+room:  1384
+room:  1385
+room:  1386
+room:  1387
+room:  1388
+room:  1389
+room:  1390
+room:  1391
+room:  1392
+room:  1393
+room:  1394
+room:  1395
+room:  1396
+room:  1397
+room:  1398
+room:  1399
+room:  1400
+room:  1401
+room:  1402
+room:  1403
+room:  1404
+room:  1405
+room:  1406
+room:  1407
+room:  1408
+room:  1409
+room:  1410
+room:  1411
+room:  1412
+room:  1413
+room:  1414
+room:  1415
+room:  1416
+room:  1417
+room:  1418
+room:  1419
+room:  1420
+room:  1421
+room:  1422
+room:  1423
+room:  1424
+room:  1425
+room:  1426
+room:  1427
+room:  1428
+room:  1429
+room:  1430
+room:  1431
+room:  1432
+room:  1433
+room:  1434
+room:  1435
+room:  1436
+room:  1437
+room:  1438
+room:  1439
+room:  1440
+room:  1441
+room:  1442
+room:  1443
+room:  1444
+room:  1445
+room:  1446
+room:  1447
+room:  1448
+room:  1449
+room:  1450
+room:  1451
+room:  1452
+room:  1453
+room:  1454
+room:  1455
+room:  1456
+room:  1457
+room:  1458
+room:  1459
+room:  1460
+room:  1461
+room:  1462
+room:  1463
+room:  1464
+room:  1465
+room:  1466
+room:  1467
+room:  1468
+room:  1469
+room:  1470
+room:  1471
+room:  1472
+room:  1473
+room:  1474
+room:  1475
+room:  1476
+room:  1477
+room:  1478
+room:  1479
+room:  1480
+room:  1481
+room:  1482
+room:  1483
+room:  1484
+room:  1485
+room:  1486
+room:  1487
+room:  1488
+room:  1489
+room:  1490
+room:  1491
+room:  1492
+room:  1493
+room:  1494
+room:  1495
+room:  1496
+room:  1497
+room:  1498
+room:  1499
+room:  1500
+room:  1501
+room:  1502
+room:  1503
+room:  1504
+room:  1505
+room:  1506
+room:  1507
+room:  1508
+room:  1509
+room:  1510
+room:  1511
+room:  1512
+room:  1513
+room:  1514
+room:  1515
+room:  1516
+room:  1517
+room:  1518
+room:  1519
+room:  1520
+room:  1521
+room:  1522
+room:  1523
+room:  1524
+room:  1525
+room:  1526
+room:  1527
+room:  1528
+room:  1529
+room:  1530
+room:  1531
+room:  1532
+room:  1533
+room:  1534
+room:  1535
+room:  1536
+room:  1537
+room:  1538
+room:  1539
+room:  1540
+room:  1541
+room:  1542
+room:  1543
+room:  1544
+room:  1545
+room:  1546
+room:  1547
+room:  1548
+room:  1549
+room:  1550
+room:  1551
+room:  1552
+room:  1553
+room:  1554
+room:  1555
+room:  1556
+room:  1557
+room:  1558
+room:  1559
+room:  1560
+room:  1561
+room:  1562
+room:  1563
+room:  1564
+room:  1565
+room:  1566
+room:  1567
+room:  1568
+room:  1569
+room:  1570
+room:  1571
+room:  1572
+room:  1573
+room:  1574
+room:  1575
+room:  1576
+room:  1577
+room:  1578
+room:  1579
+room:  1580
+room:  1581
+room:  1582
+room:  1583
+room:  1584
+room:  1585
+room:  1586
+room:  1587
+room:  1588
+room:  1589
+room:  1590
+room:  1591
+room:  1592
+room:  1593
+room:  1594
+room:  1595
+room:  1596
+room:  1597
+room:  1598
+room:  1599
+room:  1600
+room:  1601
+room:  1602
+room:  1603
+room:  1604
+room:  1605
+room:  1606
+room:  1607
+room:  1608
+room:  1609
+room:  1610
+room:  1611
+room:  1612
+room:  1613
+room:  1614
+room:  1615
+room:  1616
+room:  1617
+room:  1618
+room:  1619
+room:  1620
+room:  1621
+room:  1622
+room:  1623
+room:  1624
+room:  1625
+room:  1626
+room:  1627
+room:  1628
+room:  1629
+room:  1630
+room:  1631
+room:  1632
+room:  1633
+room:  1634
+room:  1635
+room:  1636
+room:  1637
+room:  1638
+room:  1639
+room:  1640
+room:  1641
+room:  1642
+room:  1643
+room:  1644
+room:  1645
+room:  1646
+room:  1647
+room:  1648
+room:  1649
+room:  1650
+room:  1651
+room:  1652
+room:  1653
+room:  1654
+room:  1655
+room:  1656
+room:  1657
+room:  1658
+room:  1659
+room:  1660
+room:  1661
+room:  1662
+room:  1663
+room:  1664
+room:  1665
+room:  1666
+room:  1667
+room:  1668
+room:  1669
+room:  1670
+room:  1671
+room:  1672
+room:  1673
+room:  1674
+room:  1675
+room:  1676
+room:  1677
+room:  1678
+room:  1679
+room:  1680
+room:  1681
+room:  1682
+room:  1683
+room:  1684
+room:  1685
+room:  1686
+room:  1687
+room:  1688
+room:  1689
+room:  1690
+room:  1691
+room:  1692
+room:  1693
+room:  1694
+room:  1695
+room:  1696
+room:  1697
+room:  1698
+room:  1699
+room:  1700
+generando datos de salas vacias para  test...
+room:  1701
+room:  1702
+room:  1703
+room:  1704
+room:  1705
+room:  1706
+room:  1707
+room:  1708
+room:  1709
+room:  1710
+room:  1711
+room:  1712
+room:  1713
+room:  1714
+room:  1715
+room:  1716
+room:  1717
+room:  1718
+room:  1719
+room:  1720
+room:  1721
+room:  1722
+room:  1723
+room:  1724
+room:  1725
+room:  1726
+room:  1727
+room:  1728
+room:  1729
+room:  1730
+room:  1731
+room:  1732
+room:  1733
+room:  1734
+room:  1735
+room:  1736
+room:  1737
+room:  1738
+room:  1739
+room:  1740
+room:  1741
+room:  1742
+room:  1743
+room:  1744
+room:  1745
+room:  1746
+room:  1747
+room:  1748
+room:  1749
+room:  1750
+room:  1751
+room:  1752
+room:  1753
+room:  1754
+room:  1755
+room:  1756
+room:  1757
+room:  1758
+room:  1759
+room:  1760
+room:  1761
+room:  1762
+room:  1763
+room:  1764
+room:  1765
+room:  1766
+room:  1767
+room:  1768
+room:  1769
+room:  1770
+room:  1771
+room:  1772
+room:  1773
+room:  1774
+room:  1775
+room:  1776
+room:  1777
+room:  1778
+room:  1779
+room:  1780
+room:  1781
+room:  1782
+room:  1783
+room:  1784
+room:  1785
+room:  1786
+room:  1787
+room:  1788
+room:  1789
+room:  1790
+room:  1791
+room:  1792
+room:  1793
+room:  1794
+room:  1795
+room:  1796
+room:  1797
+room:  1798
+room:  1799
+room:  1800
+room:  1801
+room:  1802
+room:  1803
+room:  1804
+room:  1805
+room:  1806
+room:  1807
+room:  1808
+room:  1809
+room:  1810
+room:  1811
+room:  1812
+room:  1813
+room:  1814
+room:  1815
+room:  1816
+room:  1817
+room:  1818
+room:  1819
+room:  1820
+room:  1821
+room:  1822
+room:  1823
+room:  1824
+room:  1825
+room:  1826
+room:  1827
+room:  1828
+room:  1829
+room:  1830
+room:  1831
+room:  1832
+room:  1833
+room:  1834
+room:  1835
+room:  1836
+room:  1837
+room:  1838
+room:  1839
+room:  1840
+room:  1841
+room:  1842
+room:  1843
+room:  1844
+room:  1845
+room:  1846
+room:  1847
+room:  1848
+room:  1849
+room:  1850
+room:  1851
+room:  1852
+room:  1853
+room:  1854
+room:  1855
+room:  1856
+room:  1857
+room:  1858
+room:  1859
+room:  1860
+room:  1861
+room:  1862
+room:  1863
+room:  1864
+room:  1865
+room:  1866
+room:  1867
+room:  1868
+room:  1869
+room:  1870
+room:  1871
+room:  1872
+room:  1873
+room:  1874
+room:  1875
+room:  1876
+room:  1877
+room:  1878
+room:  1879
+room:  1880
+room:  1881
+room:  1882
+room:  1883
+room:  1884
+room:  1885
+room:  1886
+room:  1887
+room:  1888
+room:  1889
+room:  1890
+room:  1891
+room:  1892
+room:  1893
+room:  1894
+room:  1895
+room:  1896
+room:  1897
+room:  1898
+room:  1899
+room:  1900
+room:  1901
+room:  1902
+room:  1903
+room:  1904
+room:  1905
+room:  1906
+room:  1907
+room:  1908
+room:  1909
+room:  1910
+room:  1911
+room:  1912
+room:  1913
+room:  1914
+room:  1915
+room:  1916
+room:  1917
+room:  1918
+room:  1919
+room:  1920
+room:  1921
+room:  1922
+room:  1923
+room:  1924
+room:  1925
+room:  1926
+room:  1927
+room:  1928
+room:  1929
+room:  1930
+room:  1931
+room:  1932
+room:  1933
+room:  1934
+room:  1935
+room:  1936
+room:  1937
+room:  1938
+room:  1939
+room:  1940
+room:  1941
+room:  1942
+room:  1943
+room:  1944
+room:  1945
+room:  1946
+room:  1947
+room:  1948
+room:  1949
+room:  1950
+room:  1951
+room:  1952
+room:  1953
+room:  1954
+room:  1955
+room:  1956
+room:  1957
+room:  1958
+room:  1959
+room:  1960
+room:  1961
+room:  1962
+room:  1963
+room:  1964
+room:  1965
+room:  1966
+room:  1967
+room:  1968
+room:  1969
+room:  1970
+room:  1971
+room:  1972
+room:  1973
+room:  1974
+room:  1975
+room:  1976
+room:  1977
+room:  1978
+room:  1979
+room:  1980
+room:  1981
+room:  1982
+room:  1983
+room:  1984
+room:  1985
+room:  1986
+room:  1987
+room:  1988
+room:  1989
+room:  1990
+room:  1991
+room:  1992
+room:  1993
+room:  1994
+room:  1995
+room:  1996
+room:  1997
+room:  1998
+room:  1999
+room:  2000
+room:  2001
+room:  2002
+room:  2003
+room:  2004
+room:  2005
+room:  2006
+room:  2007
+room:  2008
+room:  2009
+room:  2010
+room:  2011
+room:  2012
+room:  2013
+room:  2014
+room:  2015
+room:  2016
+room:  2017
+room:  2018
+room:  2019
+room:  2020
+room:  2021
+room:  2022
+room:  2023
+room:  2024
+room:  2025
+room:  2026
+room:  2027
+room:  2028
+room:  2029
+room:  2030
+room:  2031
+room:  2032
+room:  2033
+room:  2034
+room:  2035
+room:  2036
+room:  2037
+room:  2038
+room:  2039
+room:  2040
+room:  2041
+room:  2042
+room:  2043
+room:  2044
+room:  2045
+room:  2046
+room:  2047
+room:  2048
+room:  2049
+room:  2050
+room:  2051
+room:  2052
+room:  2053
+room:  2054
+room:  2055
+room:  2056
+room:  2057
+room:  2058
+room:  2059
+room:  2060
+room:  2061
+room:  2062
+room:  2063
+room:  2064
+room:  2065
+room:  2066
+room:  2067
+room:  2068
+room:  2069
+room:  2070
+room:  2071
+room:  2072
+room:  2073
+room:  2074
+room:  2075
+room:  2076
+room:  2077
+room:  2078
+room:  2079
+room:  2080
+room:  2081
+room:  2082
+room:  2083
+room:  2084
+room:  2085
+room:  2086
+room:  2087
+room:  2088
+room:  2089
+room:  2090
+room:  2091
+room:  2092
+room:  2093
+room:  2094
+room:  2095
+room:  2096
+room:  2097
+room:  2098
+room:  2099
+room:  2100
+room:  2101
+room:  2102
+room:  2103
+room:  2104
+room:  2105
+room:  2106
+room:  2107
+room:  2108
+room:  2109
+room:  2110
+room:  2111
+room:  2112
+room:  2113
+room:  2114
+room:  2115
+room:  2116
+room:  2117
+room:  2118
+room:  2119
+room:  2120
+room:  2121
+room:  2122
+room:  2123
+room:  2124
+room:  2125
+#####################################
+################# Salas llenas
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+################# Salanas vacias
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+#####################################
+Archivos de datos de training para presencia encontrados en './processed_data/presence/'. Cargando...
+Datos de training de presencia cargados exitosamente. (full & empty)...
+generando datos de salas llenas para validacion...
+participant:  081  position:  1
+participant:  081  position:  2
+participant:  081  position:  3
+participant:  081  position:  4
+participant:  081  position:  5
+participant:  081  position:  6
+participant:  081  position:  7
+participant:  081  position:  8
+participant:  081  position:  9
+participant:  081  position:  10
+participant:  081  position:  11
+participant:  081  position:  12
+participant:  081  position:  13
+participant:  081  position:  14
+participant:  081  position:  15
+participant:  081  position:  16
+participant:  081  position:  17
+participant:  082  position:  1
+participant:  082  position:  2
+participant:  082  position:  3
+participant:  082  position:  4
+participant:  082  position:  5
+participant:  082  position:  6
+participant:  082  position:  7
+participant:  082  position:  8
+participant:  082  position:  9
+participant:  082  position:  10
+participant:  082  position:  11
+participant:  082  position:  12
+participant:  082  position:  13
+participant:  082  position:  14
+participant:  082  position:  15
+participant:  082  position:  16
+participant:  082  position:  17
+participant:  083  position:  1
+participant:  083  position:  2
+participant:  083  position:  3
+participant:  083  position:  4
+participant:  083  position:  5
+participant:  083  position:  6
+participant:  083  position:  7
+participant:  083  position:  8
+participant:  083  position:  9
+participant:  083  position:  10
+participant:  083  position:  11
+participant:  083  position:  12
+participant:  083  position:  13
+participant:  083  position:  14
+participant:  083  position:  15
+participant:  083  position:  16
+participant:  083  position:  17
+participant:  084  position:  1
+participant:  084  position:  2
+participant:  084  position:  3
+participant:  084  position:  4
+participant:  084  position:  5
+participant:  084  position:  6
+participant:  084  position:  7
+participant:  084  position:  8
+participant:  084  position:  9
+participant:  084  position:  10
+participant:  084  position:  11
+participant:  084  position:  12
+participant:  084  position:  13
+participant:  084  position:  14
+participant:  084  position:  15
+participant:  084  position:  16
+participant:  084  position:  17
+participant:  085  position:  1
+participant:  085  position:  2
+participant:  085  position:  3
+participant:  085  position:  4
+participant:  085  position:  5
+participant:  085  position:  6
+participant:  085  position:  7
+participant:  085  position:  8
+participant:  085  position:  9
+participant:  085  position:  10
+participant:  085  position:  11
+participant:  085  position:  12
+participant:  085  position:  13
+participant:  085  position:  14
+participant:  085  position:  15
+participant:  085  position:  16
+participant:  085  position:  17
+participant:  086  position:  1
+participant:  086  position:  2
+participant:  086  position:  3
+participant:  086  position:  4
+participant:  086  position:  5
+participant:  086  position:  6
+participant:  086  position:  7
+participant:  086  position:  8
+participant:  086  position:  9
+participant:  086  position:  10
+participant:  086  position:  11
+participant:  086  position:  12
+participant:  086  position:  13
+participant:  086  position:  14
+participant:  086  position:  15
+participant:  086  position:  16
+participant:  086  position:  17
+participant:  087  position:  1
+participant:  087  position:  2
+participant:  087  position:  3
+participant:  087  position:  4
+participant:  087  position:  5
+participant:  087  position:  6
+participant:  087  position:  7
+participant:  087  position:  8
+participant:  087  position:  9
+participant:  087  position:  10
+participant:  087  position:  11
+participant:  087  position:  12
+participant:  087  position:  13
+participant:  087  position:  14
+participant:  087  position:  15
+participant:  087  position:  16
+participant:  087  position:  17
+participant:  088  position:  1
+participant:  088  position:  2
+participant:  088  position:  3
+participant:  088  position:  4
+participant:  088  position:  5
+participant:  088  position:  6
+participant:  088  position:  7
+participant:  088  position:  8
+participant:  088  position:  9
+participant:  088  position:  10
+participant:  088  position:  11
+participant:  088  position:  12
+participant:  088  position:  13
+participant:  088  position:  14
+participant:  088  position:  15
+participant:  088  position:  16
+participant:  088  position:  17
+participant:  089  position:  1
+participant:  089  position:  2
+participant:  089  position:  3
+participant:  089  position:  4
+participant:  089  position:  5
+participant:  089  position:  6
+participant:  089  position:  7
+participant:  089  position:  8
+participant:  089  position:  9
+participant:  089  position:  10
+participant:  089  position:  11
+participant:  089  position:  12
+participant:  089  position:  13
+participant:  089  position:  14
+participant:  089  position:  15
+participant:  089  position:  16
+participant:  089  position:  17
+participant:  090  position:  1
+participant:  090  position:  2
+participant:  090  position:  3
+participant:  090  position:  4
+participant:  090  position:  5
+participant:  090  position:  6
+participant:  090  position:  7
+participant:  090  position:  8
+participant:  090  position:  9
+participant:  090  position:  10
+participant:  090  position:  11
+participant:  090  position:  12
+participant:  090  position:  13
+participant:  090  position:  14
+participant:  090  position:  15
+participant:  090  position:  16
+participant:  090  position:  17
+participant:  091  position:  1
+participant:  091  position:  2
+participant:  091  position:  3
+participant:  091  position:  4
+participant:  091  position:  5
+participant:  091  position:  6
+participant:  091  position:  7
+participant:  091  position:  8
+participant:  091  position:  9
+participant:  091  position:  10
+participant:  091  position:  11
+participant:  091  position:  12
+participant:  091  position:  13
+participant:  091  position:  14
+participant:  091  position:  15
+participant:  091  position:  16
+participant:  091  position:  17
+participant:  092  position:  1
+participant:  092  position:  2
+participant:  092  position:  3
+participant:  092  position:  4
+participant:  092  position:  5
+participant:  092  position:  6
+participant:  092  position:  7
+participant:  092  position:  8
+participant:  092  position:  9
+participant:  092  position:  10
+participant:  092  position:  11
+participant:  092  position:  12
+participant:  092  position:  13
+participant:  092  position:  14
+participant:  092  position:  15
+participant:  092  position:  16
+participant:  092  position:  17
+participant:  093  position:  1
+participant:  093  position:  2
+participant:  093  position:  3
+participant:  093  position:  4
+participant:  093  position:  5
+participant:  093  position:  6
+participant:  093  position:  7
+participant:  093  position:  8
+participant:  093  position:  9
+participant:  093  position:  10
+participant:  093  position:  11
+participant:  093  position:  12
+participant:  093  position:  13
+participant:  093  position:  14
+participant:  093  position:  15
+participant:  093  position:  16
+participant:  093  position:  17
+participant:  094  position:  1
+participant:  094  position:  2
+participant:  094  position:  3
+participant:  094  position:  4
+participant:  094  position:  5
+participant:  094  position:  6
+participant:  094  position:  7
+participant:  094  position:  8
+participant:  094  position:  9
+participant:  094  position:  10
+participant:  094  position:  11
+participant:  094  position:  12
+participant:  094  position:  13
+participant:  094  position:  14
+participant:  094  position:  15
+participant:  094  position:  16
+participant:  094  position:  17
+participant:  095  position:  1
+participant:  095  position:  2
+participant:  095  position:  3
+participant:  095  position:  4
+participant:  095  position:  5
+participant:  095  position:  6
+participant:  095  position:  7
+participant:  095  position:  8
+participant:  095  position:  9
+participant:  095  position:  10
+participant:  095  position:  11
+participant:  095  position:  12
+participant:  095  position:  13
+participant:  095  position:  14
+participant:  095  position:  15
+participant:  095  position:  16
+participant:  095  position:  17
+participant:  096  position:  1
+participant:  096  position:  2
+participant:  096  position:  3
+participant:  096  position:  4
+participant:  096  position:  5
+participant:  096  position:  6
+participant:  096  position:  7
+participant:  096  position:  8
+participant:  096  position:  9
+participant:  096  position:  10
+participant:  096  position:  11
+participant:  096  position:  12
+participant:  096  position:  13
+participant:  096  position:  14
+participant:  096  position:  15
+participant:  096  position:  16
+participant:  096  position:  17
+participant:  097  position:  1
+participant:  097  position:  2
+participant:  097  position:  3
+participant:  097  position:  4
+participant:  097  position:  5
+participant:  097  position:  6
+participant:  097  position:  7
+participant:  097  position:  8
+participant:  097  position:  9
+participant:  097  position:  10
+participant:  097  position:  11
+participant:  097  position:  12
+participant:  097  position:  13
+participant:  097  position:  14
+participant:  097  position:  15
+participant:  097  position:  16
+participant:  097  position:  17
+participant:  098  position:  1
+participant:  098  position:  2
+participant:  098  position:  3
+participant:  098  position:  4
+participant:  098  position:  5
+participant:  098  position:  6
+participant:  098  position:  7
+participant:  098  position:  8
+participant:  098  position:  9
+participant:  098  position:  10
+participant:  098  position:  11
+participant:  098  position:  12
+participant:  098  position:  13
+participant:  098  position:  14
+participant:  098  position:  15
+participant:  098  position:  16
+participant:  098  position:  17
+participant:  099  position:  1
+participant:  099  position:  2
+participant:  099  position:  3
+participant:  099  position:  4
+participant:  099  position:  5
+participant:  099  position:  6
+participant:  099  position:  7
+participant:  099  position:  8
+participant:  099  position:  9
+participant:  099  position:  10
+participant:  099  position:  11
+participant:  099  position:  12
+participant:  099  position:  13
+participant:  099  position:  14
+participant:  099  position:  15
+participant:  099  position:  16
+participant:  099  position:  17
+participant:  100  position:  1
+participant:  100  position:  2
+participant:  100  position:  3
+participant:  100  position:  4
+participant:  100  position:  5
+participant:  100  position:  6
+participant:  100  position:  7
+participant:  100  position:  8
+participant:  100  position:  9
+participant:  100  position:  10
+participant:  100  position:  11
+participant:  100  position:  12
+participant:  100  position:  13
+participant:  100  position:  14
+participant:  100  position:  15
+participant:  100  position:  16
+participant:  100  position:  17
+generando datos de salas llenas para test...
+participant:  101  position:  1
+participant:  101  position:  2
+participant:  101  position:  3
+participant:  101  position:  4
+participant:  101  position:  5
+participant:  101  position:  6
+participant:  101  position:  7
+participant:  101  position:  8
+participant:  101  position:  9
+participant:  101  position:  10
+participant:  101  position:  11
+participant:  101  position:  12
+participant:  101  position:  13
+participant:  101  position:  14
+participant:  101  position:  15
+participant:  101  position:  16
+participant:  101  position:  17
+participant:  102  position:  1
+participant:  102  position:  2
+participant:  102  position:  3
+participant:  102  position:  4
+participant:  102  position:  5
+participant:  102  position:  6
+participant:  102  position:  7
+participant:  102  position:  8
+participant:  102  position:  9
+participant:  102  position:  10
+participant:  102  position:  11
+participant:  102  position:  12
+participant:  102  position:  13
+participant:  102  position:  14
+participant:  102  position:  15
+participant:  102  position:  16
+participant:  102  position:  17
+participant:  103  position:  1
+participant:  103  position:  2
+participant:  103  position:  3
+participant:  103  position:  4
+participant:  103  position:  5
+participant:  103  position:  6
+participant:  103  position:  7
+participant:  103  position:  8
+participant:  103  position:  9
+participant:  103  position:  10
+participant:  103  position:  11
+participant:  103  position:  12
+participant:  103  position:  13
+participant:  103  position:  14
+participant:  103  position:  15
+participant:  103  position:  16
+participant:  103  position:  17
+participant:  104  position:  1
+participant:  104  position:  2
+participant:  104  position:  3
+participant:  104  position:  4
+participant:  104  position:  5
+participant:  104  position:  6
+participant:  104  position:  7
+participant:  104  position:  8
+participant:  104  position:  9
+participant:  104  position:  10
+participant:  104  position:  11
+participant:  104  position:  12
+participant:  104  position:  13
+participant:  104  position:  14
+participant:  104  position:  15
+participant:  104  position:  16
+participant:  104  position:  17
+participant:  105  position:  1
+participant:  105  position:  2
+participant:  105  position:  3
+participant:  105  position:  4
+participant:  105  position:  5
+participant:  105  position:  6
+participant:  105  position:  7
+participant:  105  position:  8
+participant:  105  position:  9
+participant:  105  position:  10
+participant:  105  position:  11
+participant:  105  position:  12
+participant:  105  position:  13
+participant:  105  position:  14
+participant:  105  position:  15
+participant:  105  position:  16
+participant:  105  position:  17
+participant:  106  position:  1
+participant:  106  position:  2
+participant:  106  position:  3
+participant:  106  position:  4
+participant:  106  position:  5
+participant:  106  position:  6
+participant:  106  position:  7
+participant:  106  position:  8
+participant:  106  position:  9
+participant:  106  position:  10
+participant:  106  position:  11
+participant:  106  position:  12
+participant:  106  position:  13
+participant:  106  position:  14
+participant:  106  position:  15
+participant:  106  position:  16
+participant:  106  position:  17
+participant:  107  position:  1
+participant:  107  position:  2
+participant:  107  position:  3
+participant:  107  position:  4
+participant:  107  position:  5
+participant:  107  position:  6
+participant:  107  position:  7
+participant:  107  position:  8
+participant:  107  position:  9
+participant:  107  position:  10
+participant:  107  position:  11
+participant:  107  position:  12
+participant:  107  position:  13
+participant:  107  position:  14
+participant:  107  position:  15
+participant:  107  position:  16
+participant:  107  position:  17
+participant:  108  position:  1
+participant:  108  position:  2
+participant:  108  position:  3
+participant:  108  position:  4
+participant:  108  position:  5
+participant:  108  position:  6
+participant:  108  position:  7
+participant:  108  position:  8
+participant:  108  position:  9
+participant:  108  position:  10
+participant:  108  position:  11
+participant:  108  position:  12
+participant:  108  position:  13
+participant:  108  position:  14
+participant:  108  position:  15
+participant:  108  position:  16
+participant:  108  position:  17
+participant:  109  position:  1
+participant:  109  position:  2
+participant:  109  position:  3
+participant:  109  position:  4
+participant:  109  position:  5
+participant:  109  position:  6
+participant:  109  position:  7
+participant:  109  position:  8
+participant:  109  position:  9
+participant:  109  position:  10
+participant:  109  position:  11
+participant:  109  position:  12
+participant:  109  position:  13
+participant:  109  position:  14
+participant:  109  position:  15
+participant:  109  position:  16
+participant:  109  position:  17
+participant:  110  position:  1
+participant:  110  position:  2
+participant:  110  position:  3
+participant:  110  position:  4
+participant:  110  position:  5
+participant:  110  position:  6
+participant:  110  position:  7
+participant:  110  position:  8
+participant:  110  position:  9
+participant:  110  position:  10
+participant:  110  position:  11
+participant:  110  position:  12
+participant:  110  position:  13
+participant:  110  position:  14
+participant:  110  position:  15
+participant:  110  position:  16
+participant:  110  position:  17
+participant:  111  position:  1
+participant:  111  position:  2
+participant:  111  position:  3
+participant:  111  position:  4
+participant:  111  position:  5
+participant:  111  position:  6
+participant:  111  position:  7
+participant:  111  position:  8
+participant:  111  position:  9
+participant:  111  position:  10
+participant:  111  position:  11
+participant:  111  position:  12
+participant:  111  position:  13
+participant:  111  position:  14
+participant:  111  position:  15
+participant:  111  position:  16
+participant:  111  position:  17
+participant:  112  position:  1
+participant:  112  position:  2
+participant:  112  position:  3
+participant:  112  position:  4
+participant:  112  position:  5
+participant:  112  position:  6
+participant:  112  position:  7
+participant:  112  position:  8
+participant:  112  position:  9
+participant:  112  position:  10
+participant:  112  position:  11
+participant:  112  position:  12
+participant:  112  position:  13
+participant:  112  position:  14
+participant:  112  position:  15
+participant:  112  position:  16
+participant:  112  position:  17
+participant:  113  position:  1
+participant:  113  position:  2
+participant:  113  position:  3
+participant:  113  position:  4
+participant:  113  position:  5
+participant:  113  position:  6
+participant:  113  position:  7
+participant:  113  position:  8
+participant:  113  position:  9
+participant:  113  position:  10
+participant:  113  position:  11
+participant:  113  position:  12
+participant:  113  position:  13
+participant:  113  position:  14
+participant:  113  position:  15
+participant:  113  position:  16
+participant:  113  position:  17
+participant:  114  position:  1
+participant:  114  position:  2
+participant:  114  position:  3
+participant:  114  position:  4
+participant:  114  position:  5
+participant:  114  position:  6
+participant:  114  position:  7
+participant:  114  position:  8
+participant:  114  position:  9
+participant:  114  position:  10
+participant:  114  position:  11
+participant:  114  position:  12
+participant:  114  position:  13
+participant:  114  position:  14
+participant:  114  position:  15
+participant:  114  position:  16
+participant:  114  position:  17
+participant:  115  position:  1
+participant:  115  position:  2
+participant:  115  position:  3
+participant:  115  position:  4
+participant:  115  position:  5
+participant:  115  position:  6
+participant:  115  position:  7
+participant:  115  position:  8
+participant:  115  position:  9
+participant:  115  position:  10
+participant:  115  position:  11
+participant:  115  position:  12
+participant:  115  position:  13
+participant:  115  position:  14
+participant:  115  position:  15
+participant:  115  position:  16
+participant:  115  position:  17
+participant:  116  position:  1
+participant:  116  position:  2
+participant:  116  position:  3
+participant:  116  position:  4
+participant:  116  position:  5
+participant:  116  position:  6
+participant:  116  position:  7
+participant:  116  position:  8
+participant:  116  position:  9
+participant:  116  position:  10
+participant:  116  position:  11
+participant:  116  position:  12
+participant:  116  position:  13
+participant:  116  position:  14
+participant:  116  position:  15
+participant:  116  position:  16
+participant:  116  position:  17
+participant:  117  position:  1
+participant:  117  position:  2
+participant:  117  position:  3
+participant:  117  position:  4
+participant:  117  position:  5
+participant:  117  position:  6
+participant:  117  position:  7
+participant:  117  position:  8
+participant:  117  position:  9
+participant:  117  position:  10
+participant:  117  position:  11
+participant:  117  position:  12
+participant:  117  position:  13
+participant:  117  position:  14
+participant:  117  position:  15
+participant:  117  position:  16
+participant:  117  position:  17
+participant:  118  position:  1
+participant:  118  position:  2
+participant:  118  position:  3
+participant:  118  position:  4
+participant:  118  position:  5
+participant:  118  position:  6
+participant:  118  position:  7
+participant:  118  position:  8
+participant:  118  position:  9
+participant:  118  position:  10
+participant:  118  position:  11
+participant:  118  position:  12
+participant:  118  position:  13
+participant:  118  position:  14
+participant:  118  position:  15
+participant:  118  position:  16
+participant:  118  position:  17
+participant:  119  position:  1
+participant:  119  position:  2
+participant:  119  position:  3
+participant:  119  position:  4
+participant:  119  position:  5
+participant:  119  position:  6
+participant:  119  position:  7
+participant:  119  position:  8
+participant:  119  position:  9
+participant:  119  position:  10
+participant:  119  position:  11
+participant:  119  position:  12
+participant:  119  position:  13
+participant:  119  position:  14
+participant:  119  position:  15
+participant:  119  position:  16
+participant:  119  position:  17
+participant:  120  position:  1
+participant:  120  position:  2
+participant:  120  position:  3
+participant:  120  position:  4
+participant:  120  position:  5
+participant:  120  position:  6
+participant:  120  position:  7
+participant:  120  position:  8
+participant:  120  position:  9
+participant:  120  position:  10
+participant:  120  position:  11
+participant:  120  position:  12
+participant:  120  position:  13
+participant:  120  position:  14
+participant:  120  position:  15
+participant:  120  position:  16
+participant:  120  position:  17
+participant:  121  position:  1
+participant:  121  position:  2
+participant:  121  position:  3
+participant:  121  position:  4
+participant:  121  position:  5
+participant:  121  position:  6
+participant:  121  position:  7
+participant:  121  position:  8
+participant:  121  position:  9
+participant:  121  position:  10
+participant:  121  position:  11
+participant:  121  position:  12
+participant:  121  position:  13
+participant:  121  position:  14
+participant:  121  position:  15
+participant:  121  position:  16
+participant:  121  position:  17
+participant:  122  position:  1
+participant:  122  position:  2
+participant:  122  position:  3
+participant:  122  position:  4
+participant:  122  position:  5
+participant:  122  position:  6
+participant:  122  position:  7
+participant:  122  position:  8
+participant:  122  position:  9
+participant:  122  position:  10
+participant:  122  position:  11
+participant:  122  position:  12
+participant:  122  position:  13
+participant:  122  position:  14
+participant:  122  position:  15
+participant:  122  position:  16
+participant:  122  position:  17
+participant:  123  position:  1
+participant:  123  position:  2
+participant:  123  position:  3
+participant:  123  position:  4
+participant:  123  position:  5
+participant:  123  position:  6
+participant:  123  position:  7
+participant:  123  position:  8
+participant:  123  position:  9
+participant:  123  position:  10
+participant:  123  position:  11
+participant:  123  position:  12
+participant:  123  position:  13
+participant:  123  position:  14
+participant:  123  position:  15
+participant:  123  position:  16
+participant:  123  position:  17
+participant:  124  position:  1
+participant:  124  position:  2
+participant:  124  position:  3
+participant:  124  position:  4
+participant:  124  position:  5
+participant:  124  position:  6
+participant:  124  position:  7
+participant:  124  position:  8
+participant:  124  position:  9
+participant:  124  position:  10
+participant:  124  position:  11
+participant:  124  position:  12
+participant:  124  position:  13
+participant:  124  position:  14
+participant:  124  position:  15
+participant:  124  position:  16
+participant:  124  position:  17
+participant:  125  position:  1
+participant:  125  position:  2
+participant:  125  position:  3
+participant:  125  position:  4
+participant:  125  position:  5
+participant:  125  position:  6
+participant:  125  position:  7
+participant:  125  position:  8
+participant:  125  position:  9
+participant:  125  position:  10
+participant:  125  position:  11
+participant:  125  position:  12
+participant:  125  position:  13
+participant:  125  position:  14
+participant:  125  position:  15
+participant:  125  position:  16
+participant:  125  position:  17
+generando datos de salas vacias para validacion...
+room:  1361
+room:  1362
+room:  1363
+room:  1364
+room:  1365
+room:  1366
+room:  1367
+room:  1368
+room:  1369
+room:  1370
+room:  1371
+room:  1372
+room:  1373
+room:  1374
+room:  1375
+room:  1376
+room:  1377
+room:  1378
+room:  1379
+room:  1380
+room:  1381
+room:  1382
+room:  1383
+room:  1384
+room:  1385
+room:  1386
+room:  1387
+room:  1388
+room:  1389
+room:  1390
+room:  1391
+room:  1392
+room:  1393
+room:  1394
+room:  1395
+room:  1396
+room:  1397
+room:  1398
+room:  1399
+room:  1400
+room:  1401
+room:  1402
+room:  1403
+room:  1404
+room:  1405
+room:  1406
+room:  1407
+room:  1408
+room:  1409
+room:  1410
+room:  1411
+room:  1412
+room:  1413
+room:  1414
+room:  1415
+room:  1416
+room:  1417
+room:  1418
+room:  1419
+room:  1420
+room:  1421
+room:  1422
+room:  1423
+room:  1424
+room:  1425
+room:  1426
+room:  1427
+room:  1428
+room:  1429
+room:  1430
+room:  1431
+room:  1432
+room:  1433
+room:  1434
+room:  1435
+room:  1436
+room:  1437
+room:  1438
+room:  1439
+room:  1440
+room:  1441
+room:  1442
+room:  1443
+room:  1444
+room:  1445
+room:  1446
+room:  1447
+room:  1448
+room:  1449
+room:  1450
+room:  1451
+room:  1452
+room:  1453
+room:  1454
+room:  1455
+room:  1456
+room:  1457
+room:  1458
+room:  1459
+room:  1460
+room:  1461
+room:  1462
+room:  1463
+room:  1464
+room:  1465
+room:  1466
+room:  1467
+room:  1468
+room:  1469
+room:  1470
+room:  1471
+room:  1472
+room:  1473
+room:  1474
+room:  1475
+room:  1476
+room:  1477
+room:  1478
+room:  1479
+room:  1480
+room:  1481
+room:  1482
+room:  1483
+room:  1484
+room:  1485
+room:  1486
+room:  1487
+room:  1488
+room:  1489
+room:  1490
+room:  1491
+room:  1492
+room:  1493
+room:  1494
+room:  1495
+room:  1496
+room:  1497
+room:  1498
+room:  1499
+room:  1500
+room:  1501
+room:  1502
+room:  1503
+room:  1504
+room:  1505
+room:  1506
+room:  1507
+room:  1508
+room:  1509
+room:  1510
+room:  1511
+room:  1512
+room:  1513
+room:  1514
+room:  1515
+room:  1516
+room:  1517
+room:  1518
+room:  1519
+room:  1520
+room:  1521
+room:  1522
+room:  1523
+room:  1524
+room:  1525
+room:  1526
+room:  1527
+room:  1528
+room:  1529
+room:  1530
+room:  1531
+room:  1532
+room:  1533
+room:  1534
+room:  1535
+room:  1536
+room:  1537
+room:  1538
+room:  1539
+room:  1540
+room:  1541
+room:  1542
+room:  1543
+room:  1544
+room:  1545
+room:  1546
+room:  1547
+room:  1548
+room:  1549
+room:  1550
+room:  1551
+room:  1552
+room:  1553
+room:  1554
+room:  1555
+room:  1556
+room:  1557
+room:  1558
+room:  1559
+room:  1560
+room:  1561
+room:  1562
+room:  1563
+room:  1564
+room:  1565
+room:  1566
+room:  1567
+room:  1568
+room:  1569
+room:  1570
+room:  1571
+room:  1572
+room:  1573
+room:  1574
+room:  1575
+room:  1576
+room:  1577
+room:  1578
+room:  1579
+room:  1580
+room:  1581
+room:  1582
+room:  1583
+room:  1584
+room:  1585
+room:  1586
+room:  1587
+room:  1588
+room:  1589
+room:  1590
+room:  1591
+room:  1592
+room:  1593
+room:  1594
+room:  1595
+room:  1596
+room:  1597
+room:  1598
+room:  1599
+room:  1600
+room:  1601
+room:  1602
+room:  1603
+room:  1604
+room:  1605
+room:  1606
+room:  1607
+room:  1608
+room:  1609
+room:  1610
+room:  1611
+room:  1612
+room:  1613
+room:  1614
+room:  1615
+room:  1616
+room:  1617
+room:  1618
+room:  1619
+room:  1620
+room:  1621
+room:  1622
+room:  1623
+room:  1624
+room:  1625
+room:  1626
+room:  1627
+room:  1628
+room:  1629
+room:  1630
+room:  1631
+room:  1632
+room:  1633
+room:  1634
+room:  1635
+room:  1636
+room:  1637
+room:  1638
+room:  1639
+room:  1640
+room:  1641
+room:  1642
+room:  1643
+room:  1644
+room:  1645
+room:  1646
+room:  1647
+room:  1648
+room:  1649
+room:  1650
+room:  1651
+room:  1652
+room:  1653
+room:  1654
+room:  1655
+room:  1656
+room:  1657
+room:  1658
+room:  1659
+room:  1660
+room:  1661
+room:  1662
+room:  1663
+room:  1664
+room:  1665
+room:  1666
+room:  1667
+room:  1668
+room:  1669
+room:  1670
+room:  1671
+room:  1672
+room:  1673
+room:  1674
+room:  1675
+room:  1676
+room:  1677
+room:  1678
+room:  1679
+room:  1680
+room:  1681
+room:  1682
+room:  1683
+room:  1684
+room:  1685
+room:  1686
+room:  1687
+room:  1688
+room:  1689
+room:  1690
+room:  1691
+room:  1692
+room:  1693
+room:  1694
+room:  1695
+room:  1696
+room:  1697
+room:  1698
+room:  1699
+room:  1700
+generando datos de salas vacias para  test...
+room:  1701
+room:  1702
+room:  1703
+room:  1704
+room:  1705
+room:  1706
+room:  1707
+room:  1708
+room:  1709
+room:  1710
+room:  1711
+room:  1712
+room:  1713
+room:  1714
+room:  1715
+room:  1716
+room:  1717
+room:  1718
+room:  1719
+room:  1720
+room:  1721
+room:  1722
+room:  1723
+room:  1724
+room:  1725
+room:  1726
+room:  1727
+room:  1728
+room:  1729
+room:  1730
+room:  1731
+room:  1732
+room:  1733
+room:  1734
+room:  1735
+room:  1736
+room:  1737
+room:  1738
+room:  1739
+room:  1740
+room:  1741
+room:  1742
+room:  1743
+room:  1744
+room:  1745
+room:  1746
+room:  1747
+room:  1748
+room:  1749
+room:  1750
+room:  1751
+room:  1752
+room:  1753
+room:  1754
+room:  1755
+room:  1756
+room:  1757
+room:  1758
+room:  1759
+room:  1760
+room:  1761
+room:  1762
+room:  1763
+room:  1764
+room:  1765
+room:  1766
+room:  1767
+room:  1768
+room:  1769
+room:  1770
+room:  1771
+room:  1772
+room:  1773
+room:  1774
+room:  1775
+room:  1776
+room:  1777
+room:  1778
+room:  1779
+room:  1780
+room:  1781
+room:  1782
+room:  1783
+room:  1784
+room:  1785
+room:  1786
+room:  1787
+room:  1788
+room:  1789
+room:  1790
+room:  1791
+room:  1792
+room:  1793
+room:  1794
+room:  1795
+room:  1796
+room:  1797
+room:  1798
+room:  1799
+room:  1800
+room:  1801
+room:  1802
+room:  1803
+room:  1804
+room:  1805
+room:  1806
+room:  1807
+room:  1808
+room:  1809
+room:  1810
+room:  1811
+room:  1812
+room:  1813
+room:  1814
+room:  1815
+room:  1816
+room:  1817
+room:  1818
+room:  1819
+room:  1820
+room:  1821
+room:  1822
+room:  1823
+room:  1824
+room:  1825
+room:  1826
+room:  1827
+room:  1828
+room:  1829
+room:  1830
+room:  1831
+room:  1832
+room:  1833
+room:  1834
+room:  1835
+room:  1836
+room:  1837
+room:  1838
+room:  1839
+room:  1840
+room:  1841
+room:  1842
+room:  1843
+room:  1844
+room:  1845
+room:  1846
+room:  1847
+room:  1848
+room:  1849
+room:  1850
+room:  1851
+room:  1852
+room:  1853
+room:  1854
+room:  1855
+room:  1856
+room:  1857
+room:  1858
+room:  1859
+room:  1860
+room:  1861
+room:  1862
+room:  1863
+room:  1864
+room:  1865
+room:  1866
+room:  1867
+room:  1868
+room:  1869
+room:  1870
+room:  1871
+room:  1872
+room:  1873
+room:  1874
+room:  1875
+room:  1876
+room:  1877
+room:  1878
+room:  1879
+room:  1880
+room:  1881
+room:  1882
+room:  1883
+room:  1884
+room:  1885
+room:  1886
+room:  1887
+room:  1888
+room:  1889
+room:  1890
+room:  1891
+room:  1892
+room:  1893
+room:  1894
+room:  1895
+room:  1896
+room:  1897
+room:  1898
+room:  1899
+room:  1900
+room:  1901
+room:  1902
+room:  1903
+room:  1904
+room:  1905
+room:  1906
+room:  1907
+room:  1908
+room:  1909
+room:  1910
+room:  1911
+room:  1912
+room:  1913
+room:  1914
+room:  1915
+room:  1916
+room:  1917
+room:  1918
+room:  1919
+room:  1920
+room:  1921
+room:  1922
+room:  1923
+room:  1924
+room:  1925
+room:  1926
+room:  1927
+room:  1928
+room:  1929
+room:  1930
+room:  1931
+room:  1932
+room:  1933
+room:  1934
+room:  1935
+room:  1936
+room:  1937
+room:  1938
+room:  1939
+room:  1940
+room:  1941
+room:  1942
+room:  1943
+room:  1944
+room:  1945
+room:  1946
+room:  1947
+room:  1948
+room:  1949
+room:  1950
+room:  1951
+room:  1952
+room:  1953
+room:  1954
+room:  1955
+room:  1956
+room:  1957
+room:  1958
+room:  1959
+room:  1960
+room:  1961
+room:  1962
+room:  1963
+room:  1964
+room:  1965
+room:  1966
+room:  1967
+room:  1968
+room:  1969
+room:  1970
+room:  1971
+room:  1972
+room:  1973
+room:  1974
+room:  1975
+room:  1976
+room:  1977
+room:  1978
+room:  1979
+room:  1980
+room:  1981
+room:  1982
+room:  1983
+room:  1984
+room:  1985
+room:  1986
+room:  1987
+room:  1988
+room:  1989
+room:  1990
+room:  1991
+room:  1992
+room:  1993
+room:  1994
+room:  1995
+room:  1996
+room:  1997
+room:  1998
+room:  1999
+room:  2000
+room:  2001
+room:  2002
+room:  2003
+room:  2004
+room:  2005
+room:  2006
+room:  2007
+room:  2008
+room:  2009
+room:  2010
+room:  2011
+room:  2012
+room:  2013
+room:  2014
+room:  2015
+room:  2016
+room:  2017
+room:  2018
+room:  2019
+room:  2020
+room:  2021
+room:  2022
+room:  2023
+room:  2024
+room:  2025
+room:  2026
+room:  2027
+room:  2028
+room:  2029
+room:  2030
+room:  2031
+room:  2032
+room:  2033
+room:  2034
+room:  2035
+room:  2036
+room:  2037
+room:  2038
+room:  2039
+room:  2040
+room:  2041
+room:  2042
+room:  2043
+room:  2044
+room:  2045
+room:  2046
+room:  2047
+room:  2048
+room:  2049
+room:  2050
+room:  2051
+room:  2052
+room:  2053
+room:  2054
+room:  2055
+room:  2056
+room:  2057
+room:  2058
+room:  2059
+room:  2060
+room:  2061
+room:  2062
+room:  2063
+room:  2064
+room:  2065
+room:  2066
+room:  2067
+room:  2068
+room:  2069
+room:  2070
+room:  2071
+room:  2072
+room:  2073
+room:  2074
+room:  2075
+room:  2076
+room:  2077
+room:  2078
+room:  2079
+room:  2080
+room:  2081
+room:  2082
+room:  2083
+room:  2084
+room:  2085
+room:  2086
+room:  2087
+room:  2088
+room:  2089
+room:  2090
+room:  2091
+room:  2092
+room:  2093
+room:  2094
+room:  2095
+room:  2096
+room:  2097
+room:  2098
+room:  2099
+room:  2100
+room:  2101
+room:  2102
+room:  2103
+room:  2104
+room:  2105
+room:  2106
+room:  2107
+room:  2108
+room:  2109
+room:  2110
+room:  2111
+room:  2112
+room:  2113
+room:  2114
+room:  2115
+room:  2116
+room:  2117
+room:  2118
+room:  2119
+room:  2120
+room:  2121
+room:  2122
+room:  2123
+room:  2124
+room:  2125
+#####################################
+################# Salas llenas
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+################# Salanas vacias
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+#####################################
+Archivos de datos de training para presencia encontrados en './processed_data/presence/'. Cargando...
+Datos de training de presencia cargados exitosamente. (full & empty)...
+generando datos de salas llenas para validacion...
+participant:  081  position:  1
+participant:  081  position:  2
+participant:  081  position:  3
+participant:  081  position:  4
+participant:  081  position:  5
+participant:  081  position:  6
+participant:  081  position:  7
+participant:  081  position:  8
+participant:  081  position:  9
+participant:  081  position:  10
+participant:  081  position:  11
+participant:  081  position:  12
+participant:  081  position:  13
+participant:  081  position:  14
+participant:  081  position:  15
+participant:  081  position:  16
+participant:  081  position:  17
+participant:  082  position:  1
+participant:  082  position:  2
+participant:  082  position:  3
+participant:  082  position:  4
+participant:  082  position:  5
+participant:  082  position:  6
+participant:  082  position:  7
+participant:  082  position:  8
+participant:  082  position:  9
+participant:  082  position:  10
+participant:  082  position:  11
+participant:  082  position:  12
+participant:  082  position:  13
+participant:  082  position:  14
+participant:  082  position:  15
+participant:  082  position:  16
+participant:  082  position:  17
+participant:  083  position:  1
+participant:  083  position:  2
+participant:  083  position:  3
+participant:  083  position:  4
+participant:  083  position:  5
+participant:  083  position:  6
+participant:  083  position:  7
+participant:  083  position:  8
+participant:  083  position:  9
+participant:  083  position:  10
+participant:  083  position:  11
+participant:  083  position:  12
+participant:  083  position:  13
+participant:  083  position:  14
+participant:  083  position:  15
+participant:  083  position:  16
+participant:  083  position:  17
+participant:  084  position:  1
+participant:  084  position:  2
+participant:  084  position:  3
+participant:  084  position:  4
+participant:  084  position:  5
+participant:  084  position:  6
+participant:  084  position:  7
+participant:  084  position:  8
+participant:  084  position:  9
+participant:  084  position:  10
+participant:  084  position:  11
+participant:  084  position:  12
+participant:  084  position:  13
+participant:  084  position:  14
+participant:  084  position:  15
+participant:  084  position:  16
+participant:  084  position:  17
+participant:  085  position:  1
+participant:  085  position:  2
+participant:  085  position:  3
+participant:  085  position:  4
+participant:  085  position:  5
+participant:  085  position:  6
+participant:  085  position:  7
+participant:  085  position:  8
+participant:  085  position:  9
+participant:  085  position:  10
+participant:  085  position:  11
+participant:  085  position:  12
+participant:  085  position:  13
+participant:  085  position:  14
+participant:  085  position:  15
+participant:  085  position:  16
+participant:  085  position:  17
+participant:  086  position:  1
+participant:  086  position:  2
+participant:  086  position:  3
+participant:  086  position:  4
+participant:  086  position:  5
+participant:  086  position:  6
+participant:  086  position:  7
+participant:  086  position:  8
+participant:  086  position:  9
+participant:  086  position:  10
+participant:  086  position:  11
+participant:  086  position:  12
+participant:  086  position:  13
+participant:  086  position:  14
+participant:  086  position:  15
+participant:  086  position:  16
+participant:  086  position:  17
+participant:  087  position:  1
+participant:  087  position:  2
+participant:  087  position:  3
+participant:  087  position:  4
+participant:  087  position:  5
+participant:  087  position:  6
+participant:  087  position:  7
+participant:  087  position:  8
+participant:  087  position:  9
+participant:  087  position:  10
+participant:  087  position:  11
+participant:  087  position:  12
+participant:  087  position:  13
+participant:  087  position:  14
+participant:  087  position:  15
+participant:  087  position:  16
+participant:  087  position:  17
+participant:  088  position:  1
+participant:  088  position:  2
+participant:  088  position:  3
+participant:  088  position:  4
+participant:  088  position:  5
+participant:  088  position:  6
+participant:  088  position:  7
+participant:  088  position:  8
+participant:  088  position:  9
+participant:  088  position:  10
+participant:  088  position:  11
+participant:  088  position:  12
+participant:  088  position:  13
+participant:  088  position:  14
+participant:  088  position:  15
+participant:  088  position:  16
+participant:  088  position:  17
+participant:  089  position:  1
+participant:  089  position:  2
+participant:  089  position:  3
+participant:  089  position:  4
+participant:  089  position:  5
+participant:  089  position:  6
+participant:  089  position:  7
+participant:  089  position:  8
+participant:  089  position:  9
+participant:  089  position:  10
+participant:  089  position:  11
+participant:  089  position:  12
+participant:  089  position:  13
+participant:  089  position:  14
+participant:  089  position:  15
+participant:  089  position:  16
+participant:  089  position:  17
+participant:  090  position:  1
+participant:  090  position:  2
+participant:  090  position:  3
+participant:  090  position:  4
+participant:  090  position:  5
+participant:  090  position:  6
+participant:  090  position:  7
+participant:  090  position:  8
+participant:  090  position:  9
+participant:  090  position:  10
+participant:  090  position:  11
+participant:  090  position:  12
+participant:  090  position:  13
+participant:  090  position:  14
+participant:  090  position:  15
+participant:  090  position:  16
+participant:  090  position:  17
+participant:  091  position:  1
+participant:  091  position:  2
+participant:  091  position:  3
+participant:  091  position:  4
+participant:  091  position:  5
+participant:  091  position:  6
+participant:  091  position:  7
+participant:  091  position:  8
+participant:  091  position:  9
+participant:  091  position:  10
+participant:  091  position:  11
+participant:  091  position:  12
+participant:  091  position:  13
+participant:  091  position:  14
+participant:  091  position:  15
+participant:  091  position:  16
+participant:  091  position:  17
+participant:  092  position:  1
+participant:  092  position:  2
+participant:  092  position:  3
+participant:  092  position:  4
+participant:  092  position:  5
+participant:  092  position:  6
+participant:  092  position:  7
+participant:  092  position:  8
+participant:  092  position:  9
+participant:  092  position:  10
+participant:  092  position:  11
+participant:  092  position:  12
+participant:  092  position:  13
+participant:  092  position:  14
+participant:  092  position:  15
+participant:  092  position:  16
+participant:  092  position:  17
+participant:  093  position:  1
+participant:  093  position:  2
+participant:  093  position:  3
+participant:  093  position:  4
+participant:  093  position:  5
+participant:  093  position:  6
+participant:  093  position:  7
+participant:  093  position:  8
+participant:  093  position:  9
+participant:  093  position:  10
+participant:  093  position:  11
+participant:  093  position:  12
+participant:  093  position:  13
+participant:  093  position:  14
+participant:  093  position:  15
+participant:  093  position:  16
+participant:  093  position:  17
+participant:  094  position:  1
+participant:  094  position:  2
+participant:  094  position:  3
+participant:  094  position:  4
+participant:  094  position:  5
+participant:  094  position:  6
+participant:  094  position:  7
+participant:  094  position:  8
+participant:  094  position:  9
+participant:  094  position:  10
+participant:  094  position:  11
+participant:  094  position:  12
+participant:  094  position:  13
+participant:  094  position:  14
+participant:  094  position:  15
+participant:  094  position:  16
+participant:  094  position:  17
+participant:  095  position:  1
+participant:  095  position:  2
+participant:  095  position:  3
+participant:  095  position:  4
+participant:  095  position:  5
+participant:  095  position:  6
+participant:  095  position:  7
+participant:  095  position:  8
+participant:  095  position:  9
+participant:  095  position:  10
+participant:  095  position:  11
+participant:  095  position:  12
+participant:  095  position:  13
+participant:  095  position:  14
+participant:  095  position:  15
+participant:  095  position:  16
+participant:  095  position:  17
+participant:  096  position:  1
+participant:  096  position:  2
+participant:  096  position:  3
+participant:  096  position:  4
+participant:  096  position:  5
+participant:  096  position:  6
+participant:  096  position:  7
+participant:  096  position:  8
+participant:  096  position:  9
+participant:  096  position:  10
+participant:  096  position:  11
+participant:  096  position:  12
+participant:  096  position:  13
+participant:  096  position:  14
+participant:  096  position:  15
+participant:  096  position:  16
+participant:  096  position:  17
+participant:  097  position:  1
+participant:  097  position:  2
+participant:  097  position:  3
+participant:  097  position:  4
+participant:  097  position:  5
+participant:  097  position:  6
+participant:  097  position:  7
+participant:  097  position:  8
+participant:  097  position:  9
+participant:  097  position:  10
+participant:  097  position:  11
+participant:  097  position:  12
+participant:  097  position:  13
+participant:  097  position:  14
+participant:  097  position:  15
+participant:  097  position:  16
+participant:  097  position:  17
+participant:  098  position:  1
+participant:  098  position:  2
+participant:  098  position:  3
+participant:  098  position:  4
+participant:  098  position:  5
+participant:  098  position:  6
+participant:  098  position:  7
+participant:  098  position:  8
+participant:  098  position:  9
+participant:  098  position:  10
+participant:  098  position:  11
+participant:  098  position:  12
+participant:  098  position:  13
+participant:  098  position:  14
+participant:  098  position:  15
+participant:  098  position:  16
+participant:  098  position:  17
+participant:  099  position:  1
+participant:  099  position:  2
+participant:  099  position:  3
+participant:  099  position:  4
+participant:  099  position:  5
+participant:  099  position:  6
+participant:  099  position:  7
+participant:  099  position:  8
+participant:  099  position:  9
+participant:  099  position:  10
+participant:  099  position:  11
+participant:  099  position:  12
+participant:  099  position:  13
+participant:  099  position:  14
+participant:  099  position:  15
+participant:  099  position:  16
+participant:  099  position:  17
+participant:  100  position:  1
+participant:  100  position:  2
+participant:  100  position:  3
+participant:  100  position:  4
+participant:  100  position:  5
+participant:  100  position:  6
+participant:  100  position:  7
+participant:  100  position:  8
+participant:  100  position:  9
+participant:  100  position:  10
+participant:  100  position:  11
+participant:  100  position:  12
+participant:  100  position:  13
+participant:  100  position:  14
+participant:  100  position:  15
+participant:  100  position:  16
+participant:  100  position:  17
+generando datos de salas llenas para test...
+participant:  101  position:  1
+participant:  101  position:  2
+participant:  101  position:  3
+participant:  101  position:  4
+participant:  101  position:  5
+participant:  101  position:  6
+participant:  101  position:  7
+participant:  101  position:  8
+participant:  101  position:  9
+participant:  101  position:  10
+participant:  101  position:  11
+participant:  101  position:  12
+participant:  101  position:  13
+participant:  101  position:  14
+participant:  101  position:  15
+participant:  101  position:  16
+participant:  101  position:  17
+participant:  102  position:  1
+participant:  102  position:  2
+participant:  102  position:  3
+participant:  102  position:  4
+participant:  102  position:  5
+participant:  102  position:  6
+participant:  102  position:  7
+participant:  102  position:  8
+participant:  102  position:  9
+participant:  102  position:  10
+participant:  102  position:  11
+participant:  102  position:  12
+participant:  102  position:  13
+participant:  102  position:  14
+participant:  102  position:  15
+participant:  102  position:  16
+participant:  102  position:  17
+participant:  103  position:  1
+participant:  103  position:  2
+participant:  103  position:  3
+participant:  103  position:  4
+participant:  103  position:  5
+participant:  103  position:  6
+participant:  103  position:  7
+participant:  103  position:  8
+participant:  103  position:  9
+participant:  103  position:  10
+participant:  103  position:  11
+participant:  103  position:  12
+participant:  103  position:  13
+participant:  103  position:  14
+participant:  103  position:  15
+participant:  103  position:  16
+participant:  103  position:  17
+participant:  104  position:  1
+participant:  104  position:  2
+participant:  104  position:  3
+participant:  104  position:  4
+participant:  104  position:  5
+participant:  104  position:  6
+participant:  104  position:  7
+participant:  104  position:  8
+participant:  104  position:  9
+participant:  104  position:  10
+participant:  104  position:  11
+participant:  104  position:  12
+participant:  104  position:  13
+participant:  104  position:  14
+participant:  104  position:  15
+participant:  104  position:  16
+participant:  104  position:  17
+participant:  105  position:  1
+participant:  105  position:  2
+participant:  105  position:  3
+participant:  105  position:  4
+participant:  105  position:  5
+participant:  105  position:  6
+participant:  105  position:  7
+participant:  105  position:  8
+participant:  105  position:  9
+participant:  105  position:  10
+participant:  105  position:  11
+participant:  105  position:  12
+participant:  105  position:  13
+participant:  105  position:  14
+participant:  105  position:  15
+participant:  105  position:  16
+participant:  105  position:  17
+participant:  106  position:  1
+participant:  106  position:  2
+participant:  106  position:  3
+participant:  106  position:  4
+participant:  106  position:  5
+participant:  106  position:  6
+participant:  106  position:  7
+participant:  106  position:  8
+participant:  106  position:  9
+participant:  106  position:  10
+participant:  106  position:  11
+participant:  106  position:  12
+participant:  106  position:  13
+participant:  106  position:  14
+participant:  106  position:  15
+participant:  106  position:  16
+participant:  106  position:  17
+participant:  107  position:  1
+participant:  107  position:  2
+participant:  107  position:  3
+participant:  107  position:  4
+participant:  107  position:  5
+participant:  107  position:  6
+participant:  107  position:  7
+participant:  107  position:  8
+participant:  107  position:  9
+participant:  107  position:  10
+participant:  107  position:  11
+participant:  107  position:  12
+participant:  107  position:  13
+participant:  107  position:  14
+participant:  107  position:  15
+participant:  107  position:  16
+participant:  107  position:  17
+participant:  108  position:  1
+participant:  108  position:  2
+participant:  108  position:  3
+participant:  108  position:  4
+participant:  108  position:  5
+participant:  108  position:  6
+participant:  108  position:  7
+participant:  108  position:  8
+participant:  108  position:  9
+participant:  108  position:  10
+participant:  108  position:  11
+participant:  108  position:  12
+participant:  108  position:  13
+participant:  108  position:  14
+participant:  108  position:  15
+participant:  108  position:  16
+participant:  108  position:  17
+participant:  109  position:  1
+participant:  109  position:  2
+participant:  109  position:  3
+participant:  109  position:  4
+participant:  109  position:  5
+participant:  109  position:  6
+participant:  109  position:  7
+participant:  109  position:  8
+participant:  109  position:  9
+participant:  109  position:  10
+participant:  109  position:  11
+participant:  109  position:  12
+participant:  109  position:  13
+participant:  109  position:  14
+participant:  109  position:  15
+participant:  109  position:  16
+participant:  109  position:  17
+participant:  110  position:  1
+participant:  110  position:  2
+participant:  110  position:  3
+participant:  110  position:  4
+participant:  110  position:  5
+participant:  110  position:  6
+participant:  110  position:  7
+participant:  110  position:  8
+participant:  110  position:  9
+participant:  110  position:  10
+participant:  110  position:  11
+participant:  110  position:  12
+participant:  110  position:  13
+participant:  110  position:  14
+participant:  110  position:  15
+participant:  110  position:  16
+participant:  110  position:  17
+participant:  111  position:  1
+participant:  111  position:  2
+participant:  111  position:  3
+participant:  111  position:  4
+participant:  111  position:  5
+participant:  111  position:  6
+participant:  111  position:  7
+participant:  111  position:  8
+participant:  111  position:  9
+participant:  111  position:  10
+participant:  111  position:  11
+participant:  111  position:  12
+participant:  111  position:  13
+participant:  111  position:  14
+participant:  111  position:  15
+participant:  111  position:  16
+participant:  111  position:  17
+participant:  112  position:  1
+participant:  112  position:  2
+participant:  112  position:  3
+participant:  112  position:  4
+participant:  112  position:  5
+participant:  112  position:  6
+participant:  112  position:  7
+participant:  112  position:  8
+participant:  112  position:  9
+participant:  112  position:  10
+participant:  112  position:  11
+participant:  112  position:  12
+participant:  112  position:  13
+participant:  112  position:  14
+participant:  112  position:  15
+participant:  112  position:  16
+participant:  112  position:  17
+participant:  113  position:  1
+participant:  113  position:  2
+participant:  113  position:  3
+participant:  113  position:  4
+participant:  113  position:  5
+participant:  113  position:  6
+participant:  113  position:  7
+participant:  113  position:  8
+participant:  113  position:  9
+participant:  113  position:  10
+participant:  113  position:  11
+participant:  113  position:  12
+participant:  113  position:  13
+participant:  113  position:  14
+participant:  113  position:  15
+participant:  113  position:  16
+participant:  113  position:  17
+participant:  114  position:  1
+participant:  114  position:  2
+participant:  114  position:  3
+participant:  114  position:  4
+participant:  114  position:  5
+participant:  114  position:  6
+participant:  114  position:  7
+participant:  114  position:  8
+participant:  114  position:  9
+participant:  114  position:  10
+participant:  114  position:  11
+participant:  114  position:  12
+participant:  114  position:  13
+participant:  114  position:  14
+participant:  114  position:  15
+participant:  114  position:  16
+participant:  114  position:  17
+participant:  115  position:  1
+participant:  115  position:  2
+participant:  115  position:  3
+participant:  115  position:  4
+participant:  115  position:  5
+participant:  115  position:  6
+participant:  115  position:  7
+participant:  115  position:  8
+participant:  115  position:  9
+participant:  115  position:  10
+participant:  115  position:  11
+participant:  115  position:  12
+participant:  115  position:  13
+participant:  115  position:  14
+participant:  115  position:  15
+participant:  115  position:  16
+participant:  115  position:  17
+participant:  116  position:  1
+participant:  116  position:  2
+participant:  116  position:  3
+participant:  116  position:  4
+participant:  116  position:  5
+participant:  116  position:  6
+participant:  116  position:  7
+participant:  116  position:  8
+participant:  116  position:  9
+participant:  116  position:  10
+participant:  116  position:  11
+participant:  116  position:  12
+participant:  116  position:  13
+participant:  116  position:  14
+participant:  116  position:  15
+participant:  116  position:  16
+participant:  116  position:  17
+participant:  117  position:  1
+participant:  117  position:  2
+participant:  117  position:  3
+participant:  117  position:  4
+participant:  117  position:  5
+participant:  117  position:  6
+participant:  117  position:  7
+participant:  117  position:  8
+participant:  117  position:  9
+participant:  117  position:  10
+participant:  117  position:  11
+participant:  117  position:  12
+participant:  117  position:  13
+participant:  117  position:  14
+participant:  117  position:  15
+participant:  117  position:  16
+participant:  117  position:  17
+participant:  118  position:  1
+participant:  118  position:  2
+participant:  118  position:  3
+participant:  118  position:  4
+participant:  118  position:  5
+participant:  118  position:  6
+participant:  118  position:  7
+participant:  118  position:  8
+participant:  118  position:  9
+participant:  118  position:  10
+participant:  118  position:  11
+participant:  118  position:  12
+participant:  118  position:  13
+participant:  118  position:  14
+participant:  118  position:  15
+participant:  118  position:  16
+participant:  118  position:  17
+participant:  119  position:  1
+participant:  119  position:  2
+participant:  119  position:  3
+participant:  119  position:  4
+participant:  119  position:  5
+participant:  119  position:  6
+participant:  119  position:  7
+participant:  119  position:  8
+participant:  119  position:  9
+participant:  119  position:  10
+participant:  119  position:  11
+participant:  119  position:  12
+participant:  119  position:  13
+participant:  119  position:  14
+participant:  119  position:  15
+participant:  119  position:  16
+participant:  119  position:  17
+participant:  120  position:  1
+participant:  120  position:  2
+participant:  120  position:  3
+participant:  120  position:  4
+participant:  120  position:  5
+participant:  120  position:  6
+participant:  120  position:  7
+participant:  120  position:  8
+participant:  120  position:  9
+participant:  120  position:  10
+participant:  120  position:  11
+participant:  120  position:  12
+participant:  120  position:  13
+participant:  120  position:  14
+participant:  120  position:  15
+participant:  120  position:  16
+participant:  120  position:  17
+participant:  121  position:  1
+participant:  121  position:  2
+participant:  121  position:  3
+participant:  121  position:  4
+participant:  121  position:  5
+participant:  121  position:  6
+participant:  121  position:  7
+participant:  121  position:  8
+participant:  121  position:  9
+participant:  121  position:  10
+participant:  121  position:  11
+participant:  121  position:  12
+participant:  121  position:  13
+participant:  121  position:  14
+participant:  121  position:  15
+participant:  121  position:  16
+participant:  121  position:  17
+participant:  122  position:  1
+participant:  122  position:  2
+participant:  122  position:  3
+participant:  122  position:  4
+participant:  122  position:  5
+participant:  122  position:  6
+participant:  122  position:  7
+participant:  122  position:  8
+participant:  122  position:  9
+participant:  122  position:  10
+participant:  122  position:  11
+participant:  122  position:  12
+participant:  122  position:  13
+participant:  122  position:  14
+participant:  122  position:  15
+participant:  122  position:  16
+participant:  122  position:  17
+participant:  123  position:  1
+participant:  123  position:  2
+participant:  123  position:  3
+participant:  123  position:  4
+participant:  123  position:  5
+participant:  123  position:  6
+participant:  123  position:  7
+participant:  123  position:  8
+participant:  123  position:  9
+participant:  123  position:  10
+participant:  123  position:  11
+participant:  123  position:  12
+participant:  123  position:  13
+participant:  123  position:  14
+participant:  123  position:  15
+participant:  123  position:  16
+participant:  123  position:  17
+participant:  124  position:  1
+participant:  124  position:  2
+participant:  124  position:  3
+participant:  124  position:  4
+participant:  124  position:  5
+participant:  124  position:  6
+participant:  124  position:  7
+participant:  124  position:  8
+participant:  124  position:  9
+participant:  124  position:  10
+participant:  124  position:  11
+participant:  124  position:  12
+participant:  124  position:  13
+participant:  124  position:  14
+participant:  124  position:  15
+participant:  124  position:  16
+participant:  124  position:  17
+participant:  125  position:  1
+participant:  125  position:  2
+participant:  125  position:  3
+participant:  125  position:  4
+participant:  125  position:  5
+participant:  125  position:  6
+participant:  125  position:  7
+participant:  125  position:  8
+participant:  125  position:  9
+participant:  125  position:  10
+participant:  125  position:  11
+participant:  125  position:  12
+participant:  125  position:  13
+participant:  125  position:  14
+participant:  125  position:  15
+participant:  125  position:  16
+participant:  125  position:  17
+generando datos de salas vacias para validacion...
+room:  1361
+room:  1362
+room:  1363
+room:  1364
+room:  1365
+room:  1366
+room:  1367
+room:  1368
+room:  1369
+room:  1370
+room:  1371
+room:  1372
+room:  1373
+room:  1374
+room:  1375
+room:  1376
+room:  1377
+room:  1378
+room:  1379
+room:  1380
+room:  1381
+room:  1382
+room:  1383
+room:  1384
+room:  1385
+room:  1386
+room:  1387
+room:  1388
+room:  1389
+room:  1390
+room:  1391
+room:  1392
+room:  1393
+room:  1394
+room:  1395
+room:  1396
+room:  1397
+room:  1398
+room:  1399
+room:  1400
+room:  1401
+room:  1402
+room:  1403
+room:  1404
+room:  1405
+room:  1406
+room:  1407
+room:  1408
+room:  1409
+room:  1410
+room:  1411
+room:  1412
+room:  1413
+room:  1414
+room:  1415
+room:  1416
+room:  1417
+room:  1418
+room:  1419
+room:  1420
+room:  1421
+room:  1422
+room:  1423
+room:  1424
+room:  1425
+room:  1426
+room:  1427
+room:  1428
+room:  1429
+room:  1430
+room:  1431
+room:  1432
+room:  1433
+room:  1434
+room:  1435
+room:  1436
+room:  1437
+room:  1438
+room:  1439
+room:  1440
+room:  1441
+room:  1442
+room:  1443
+room:  1444
+room:  1445
+room:  1446
+room:  1447
+room:  1448
+room:  1449
+room:  1450
+room:  1451
+room:  1452
+room:  1453
+room:  1454
+room:  1455
+room:  1456
+room:  1457
+room:  1458
+room:  1459
+room:  1460
+room:  1461
+room:  1462
+room:  1463
+room:  1464
+room:  1465
+room:  1466
+room:  1467
+room:  1468
+room:  1469
+room:  1470
+room:  1471
+room:  1472
+room:  1473
+room:  1474
+room:  1475
+room:  1476
+room:  1477
+room:  1478
+room:  1479
+room:  1480
+room:  1481
+room:  1482
+room:  1483
+room:  1484
+room:  1485
+room:  1486
+room:  1487
+room:  1488
+room:  1489
+room:  1490
+room:  1491
+room:  1492
+room:  1493
+room:  1494
+room:  1495
+room:  1496
+room:  1497
+room:  1498
+room:  1499
+room:  1500
+room:  1501
+room:  1502
+room:  1503
+room:  1504
+room:  1505
+room:  1506
+room:  1507
+room:  1508
+room:  1509
+room:  1510
+room:  1511
+room:  1512
+room:  1513
+room:  1514
+room:  1515
+room:  1516
+room:  1517
+room:  1518
+room:  1519
+room:  1520
+room:  1521
+room:  1522
+room:  1523
+room:  1524
+room:  1525
+room:  1526
+room:  1527
+room:  1528
+room:  1529
+room:  1530
+room:  1531
+room:  1532
+room:  1533
+room:  1534
+room:  1535
+room:  1536
+room:  1537
+room:  1538
+room:  1539
+room:  1540
+room:  1541
+room:  1542
+room:  1543
+room:  1544
+room:  1545
+room:  1546
+room:  1547
+room:  1548
+room:  1549
+room:  1550
+room:  1551
+room:  1552
+room:  1553
+room:  1554
+room:  1555
+room:  1556
+room:  1557
+room:  1558
+room:  1559
+room:  1560
+room:  1561
+room:  1562
+room:  1563
+room:  1564
+room:  1565
+room:  1566
+room:  1567
+room:  1568
+room:  1569
+room:  1570
+room:  1571
+room:  1572
+room:  1573
+room:  1574
+room:  1575
+room:  1576
+room:  1577
+room:  1578
+room:  1579
+room:  1580
+room:  1581
+room:  1582
+room:  1583
+room:  1584
+room:  1585
+room:  1586
+room:  1587
+room:  1588
+room:  1589
+room:  1590
+room:  1591
+room:  1592
+room:  1593
+room:  1594
+room:  1595
+room:  1596
+room:  1597
+room:  1598
+room:  1599
+room:  1600
+room:  1601
+room:  1602
+room:  1603
+room:  1604
+room:  1605
+room:  1606
+room:  1607
+room:  1608
+room:  1609
+room:  1610
+room:  1611
+room:  1612
+room:  1613
+room:  1614
+room:  1615
+room:  1616
+room:  1617
+room:  1618
+room:  1619
+room:  1620
+room:  1621
+room:  1622
+room:  1623
+room:  1624
+room:  1625
+room:  1626
+room:  1627
+room:  1628
+room:  1629
+room:  1630
+room:  1631
+room:  1632
+room:  1633
+room:  1634
+room:  1635
+room:  1636
+room:  1637
+room:  1638
+room:  1639
+room:  1640
+room:  1641
+room:  1642
+room:  1643
+room:  1644
+room:  1645
+room:  1646
+room:  1647
+room:  1648
+room:  1649
+room:  1650
+room:  1651
+room:  1652
+room:  1653
+room:  1654
+room:  1655
+room:  1656
+room:  1657
+room:  1658
+room:  1659
+room:  1660
+room:  1661
+room:  1662
+room:  1663
+room:  1664
+room:  1665
+room:  1666
+room:  1667
+room:  1668
+room:  1669
+room:  1670
+room:  1671
+room:  1672
+room:  1673
+room:  1674
+room:  1675
+room:  1676
+room:  1677
+room:  1678
+room:  1679
+room:  1680
+room:  1681
+room:  1682
+room:  1683
+room:  1684
+room:  1685
+room:  1686
+room:  1687
+room:  1688
+room:  1689
+room:  1690
+room:  1691
+room:  1692
+room:  1693
+room:  1694
+room:  1695
+room:  1696
+room:  1697
+room:  1698
+room:  1699
+room:  1700
+generando datos de salas vacias para  test...
+room:  1701
+room:  1702
+room:  1703
+room:  1704
+room:  1705
+room:  1706
+room:  1707
+room:  1708
+room:  1709
+room:  1710
+room:  1711
+room:  1712
+room:  1713
+room:  1714
+room:  1715
+room:  1716
+room:  1717
+room:  1718
+room:  1719
+room:  1720
+room:  1721
+room:  1722
+room:  1723
+room:  1724
+room:  1725
+room:  1726
+room:  1727
+room:  1728
+room:  1729
+room:  1730
+room:  1731
+room:  1732
+room:  1733
+room:  1734
+room:  1735
+room:  1736
+room:  1737
+room:  1738
+room:  1739
+room:  1740
+room:  1741
+room:  1742
+room:  1743
+room:  1744
+room:  1745
+room:  1746
+room:  1747
+room:  1748
+room:  1749
+room:  1750
+room:  1751
+room:  1752
+room:  1753
+room:  1754
+room:  1755
+room:  1756
+room:  1757
+room:  1758
+room:  1759
+room:  1760
+room:  1761
+room:  1762
+room:  1763
+room:  1764
+room:  1765
+room:  1766
+room:  1767
+room:  1768
+room:  1769
+room:  1770
+room:  1771
+room:  1772
+room:  1773
+room:  1774
+room:  1775
+room:  1776
+room:  1777
+room:  1778
+room:  1779
+room:  1780
+room:  1781
+room:  1782
+room:  1783
+room:  1784
+room:  1785
+room:  1786
+room:  1787
+room:  1788
+room:  1789
+room:  1790
+room:  1791
+room:  1792
+room:  1793
+room:  1794
+room:  1795
+room:  1796
+room:  1797
+room:  1798
+room:  1799
+room:  1800
+room:  1801
+room:  1802
+room:  1803
+room:  1804
+room:  1805
+room:  1806
+room:  1807
+room:  1808
+room:  1809
+room:  1810
+room:  1811
+room:  1812
+room:  1813
+room:  1814
+room:  1815
+room:  1816
+room:  1817
+room:  1818
+room:  1819
+room:  1820
+room:  1821
+room:  1822
+room:  1823
+room:  1824
+room:  1825
+room:  1826
+room:  1827
+room:  1828
+room:  1829
+room:  1830
+room:  1831
+room:  1832
+room:  1833
+room:  1834
+room:  1835
+room:  1836
+room:  1837
+room:  1838
+room:  1839
+room:  1840
+room:  1841
+room:  1842
+room:  1843
+room:  1844
+room:  1845
+room:  1846
+room:  1847
+room:  1848
+room:  1849
+room:  1850
+room:  1851
+room:  1852
+room:  1853
+room:  1854
+room:  1855
+room:  1856
+room:  1857
+room:  1858
+room:  1859
+room:  1860
+room:  1861
+room:  1862
+room:  1863
+room:  1864
+room:  1865
+room:  1866
+room:  1867
+room:  1868
+room:  1869
+room:  1870
+room:  1871
+room:  1872
+room:  1873
+room:  1874
+room:  1875
+room:  1876
+room:  1877
+room:  1878
+room:  1879
+room:  1880
+room:  1881
+room:  1882
+room:  1883
+room:  1884
+room:  1885
+room:  1886
+room:  1887
+room:  1888
+room:  1889
+room:  1890
+room:  1891
+room:  1892
+room:  1893
+room:  1894
+room:  1895
+room:  1896
+room:  1897
+room:  1898
+room:  1899
+room:  1900
+room:  1901
+room:  1902
+room:  1903
+room:  1904
+room:  1905
+room:  1906
+room:  1907
+room:  1908
+room:  1909
+room:  1910
+room:  1911
+room:  1912
+room:  1913
+room:  1914
+room:  1915
+room:  1916
+room:  1917
+room:  1918
+room:  1919
+room:  1920
+room:  1921
+room:  1922
+room:  1923
+room:  1924
+room:  1925
+room:  1926
+room:  1927
+room:  1928
+room:  1929
+room:  1930
+room:  1931
+room:  1932
+room:  1933
+room:  1934
+room:  1935
+room:  1936
+room:  1937
+room:  1938
+room:  1939
+room:  1940
+room:  1941
+room:  1942
+room:  1943
+room:  1944
+room:  1945
+room:  1946
+room:  1947
+room:  1948
+room:  1949
+room:  1950
+room:  1951
+room:  1952
+room:  1953
+room:  1954
+room:  1955
+room:  1956
+room:  1957
+room:  1958
+room:  1959
+room:  1960
+room:  1961
+room:  1962
+room:  1963
+room:  1964
+room:  1965
+room:  1966
+room:  1967
+room:  1968
+room:  1969
+room:  1970
+room:  1971
+room:  1972
+room:  1973
+room:  1974
+room:  1975
+room:  1976
+room:  1977
+room:  1978
+room:  1979
+room:  1980
+room:  1981
+room:  1982
+room:  1983
+room:  1984
+room:  1985
+room:  1986
+room:  1987
+room:  1988
+room:  1989
+room:  1990
+room:  1991
+room:  1992
+room:  1993
+room:  1994
+room:  1995
+room:  1996
+room:  1997
+room:  1998
+room:  1999
+room:  2000
+room:  2001
+room:  2002
+room:  2003
+room:  2004
+room:  2005
+room:  2006
+room:  2007
+room:  2008
+room:  2009
+room:  2010
+room:  2011
+room:  2012
+room:  2013
+room:  2014
+room:  2015
+room:  2016
+room:  2017
+room:  2018
+room:  2019
+room:  2020
+room:  2021
+room:  2022
+room:  2023
+room:  2024
+room:  2025
+room:  2026
+room:  2027
+room:  2028
+room:  2029
+room:  2030
+room:  2031
+room:  2032
+room:  2033
+room:  2034
+room:  2035
+room:  2036
+room:  2037
+room:  2038
+room:  2039
+room:  2040
+room:  2041
+room:  2042
+room:  2043
+room:  2044
+room:  2045
+room:  2046
+room:  2047
+room:  2048
+room:  2049
+room:  2050
+room:  2051
+room:  2052
+room:  2053
+room:  2054
+room:  2055
+room:  2056
+room:  2057
+room:  2058
+room:  2059
+room:  2060
+room:  2061
+room:  2062
+room:  2063
+room:  2064
+room:  2065
+room:  2066
+room:  2067
+room:  2068
+room:  2069
+room:  2070
+room:  2071
+room:  2072
+room:  2073
+room:  2074
+room:  2075
+room:  2076
+room:  2077
+room:  2078
+room:  2079
+room:  2080
+room:  2081
+room:  2082
+room:  2083
+room:  2084
+room:  2085
+room:  2086
+room:  2087
+room:  2088
+room:  2089
+room:  2090
+room:  2091
+room:  2092
+room:  2093
+room:  2094
+room:  2095
+room:  2096
+room:  2097
+room:  2098
+room:  2099
+room:  2100
+room:  2101
+room:  2102
+room:  2103
+room:  2104
+room:  2105
+room:  2106
+room:  2107
+room:  2108
+room:  2109
+room:  2110
+room:  2111
+room:  2112
+room:  2113
+room:  2114
+room:  2115
+room:  2116
+room:  2117
+room:  2118
+room:  2119
+room:  2120
+room:  2121
+room:  2122
+room:  2123
+room:  2124
+room:  2125
+#####################################
+################# Salas llenas
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+################# Salanas vacias
+shape train:  (1360, 52)
+shape val:  (340, 52)
+shape test:  (425, 52)
+shape train label:  (1360,)
+shape val label:  (340,)
+shape test label:  (425,)
+#####################################
+Archivos de datos de training para presencia encontrados en './processed_data/presence/'. Cargando...
+Datos de training de presencia cargados exitosamente. (full & empty)...
+generando datos de salas llenas para validacion...
+participant:  081  position:  1
+participant:  081  position:  2
+participant:  081  position:  3
+participant:  081  position:  4
+participant:  081  position:  5
+participant:  081  position:  6
+participant:  081  position:  7
+participant:  081  position:  8
+participant:  081  position:  9
+participant:  081  position:  10
+participant:  081  position:  11
+participant:  081  position:  12
+participant:  081  position:  13
+participant:  081  position:  14
+participant:  081  position:  15
+participant:  081  position:  16
+participant:  081  position:  17
+participant:  082  position:  1
+participant:  082  position:  2
+participant:  082  position:  3
+participant:  082  position:  4
+participant:  082  position:  5
+participant:  082  position:  6
+participant:  082  position:  7
+participant:  082  position:  8
+participant:  082  position:  9
+participant:  082  position:  10
+participant:  082  position:  11
+participant:  082  position:  12
+participant:  082  position:  13
+participant:  082  position:  14
+participant:  082  position:  15
+participant:  082  position:  16
+participant:  082  position:  17
+participant:  083  position:  1
+participant:  083  position:  2
+participant:  083  position:  3
+participant:  083  position:  4
+participant:  083  position:  5
+participant:  083  position:  6
+participant:  083  position:  7
+participant:  083  position:  8
+participant:  083  position:  9
+participant:  083  position:  10
+participant:  083  position:  11
+participant:  083  position:  12
+participant:  083  position:  13
+participant:  083  position:  14
+participant:  083  position:  15
+participant:  083  position:  16
+participant:  083  position:  17
+participant:  084  position:  1
+participant:  084  position:  2
+participant:  084  position:  3
+participant:  084  position:  4
+participant:  084  position:  5
+participant:  084  position:  6
+participant:  084  position:  7
+participant:  084  position:  8
+participant:  084  position:  9
+participant:  084  position:  10
+participant:  084  position:  11
+participant:  084  position:  12
+participant:  084  position:  13
+participant:  084  position:  14
+participant:  084  position:  15
+participant:  084  position:  16
+participant:  084  position:  17
+participant:  085  position:  1
+participant:  085  position:  2
+participant:  085  position:  3
+participant:  085  position:  4
+participant:  085  position:  5
+participant:  085  position:  6
+participant:  085  position:  7
+participant:  085  position:  8
+participant:  085  position:  9
+participant:  085  position:  10
+participant:  085  position:  11
+participant:  085  position:  12
+participant:  085  position:  13
+participant:  085  position:  14
+participant:  085  position:  15
+participant:  085  position:  16
+participant:  085  position:  17
+participant:  086  position:  1
+participant:  086  position:  2
+participant:  086  position:  3
+participant:  086  position:  4
+participant:  086  position:  5
+participant:  086  position:  6
+participant:  086  position:  7
+participant:  086  position:  8
+participant:  086  position:  9
+participant:  086  position:  10
+participant:  086  position:  11
+participant:  086  position:  12
+participant:  086  position:  13
+participant:  086  position:  14
+participant:  086  position:  15
+participant:  086  position:  16
+participant:  086  position:  17
+participant:  087  position:  1
+participant:  087  position:  2
+participant:  087  position:  3
+participant:  087  position:  4
+participant:  087  position:  5
+participant:  087  position:  6
+participant:  087  position:  7
+participant:  087  position:  8
+participant:  087  position:  9
+participant:  087  position:  10
+participant:  087  position:  11
+participant:  087  position:  12
+participant:  087  position:  13
+participant:  087  position:  14
+participant:  087  position:  15
+participant:  087  position:  16
+participant:  087  position:  17
+participant:  088  position:  1
+participant:  088  position:  2
+participant:  088  position:  3
+participant:  088  position:  4
+participant:  088  position:  5
+participant:  088  position:  6
+participant:  088  position:  7
+participant:  088  position:  8
+participant:  088  position:  9
+participant:  088  position:  10
+participant:  088  position:  11
+participant:  088  position:  12
+participant:  088  position:  13
+participant:  088  position:  14
+participant:  088  position:  15
+participant:  088  position:  16
+participant:  088  position:  17
+participant:  089  position:  1
+participant:  089  position:  2
+participant:  089  position:  3
+participant:  089  position:  4
+participant:  089  position:  5
+participant:  089  position:  6
+participant:  089  position:  7
+participant:  089  position:  8
+participant:  089  position:  9
+participant:  089  position:  10
+participant:  089  position:  11
+participant:  089  position:  12
+participant:  089  position:  13
+participant:  089  position:  14
+participant:  089  position:  15
+participant:  089  position:  16
+participant:  089  position:  17
+participant:  090  position:  1
+participant:  090  position:  2
+participant:  090  position:  3
+participant:  090  position:  4
+participant:  090  position:  5
+participant:  090  position:  6
+participant:  090  position:  7
+participant:  090  position:  8
+participant:  090  position:  9
+participant:  090  position:  10
+participant:  090  position:  11
+participant:  090  position:  12
+participant:  090  position:  13
+participant:  090  position:  14
+participant:  090  position:  15
+participant:  090  position:  16
+participant:  090  position:  17
+participant:  091  position:  1
+participant:  091  position:  2
+participant:  091  position:  3
+participant:  091  position:  4
+participant:  091  position:  5
+participant:  091  position:  6
+participant:  091  position:  7
+participant:  091  position:  8
+participant:  091  position:  9
+participant:  091  position:  10
+participant:  091  position:  11
+participant:  091  position:  12
+participant:  091  position:  13
+participant:  091  position:  14
+participant:  091  position:  15
+participant:  091  position:  16
+participant:  091  position:  17
+participant:  092  position:  1
+participant:  092  position:  2
+participant:  092  position:  3
+participant:  092  position:  4
+participant:  092  position:  5
+participant:  092  position:  6
+participant:  092  position:  7
+participant:  092  position:  8
+participant:  092  position:  9
+participant:  092  position:  10
+participant:  092  position:  11
+participant:  092  position:  12
+participant:  092  position:  13
+participant:  092  position:  14
+participant:  092  position:  15
+participant:  092  position:  16
+participant:  092  position:  17
+participant:  093  position:  1
+participant:  093  position:  2
+participant:  093  position:  3
+participant:  093  position:  4
+participant:  093  position:  5
+participant:  093  position:  6
+participant:  093  position:  7
+participant:  093  position:  8
+participant:  093  position:  9
+participant:  093  position:  10
+participant:  093  position:  11
+participant:  093  position:  12
+participant:  093  position:  13
+participant:  093  position:  14
+participant:  093  position:  15
+participant:  093  position:  16
+participant:  093  position:  17
+participant:  094  position:  1
+participant:  094  position:  2
+participant:  094  position:  3
+participant:  094  position:  4
+participant:  094  position:  5
+participant:  094  position:  6
+participant:  094  position:  7
+participant:  094  position:  8
+participant:  094  position:  9
+participant:  094  position:  10
+participant:  094  position:  11
+participant:  094  position:  12
+participant:  094  position:  13
+participant:  094  position:  14
+participant:  094  position:  15
+participant:  094  position:  16
+participant:  094  position:  17
+participant:  095  position:  1
+participant:  095  position:  2
+participant:  095  position:  3
+participant:  095  position:  4
+participant:  095  position:  5
+participant:  095  position:  6
+participant:  095  position:  7
+participant:  095  position:  8
+participant:  095  position:  9
+participant:  095  position:  10
+participant:  095  position:  11
+participant:  095  position:  12
+participant:  095  position:  13
+participant:  095  position:  14
+participant:  095  position:  15
+participant:  095  position:  16
+participant:  095  position:  17
+participant:  096  position:  1
+participant:  096  position:  2
+participant:  096  position:  3
+participant:  096  position:  4
+participant:  096  position:  5
+participant:  096  position:  6
+participant:  096  position:  7
+participant:  096  position:  8
+participant:  096  position:  9
+participant:  096  position:  10
+participant:  096  position:  11
+participant:  096  position:  12
+participant:  096  position:  13
+participant:  096  position:  14
+participant:  096  position:  15
+participant:  096  position:  16
+participant:  096  position:  17
+participant:  097  position:  1
+participant:  097  position:  2
+participant:  097  position:  3
+participant:  097  position:  4
+participant:  097  position:  5
+participant:  097  position:  6
+participant:  097  position:  7
+participant:  097  position:  8
+participant:  097  position:  9
+participant:  097  position:  10
+participant:  097  position:  11
+participant:  097  position:  12
+participant:  097  position:  13
+participant:  097  position:  14
+participant:  097  position:  15
+participant:  097  position:  16
+participant:  097  position:  17
+participant:  098  position:  1
+participant:  098  position:  2
+participant:  098  position:  3
+participant:  098  position:  4
+participant:  098  position:  5
+participant:  098  position:  6
+participant:  098  position:  7
+participant:  098  position:  8
+participant:  098  position:  9
+participant:  098  position:  10
+participant:  098  position:  11
+participant:  098  position:  12
+participant:  098  position:  13
+participant:  098  position:  14
+participant:  098  position:  15
+participant:  098  position:  16
+participant:  098  position:  17
+participant:  099  position:  1
+participant:  099  position:  2
+participant:  099  position:  3
+participant:  099  position:  4
+participant:  099  position:  5
+participant:  099  position:  6
+participant:  099  position:  7
+participant:  099  position:  8
+participant:  099  position:  9
+participant:  099  position:  10
+participant:  099  position:  11
+participant:  099  position:  12
+participant:  099  position:  13
+participant:  099  position:  14
+participant:  099  position:  15
+participant:  099  position:  16
+participant:  099  position:  17
+participant:  100  position:  1
+participant:  100  position:  2
+participant:  100  position:  3
+participant:  100  position:  4
+participant:  100  position:  5
+participant:  100  position:  6
+participant:  100  position:  7
+participant:  100  position:  8
+participant:  100  position:  9
+participant:  100  position:  10
+participant:  100  position:  11
+participant:  100  position:  12
+participant:  100  position:  13
+participant:  100  position:  14
+participant:  100  position:  15
+participant:  100  position:  16
+participant:  100  position:  17
+generando datos de salas llenas para test...
+participant:  101  position:  1
+participant:  101  position:  2
+participant:  101  position:  3
+participant:  101  position:  4
+participant:  101  position:  5
+participant:  101  position:  6
+participant:  101  position:  7
+participant:  101  position:  8
+participant:  101  position:  9
+participant:  101  position:  10
+participant:  101  position:  11
+participant:  101  position:  12
+participant:  101  position:  13
+participant:  101  position:  14
+participant:  101  position:  15
+participant:  101  position:  16
+participant:  101  position:  17
+participant:  102  position:  1
+participant:  102  position:  2
+participant:  102  position:  3
+participant:  102  position:  4
+participant:  102  position:  5
+participant:  102  position:  6
+participant:  102  position:  7
+participant:  102  position:  8
+participant:  102  position:  9
+participant:  102  position:  10
+participant:  102  position:  11
+participant:  102  position:  12
+participant:  102  position:  13
+participant:  102  position:  14
+participant:  102  position:  15
+participant:  102  position:  16
+participant:  102  position:  17
+participant:  103  position:  1
+participant:  103  position:  2
+participant:  103  position:  3
+participant:  103  position:  4
+participant:  103  position:  5
+participant:  103  position:  6
+participant:  103  position:  7
+participant:  103  position:  8
+participant:  103  position:  9
+participant:  103  position:  10
+participant:  103  position:  11
+participant:  103  position:  12
+participant:  103  position:  13
+participant:  103  position:  14
+participant:  103  position:  15
+participant:  103  position:  16
+participant:  103  position:  17
+participant:  104  position:  1
+participant:  104  position:  2
+participant:  104  position:  3
+participant:  104  position:  4
+participant:  104  position:  5
+participant:  104  position:  6
+participant:  104  position:  7
+participant:  104  position:  8
+participant:  104  position:  9
+participant:  104  position:  10
+participant:  104  position:  11
+participant:  104  position:  12
+participant:  104  position:  13
+participant:  104  position:  14
+participant:  104  position:  15
+participant:  104  position:  16
+participant:  104  position:  17
+participant:  105  position:  1
+participant:  105  position:  2
+participant:  105  position:  3
+participant:  105  position:  4
+participant:  105  position:  5
+participant:  105  position:  6
+participant:  105  position:  7
+participant:  105  position:  8
+participant:  105  position:  9
+participant:  105  position:  10
+participant:  105  position:  11
+participant:  105  position:  12
+participant:  105  position:  13
+participant:  105  position:  14
+participant:  105  position:  15
+participant:  105  position:  16
+participant:  105  position:  17
+participant:  106  position:  1
+participant:  106  position:  2
+participant:  106  position:  3
+participant:  106  position:  4
+participant:  106  position:  5
+participant:  106  position:  6
+participant:  106  position:  7
+participant:  106  position:  8
+participant:  106  position:  9
+participant:  106  position:  10
+participant:  106  position:  11
+participant:  106  position:  12
+participant:  106  position:  13
+participant:  106  position:  14
+participant:  106  position:  15
+participant:  106  position:  16
+participant:  106  position:  17
+participant:  107  position:  1
+participant:  107  position:  2
+participant:  107  position:  3
+participant:  107  position:  4
+participant:  107  position:  5
+participant:  107  position:  6
+participant:  107  position:  7
+participant:  107  position:  8
+participant:  107  position:  9
+participant:  107  position:  10
+participant:  107  position:  11
+participant:  107  position:  12
+participant:  107  position:  13
+participant:  107  position:  14
+participant:  107  position:  15
+participant:  107  position:  16
+participant:  107  position:  17
+participant:  108  position:  1
+participant:  108  position:  2
+participant:  108  position:  3
+participant:  108  position:  4
+participant:  108  position:  5
+participant:  108  position:  6
+participant:  108  position:  7
+participant:  108  position:  8
+participant:  108  position:  9
+participant:  108  position:  10
+participant:  108  position:  11
+participant:  108  position:  12
+participant:  108  position:  13
+participant:  108  position:  14
+participant:  108  position:  15
+participant:  108  position:  16
+participant:  108  position:  17
+participant:  109  position:  1
+participant:  109  position:  2
+participant:  109  position:  3
+participant:  109  position:  4
+participant:  109  position:  5
+participant:  109  position:  6
+participant:  109  position:  7
+participant:  109  position:  8
+participant:  109  position:  9
+participant:  109  position:  10
+participant:  109  position:  11
+participant:  109  position:  12
+participant:  109  position:  13

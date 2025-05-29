@@ -173,24 +173,19 @@ def split_data_emptyrooms_to_presencedetection(train_size, val_size, test_size):
 
 
 def real_time_presencedetection(window, model_name):
+    print('\n##############################################################\nEn Detección de presencia... window: ', int(window/8), 
+          ' package number: ', window)
+
     dict_presencedetection_results = {}  # Diccionario para almacenar los 
-    
     participants_training, participants_validate, participants_test = split_data_participants_to_presencedetection() # division de cantidad de participantes 
 
-
-    # --- Ruta donde guardar/cargar los archivos CSV ---
-    PROCESSED_DATA_DIR = './processed_data/presence/'
     if not os.path.exists(PROCESSED_DATA_DIR):
         os.makedirs(PROCESSED_DATA_DIR) # Crea el directorio si no existe
 
     # Definir los nombres de archivo SOLO para los datos
     data_files = {
         'fullrooms_training': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_training.csv'),
-        #'fullrooms_validate': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_validate.csv'),
-        #'fullrooms_test': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_test.csv'),
         'emptyrooms_training': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_training.csv'),
-        #'emptyrooms_validate': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_validate.csv'),
-        #'emptyrooms_test': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_test.csv'),
     }
 
     # Verificar si todos los archivos de datos existen
@@ -198,28 +193,29 @@ def real_time_presencedetection(window, model_name):
     for file_path in data_files.values():
         if not os.path.exists(file_path):
             all_data_files_exist = False
-            print(f"Archivo de datos de training para presencia NO encontrado: {file_path}")
+            print(f"\nArchivo de datos de training para presencia NO encontrado: {file_path}")
             break
 
     # Si todos los archivos de datos existen, cargarlos
     if all_data_files_exist:
-        print(f"Archivos de datos de training para presencia encontrados en '{PROCESSED_DATA_DIR}'. Cargando...")
+        print(f"\nArchivos de datos de training para presencia encontrados en '{PROCESSED_DATA_DIR}'. Cargando...")
         np_fullrooms_training = np.loadtxt(data_files['fullrooms_training'], delimiter=',')
-        #np_fullrooms_validate = np.loadtxt(data_files['fullrooms_validate'], delimiter=',')
-        #np_fullrooms_test = np.loadtxt(data_files['fullrooms_test'], delimiter=',')
         np_emptyrooms_training = np.loadtxt(data_files['emptyrooms_training'], delimiter=',')
-        #np_emptyrooms_validate = np.loadtxt(data_files['emptyrooms_validate'], delimiter=',')
-        #np_emptyrooms_test = np.loadtxt(data_files['emptyrooms_test'], delimiter=',')
-        
-        print("Datos de presencia cargados exitosamente. Generando etiquetas...")
+        print("Datos de training de presencia cargados exitosamente. (full & empty)...")
 
-
-        #np_fullrooms_training = get_processing_fullrooms_data_per_set(participants_training)
-        print('generando datos de validacion...')
+        print('\ngenerando datos de salas llenas para validacion...')
         np_fullrooms_validate = get_processing_fullrooms_data_per_set(participants_validate, True, window)
-        print('generando datos de test...')
+        print('\ngenerando datos de salas llenas para test...')
         np_fullrooms_test = get_processing_fullrooms_data_per_set(participants_test, True, window)
 
+        train_range, val_range, test_range = split_data_emptyrooms_to_presencedetection(np_fullrooms_training.shape[0], 
+                                                np_fullrooms_validate.shape[0], 
+                                                np_fullrooms_test.shape[0])
+
+        print('\ngenerando datos de salas vacias para validacion...')
+        np_emptyrooms_validate = get_procesing_emptyrooms_data_per_set(val_range, True, window)
+        print('\ngenerando datos de salas vacias para  test...')
+        np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
 
 
         targets_fullrooms_training = labels_generator(1,np_fullrooms_training.shape[0])
@@ -234,7 +230,7 @@ def real_time_presencedetection(window, model_name):
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('#####################################')
+        print('##################################### window: ', window)
         print('################# Salas llenas')
         print('shape train: ', np_fullrooms_training.shape)
         print('shape val: ', np_fullrooms_validate.shape)
@@ -249,7 +245,7 @@ def real_time_presencedetection(window, model_name):
         print('shape train label: ', targets_emptyrooms_training.shape)
         print('shape val label: ', targets_emptyrooms_validate.shape)
         print('shape test label: ', targets_emptyrooms_test.shape)
-        print('#####################################')
+        print('#####################################\n')
 
         '''
         if model_name == 0:
@@ -277,9 +273,12 @@ def real_time_presencedetection(window, model_name):
 
         '''
 
-    else:        
+    else:
+        print('\ngenerando datos de salas llenas para training...')
         np_fullrooms_training = get_processing_fullrooms_data_per_set(participants_training)
+        print('\ngenerando datos de salas llenas para validacion...')
         np_fullrooms_validate = get_processing_fullrooms_data_per_set(participants_validate, True, window)
+        print('\ngenerando datos de salas llenas para test...')
         np_fullrooms_test = get_processing_fullrooms_data_per_set(participants_test, True, window)
 
         # TODO
@@ -289,11 +288,11 @@ def real_time_presencedetection(window, model_name):
                                                 np_fullrooms_validate.shape[0], 
                                                 np_fullrooms_test.shape[0])
 
-        print('generando datos de training...')
+        print('\ngenerando datos de salas vacias para training...')
         np_emptyrooms_training = get_procesing_emptyrooms_data_per_set(train_range)
-        print('generando datos de validacion...')
+        print('\ngenerando datos de salas vacias para validacion...')
         np_emptyrooms_validate = get_procesing_emptyrooms_data_per_set(val_range, True, window)
-        print('generando datos de test...')
+        print('\ngenerando datos de salas vacias para  test...')
         np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
 
 
@@ -307,19 +306,14 @@ def real_time_presencedetection(window, model_name):
 
         # Guardar los arrays de datos en archivos CSV
         np.savetxt(data_files['fullrooms_training'], np_fullrooms_training, delimiter=',')
-        #np.savetxt(data_files['fullrooms_validate'], np_fullrooms_validate, delimiter=',')
-        #np.savetxt(data_files['fullrooms_test'], np_fullrooms_test, delimiter=',')
         np.savetxt(data_files['emptyrooms_training'], np_emptyrooms_training, delimiter=',')
-        #np.savetxt(data_files['emptyrooms_validate'], np_emptyrooms_validate, delimiter=',')
-        #np.savetxt(data_files['emptyrooms_test'], np_emptyrooms_test, delimiter=',')
-        
         print("Datos de presencia generados y guardados exitosamente. Generando etiquetas...")
 
 
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('#####################################')
+        print('##################################### window: ', window)
         print('################# Salas llenas')
         print('shape train: ', np_fullrooms_training.shape)
         print('shape val: ', np_fullrooms_validate.shape)
@@ -334,7 +328,7 @@ def real_time_presencedetection(window, model_name):
         print('shape train label: ', targets_emptyrooms_training.shape)
         print('shape val label: ', targets_emptyrooms_validate.shape)
         print('shape test label: ', targets_emptyrooms_test.shape)
-        print('#####################################')
+        print('#####################################\n')
         
         '''
         if model_name == 0:
@@ -390,6 +384,7 @@ def get_csi_data_group_identification(participant): #retorna las amplitudes de t
 
     position_matrix = np.empty((0, 52))
     for position in POSITIONS_PARTICIPANT:
+        print('participant: ', participant, ' position: ', position)
         tmp_matrix = get_processing_csi_data_x_participant_from_csv_pcap(participant, position)
         position_matrix = np.concatenate((position_matrix, tmp_matrix), axis=0)
 
@@ -429,42 +424,21 @@ def split_data_to_identification(np_matrix):
     return train_data, val_data, test_data
 
 def real_time_identification(group, window, model_name):
+    print('\n########################################\nGrupo en indetificación: ', group, 
+          ' window & package numer: ', window)
+
     dict_identification_results = {} # diccionario para almacenar resultados para todos los modelos del grupo actual
+    for principal in group:
+        list_group = []
+        list_group.append(principal)
+        for secondaries in group:
+            if principal != secondaries:
+                list_group.append(secondaries)
 
-    # --- Ruta donde guardar/cargar los archivos CSV ---
-    PROCESSED_DATA_DIR = './processed_data/identification/'
-    if not os.path.exists(PROCESSED_DATA_DIR):
-        os.makedirs(PROCESSED_DATA_DIR) # Crea el directorio si no existe
+        np_principal, np_secondaries = get_csi_data_to_indentification(list_group) # recibe todos los datos procesados
 
-    # Definir los nombres de archivo SOLO para los datos (no para las etiquetas)
-    data_files = {
-        'train_principal_data': os.path.join(PROCESSED_DATA_DIR, 'train_principal_data.csv'),
-        'val_principal_data': os.path.join(PROCESSED_DATA_DIR, 'val_principal_data.csv'),
-        'test_principal_data': os.path.join(PROCESSED_DATA_DIR, 'test_principal_data.csv'),
-        'train_secondaries_data': os.path.join(PROCESSED_DATA_DIR, 'train_secondaries_data.csv'),
-        'val_secondaries_data': os.path.join(PROCESSED_DATA_DIR, 'val_secondaries_data.csv'),
-        'test_secondaries_data': os.path.join(PROCESSED_DATA_DIR, 'test_secondaries_data.csv'),
-    }
-
-    # Verificar si todos los archivos de datos existen
-    all_data_files_exist = True
-    for file_path in data_files.values():
-        if not os.path.exists(file_path):
-            all_data_files_exist = False
-            print(f"Archivo de datos de indentificación NO encontrado: {file_path}")
-            break
-
-    # Si todos los archivos de datos existen, cargarlos
-    if all_data_files_exist:
-        print(f"Todos los archivos de datos procesados encontrados en '{PROCESSED_DATA_DIR}'. Cargando...")
-        train_principal_data = np.loadtxt(data_files['train_principal_data'], delimiter=',')
-        val_principal_data = np.loadtxt(data_files['val_principal_data'], delimiter=',')
-        test_principal_data = np.loadtxt(data_files['test_principal_data'], delimiter=',')
-        train_secondaries_data = np.loadtxt(data_files['train_secondaries_data'], delimiter=',')
-        val_secondaries_data = np.loadtxt(data_files['val_secondaries_data'], delimiter=',')
-        test_secondaries_data = np.loadtxt(data_files['test_secondaries_data'], delimiter=',')
-        
-        print("Datos cargados exitosamente. Generando etiquetas...")
+        train_principal_data, val_principal_data, test_principal_data = split_data_to_identification(np_principal)
+        train_secondaries_data, val_secondaries_data, test_secondaries_data = split_data_to_identification(np_secondaries)
 
         train_principal_labels = labels_generator(1, train_principal_data.shape[0])
         val_principal_labels = labels_generator(1, val_principal_data.shape[0])
@@ -473,11 +447,14 @@ def real_time_identification(group, window, model_name):
         train_secondaries_labels = labels_generator(0, train_secondaries_data.shape[0])
         val_secondaries_labels = labels_generator(0, val_secondaries_data.shape[0])
         test_secondaries_labels = labels_generator(0, test_secondaries_data.shape[0])
+        
+        print("Datos generados exitosamente. Generando etiquetas...")
+
 
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('#####################################')
+        print('##################################### window: ', window, ' principal: ', principal, ' group: ', group)
         print('################# principal')
         print('shape train: ', train_principal_data.shape)
         print('shape val: ', val_principal_data.shape)
@@ -492,7 +469,8 @@ def real_time_identification(group, window, model_name):
         print('shape train label: ', train_secondaries_labels.shape)
         print('shape val label: ', val_secondaries_labels.shape)
         print('shape test label: ', test_secondaries_labels.shape)
-        print('#####################################')
+        print('#####################################\n')
+
 
         '''
         if model_name == 0:
@@ -512,77 +490,6 @@ def real_time_identification(group, window, model_name):
         dict_identification_results[identifier] = dict_model_results
         '''
 
-    else:
-        for principal in group:
-            list_group = []
-            list_group.append(principal)
-            for secondaries in group:
-                if principal != secondaries:
-                    list_group.append(secondaries)
-
-            np_principal, np_secondaries = get_csi_data_to_indentification(list_group) # recibe todos los datos procesados
-
-            train_principal_data, val_principal_data, test_principal_data = split_data_to_identification(np_principal)
-            train_secondaries_data, val_secondaries_data, test_secondaries_data = split_data_to_identification(np_secondaries)
-
-            train_principal_labels = labels_generator(1, train_principal_data.shape[0])
-            val_principal_labels = labels_generator(1, val_principal_data.shape[0])
-            test_principal_labels = labels_generator(1, test_principal_data.shape[0])
-
-            train_secondaries_labels = labels_generator(0, train_secondaries_data.shape[0])
-            val_secondaries_labels = labels_generator(0, val_secondaries_data.shape[0])
-            test_secondaries_labels = labels_generator(0, test_secondaries_data.shape[0])
-
-            # Guardar solo los arrays de datos en archivos CSV
-            np.savetxt(data_files['train_principal_data'], train_principal_data, delimiter=',')
-            np.savetxt(data_files['val_principal_data'], val_principal_data, delimiter=',')
-            np.savetxt(data_files['test_principal_data'], test_principal_data, delimiter=',')
-            np.savetxt(data_files['train_secondaries_data'], train_secondaries_data, delimiter=',')
-            np.savetxt(data_files['val_secondaries_data'], val_secondaries_data, delimiter=',')
-            np.savetxt(data_files['test_secondaries_data'], test_secondaries_data, delimiter=',')
-            
-            print("Datos generados y guardados exitosamente. Generando etiquetas...")
-
-
-            # TODO
-            # eliminar es solo para debbugar el codigo
-            # descomentar llamadas a modelos
-            print('#####################################')
-            print('################# principal')
-            print('shape train: ', train_principal_data.shape)
-            print('shape val: ', val_principal_data.shape)
-            print('shape test: ', test_principal_data.shape)
-            print('shape train label: ', train_principal_labels.shape)
-            print('shape val label: ', val_principal_labels.shape)
-            print('shape test label: ', test_principal_labels.shape)
-            print('################# secundario')
-            print('shape train: ', train_secondaries_data.shape)
-            print('shape val: ', val_secondaries_data.shape)
-            print('shape test: ', test_secondaries_data.shape)
-            print('shape train label: ', train_secondaries_labels.shape)
-            print('shape val label: ', val_secondaries_labels.shape)
-            print('shape test label: ', test_secondaries_labels.shape)
-            print('#####################################')
-
-
-            '''
-            if model_name == 0:
-                print('comenzando modelo RANDOM FOREST')
-
-            elif model_name == 1:
-                print('comenzando modelo LSTM')
-                dict_model_results = get_results_identification_lstm(train_principal_data, val_principal_data, test_principal_data,
-                                            train_secondaries_data, val_secondaries_data, test_secondaries_data,
-                                            train_principal_labels, val_principal_labels, test_principal_labels,
-                                            train_secondaries_labels, val_secondaries_labels, test_secondaries_labels, window)
-            elif model_name == 2:
-                print('comenzando modelo MLP - ANN')
-            
-
-            identifier = ':'.join(list_group)
-            dict_identification_results[identifier] = dict_model_results
-            '''
-
     return dict_identification_results
 
 ###
@@ -595,6 +502,8 @@ def identification_results(model_name):
         groups = participantes[:60]
         groups = np.array(groups).reshape(10, 6)
         groups = groups.tolist()
+
+        print('\nGrupos generados: ', len(groups))
         for indice, grupo in enumerate(groups):
             print('grupo ', indice + 1, ': ', grupo)
     else:
@@ -639,6 +548,7 @@ def config_scheme():
         PARTICIPANTS, \
         PATH_PARTICIPANT_COMPLEX_CSV, \
         PATH_EMPTYROOM_COMPLEX_CSV, \
+        PROCESSED_DATA_DIR, \
         PARTICIPANTS_NUMBER, \
         POSITIONS_PARTICIPANT, \
         RATIO, \
@@ -649,12 +559,14 @@ def config_scheme():
     #MODEL_NAMES = ['RF', 'LSTM', 'AE']
     SAMPLES = 500
     PARTICIPANTS = participantes
-    PATH_PARTICIPANT_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_full_csv/'
-    PATH_EMPTYROOM_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_empty_csv/'
     PARTICIPANTS_NUMBER = len(participantes)
     POSITIONS_PARTICIPANT = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17']
     RATIO = [80,20,25]
     EMPTYROOMS = 2125
+
+    PATH_PARTICIPANT_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_full_csv/'
+    PATH_EMPTYROOM_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_empty_csv/'
+    PROCESSED_DATA_DIR = './processed_data/presence/'
 
     WINDOWS_SIZES_TO_ROUNDS = ['1','3','5','11','21','30','40','50','60']
     #WINDOWS_IDENTIFICATON = ['1','3','5','9','11','21']
