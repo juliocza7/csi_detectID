@@ -77,12 +77,12 @@ def hampel_filter_complex(series):
     # 2. Apply Hampel filter and access the filtered data from the returned object
     # ESTO ES LO QUE NECESITAS CONFIRMAR EN TU ARCHIVO HAMPL.PY:
     # ¿Es '.filtered_data'? ¿Es '.result'? ¿Otro nombre?
-    hampel_result_mag = hampel(magnitude_series, window_size=31, n=3, imputation=True)
-    hampel_result_phase = hampel(phase_series, window_size=31, n=3, imputation=True)
+    hampel_result_mag = hampel(magnitude_series, window_size=31) #hampel(magnitude_series, window_size=31, n=3, imputation=True)
+    hampel_result_phase = hampel(phase_series, window_size=31) #hampel(phase_series, window_size=31, n=3, imputation=True)
 
     # Suponiendo que el atributo se llama 'filtered_data' (¡confírmalo en tu hampel.py!)
-    filtered_magnitude = hampel_result_mag#.filtered_data
-    filtered_phase = hampel_result_phase#.filtered_data
+    filtered_magnitude = hampel_result_mag.filtered_data
+    filtered_phase = hampel_result_phase.filtered_data
 
     # Aseguramos que son arrays de numpy para la operación
     filtered_magnitude_np = np.asarray(filtered_magnitude)

@@ -10,8 +10,8 @@ from model_mlp import get_results_presence_mlp
 import json
 import os
 
-import warnings
-warnings.simplefilter("ignore", np.ComplexWarning)
+#import warnings
+#warnings.simplefilter("ignore", np.ComplexWarning)
 
 
 ###################################################################################################################
@@ -238,7 +238,7 @@ def real_time_presencedetection(window, model_name):
         print('shape train label: ', targets_fullrooms_training.shape)
         print('shape val label: ', targets_fullrooms_validate.shape)
         print('shape test label: ', targets_fullrooms_test.shape)
-        print('################# Salanas vacias')
+        print('################# Salas vacias')
         print('shape train: ', np_emptyrooms_training.shape)
         print('shape val: ', np_emptyrooms_validate.shape)
         print('shape test: ', np_emptyrooms_test.shape)
@@ -247,7 +247,11 @@ def real_time_presencedetection(window, model_name):
         print('shape test label: ', targets_emptyrooms_test.shape)
         print('#####################################\n')
 
-        '''
+
+        print('\n##############################################################\nPresence detection model: ', model_name,'\nwindow: ', 
+              int(window/8),' package number: ', window)
+              
+        
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
         elif model_name == 1:
@@ -271,7 +275,7 @@ def real_time_presencedetection(window, model_name):
         else:
             print("\nNo se agregaron resultados al diccionario principal (dict_model_results era None/vacío).")
 
-        '''
+        
 
     else:
         print('\ngenerando datos de salas llenas para training...')
@@ -321,7 +325,7 @@ def real_time_presencedetection(window, model_name):
         print('shape train label: ', targets_fullrooms_training.shape)
         print('shape val label: ', targets_fullrooms_validate.shape)
         print('shape test label: ', targets_fullrooms_test.shape)
-        print('################# Salanas vacias')
+        print('################# Salas vacias')
         print('shape train: ', np_emptyrooms_training.shape)
         print('shape val: ', np_emptyrooms_validate.shape)
         print('shape test: ', np_emptyrooms_test.shape)
@@ -330,7 +334,9 @@ def real_time_presencedetection(window, model_name):
         print('shape test label: ', targets_emptyrooms_test.shape)
         print('#####################################\n')
         
-        '''
+        print('\n##############################################################\nPresence detection model: ', model_name,'\nwindow: ', 
+              int(window/8),' package number: ', window)
+        
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
         elif model_name == 1:
@@ -354,7 +360,7 @@ def real_time_presencedetection(window, model_name):
         else:
             print("\nNo se agregaron resultados al diccionario principal (dict_model_results era None/vacío).")
 
-        '''
+        
 
     return dict_presencedetection_results
 
@@ -365,6 +371,8 @@ def presence_results(model_name):
         general_results[window] = {}  # Inicializar un diccionario para los resultados de esta ventana
         dict_model_results = real_time_presencedetection(int(window)*8, model_name)
         general_results[window].update(dict_model_results)
+
+        print('\n##############################\nResultados para window: ', window,'\n',dict_model_results)
 
     file_name = 'indetification_results_' + model_name + '.json'
     try:
@@ -471,7 +479,8 @@ def real_time_identification(group, window, model_name):
         print('shape test label: ', test_secondaries_labels.shape)
         print('#####################################\n')
 
-
+        print('\n########################################\nidentification model: ', model_name, 
+              '\nprincipal: ', principal, 'grupo: ',group,' window & package numer: ', window)
         '''
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
@@ -498,8 +507,10 @@ def identification_results(model_name):
     participantes = PARTICIPANTS.copy()
     random.shuffle(participantes)
 
-    if len(participantes) >= 60:
-        groups = participantes[:60]
+    quantity_participants = N_GROUPS * 6 # 6 es porque cada grupo esta compuesto por 6 personas
+
+    if len(participantes) >= quantity_participants:
+        groups = participantes[:quantity_participants]
         groups = np.array(groups).reshape(10, 6)
         groups = groups.tolist()
 
@@ -549,7 +560,7 @@ def config_scheme():
         PATH_PARTICIPANT_COMPLEX_CSV, \
         PATH_EMPTYROOM_COMPLEX_CSV, \
         PROCESSED_DATA_DIR, \
-        PARTICIPANTS_NUMBER, \
+        N_GROUPS, \
         POSITIONS_PARTICIPANT, \
         RATIO, \
         WINDOWS_SIZES_TO_ROUNDS, \
@@ -559,14 +570,14 @@ def config_scheme():
     #MODEL_NAMES = ['RF', 'LSTM', 'AE']
     SAMPLES = 500
     PARTICIPANTS = participantes
-    PARTICIPANTS_NUMBER = len(participantes)
+    N_GROUPS = 10
     POSITIONS_PARTICIPANT = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17']
     RATIO = [80,20,25]
     EMPTYROOMS = 2125
 
-    PATH_PARTICIPANT_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_full_csv/'
-    PATH_EMPTYROOM_COMPLEX_CSV = '/home/jsoto/detecID_CSI/dataset_empty_csv/'
-    PROCESSED_DATA_DIR = './processed_data/presence/'
+    PATH_PARTICIPANT_COMPLEX_CSV = 'C:\\Users\\jsoto\\code\\dataset_full_csv\\' #'/home/jsoto/detecID_CSI/dataset_full_csv/'
+    PATH_EMPTYROOM_COMPLEX_CSV = 'C:\\Users\\jsoto\\code\\dataset_empty_csv\\' #'/home/jsoto/detecID_CSI/dataset_empty_csv/'
+    PROCESSED_DATA_DIR = 'processed_data\\presence\\'
 
     WINDOWS_SIZES_TO_ROUNDS = ['1','3','5','11','21','30','40','50','60']
     #WINDOWS_IDENTIFICATON = ['1','3','5','9','11','21']

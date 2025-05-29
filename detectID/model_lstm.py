@@ -81,7 +81,8 @@ def train_model(model, train_loader, val_data, val_labels,
             inputs, labels = inputs.to(device), labels.to(device)
             optimizer.zero_grad()
             outputs = model(inputs)
-            loss = criterion(outputs, labels.float().unsqueeze(1))
+            loss = criterion(outputs, labels.float().view_as(outputs))
+            #loss = criterion(outputs, labels.float().unsqueeze(1))
             loss.backward()
             optimizer.step()
             running_loss += loss.item() * inputs.size(0)
@@ -116,8 +117,11 @@ def train_model(model, train_loader, val_data, val_labels,
 
             for i in indices:
                 end = min(i + step, num_val_samples)
-                val_inputs_window = torch.tensor(val_data[i:end], dtype=torch.float32).unsqueeze(1).to(device)
-                val_labels_window = torch.tensor(val_labels[i:end], dtype=torch.float32).unsqueeze(1).to(device)
+                
+                #val_inputs_window = torch.tensor(val_data[i:end], dtype=torch.float32).unsqueeze(1).to(device)
+                #val_labels_window = torch.tensor(val_labels[i:end], dtype=torch.float32).unsqueeze(1).to(device)
+                val_inputs_window = torch.tensor(val_data[i:end], dtype=torch.float32).to(device)
+                val_labels_window = torch.tensor(val_labels[i:end], dtype=torch.float32).view(-1, 1).to(device)
 
                 outputs_window = model(val_inputs_window)
                 loss_window = criterion(outputs_window, val_labels_window)
