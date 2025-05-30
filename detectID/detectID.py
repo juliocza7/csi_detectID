@@ -375,7 +375,8 @@ def presence_results(model_name):
 
         print('\n##############################\nResultados para window: ', window,'\n',dict_model_results)
 
-    file_name = 'indetification_results_' + model_name + '.json'
+    file_name = f'presence_results_{MODEL_NAMES[model_name]}.json'
+
     try:
         with open(file_name, 'w') as archivo_json:
             json.dump(general_results, archivo_json, indent=4)
@@ -536,7 +537,8 @@ def identification_results(model_name):
 
             print('\n##############################\nResultados para window: ', window,'\n',dict_model_results)
 
-    file_name = 'indetification_results_' + model_name + '.json'
+    file_name = f'identification_results_{MODEL_NAMES[model_name]}.json'
+
     try:
         with open(file_name, 'w') as archivo_json:
             json.dump(general_results, archivo_json, indent=4)
@@ -577,7 +579,7 @@ def config_scheme():
         EMPTYROOMS
         #WINDOWS_IDENTIFICATON
 
-    #MODEL_NAMES = ['RF', 'LSTM', 'AE']
+    MODEL_NAMES = ['RF', 'LSTM', 'AE']
     SAMPLES = 500
     PARTICIPANTS = participantes
     N_GROUPS = 10
