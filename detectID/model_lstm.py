@@ -450,9 +450,6 @@ def identification_lstm_model(train_principal_data, train_secondaries_data, test
     X_train, y_train = create_sliding_windows(train_data, train_labels, window, stride)
     X_val, y_val = create_sliding_windows(val_data, val_labels, window, stride)
 
-    print(f">>>>>>>>>>> X_train shape: {X_train.shape}, y_train shape: {y_train.shape}")
-    print(f">>>>>>>>>>> X_val shape: {X_val.shape}, y_val shape: {y_val.shape}")
-
     # Convertir a tensores y pasar a dispositivo
     train_data_tensor = torch.tensor(X_train, dtype=torch.float32).to(device)
     train_labels_tensor = torch.tensor(y_train, dtype=torch.float32).unsqueeze(1).to(device)
