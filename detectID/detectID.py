@@ -122,7 +122,7 @@ def get_csi_data_from_participant_to_presencedetection(participant, flag_window=
     # obtiene informacion y amplitud maxima del participante seleccionado
     np_fullroom_participant = np.empty((0, 52))
     for position in POSITIONS_PARTICIPANT:
-        print('participant: ', participant, ' position: ', position)
+        #print('participant: ', participant, ' position: ', position)
         arrayparticipants_maxamplitudes = get_max_amplitude_per_position(
                                     get_processing_csi_data_x_participant_from_csv_pcap(participant, position, flag_window, window))
         np_fullroom_participant = np.concatenate((np_fullroom_participant, np.array(arrayparticipants_maxamplitudes).reshape(1,52)), axis=0)
@@ -133,7 +133,7 @@ def get_procesing_emptyrooms_data_per_set(range_data, flag_window = False, windo
     np_emptyrooms = np.empty((0, 52))
     start_num, end_num = range_data
     for room in range(start_num + 1, end_num + 1):
-        print('room: ', room)
+        #print('room: ', room)
         np_emptyrooms_tmp = get_csi_data_from_emptyrooms_to_presencedetection(str(room), flag_window, window)
         np_emptyrooms = np.concatenate((np_emptyrooms, np_emptyrooms_tmp), axis=0)
 
@@ -173,8 +173,9 @@ def split_data_emptyrooms_to_presencedetection(train_size, val_size, test_size):
 
 
 def real_time_presencedetection(window, model_name):
+    print('##############################################################')
     print('\n##############################################################\nEn Detección de presencia... window: ', int(window/8), 
-          ' package number: ', window)
+          ' --- package number: ', window)
 
     dict_presencedetection_results = {}  # Diccionario para almacenar los 
     participants_training, participants_validate, participants_test = split_data_participants_to_presencedetection() # division de cantidad de participantes 
@@ -249,7 +250,7 @@ def real_time_presencedetection(window, model_name):
 
 
         print('\n##############################################################\nPresence detection model: ', model_name,'\nwindow: ', 
-              int(window/8),' package number: ', window)
+              int(window/8),' --- package number: ', window)
               
         
         if model_name == 0:
@@ -335,7 +336,7 @@ def real_time_presencedetection(window, model_name):
         print('#####################################\n')
         
         print('\n##############################################################\nPresence detection model: ', model_name,'\nwindow: ', 
-              int(window/8),' package number: ', window)
+              int(window/8),' --- package number: ', window)
         
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
@@ -392,7 +393,7 @@ def get_csi_data_group_identification(participant): #retorna las amplitudes de t
 
     position_matrix = np.empty((0, 52))
     for position in POSITIONS_PARTICIPANT:
-        print('participant: ', participant, ' position: ', position)
+        #print('participant: ', participant, ' position: ', position)
         tmp_matrix = get_processing_csi_data_x_participant_from_csv_pcap(participant, position)
         position_matrix = np.concatenate((position_matrix, tmp_matrix), axis=0)
 
@@ -432,22 +433,25 @@ def split_data_to_identification(np_matrix):
     return train_data, val_data, test_data
 
 def real_time_identification(group, window, model_name):
-    print('\n########################################\nGrupo en indetificación: ', group, 
-          ' window & package numer: ', window)
-
     dict_identification_results = {} # diccionario para almacenar resultados para todos los modelos del grupo actual
     for principal in group:
+        print('\n########################################',
+              '\n########################################\nGrupo en indetificación: ', group, ' --- principal: ', principal,
+              ' --- window & package numer: ', window)
         list_group = []
         list_group.append(principal)
         for secondaries in group:
             if principal != secondaries:
                 list_group.append(secondaries)
 
+        print('\ngenerando data de principal y secundarios...')
         np_principal, np_secondaries = get_csi_data_to_indentification(list_group) # recibe todos los datos procesados
 
+        print('\ngenerando data para training, validación y test...')
         train_principal_data, val_principal_data, test_principal_data = split_data_to_identification(np_principal)
         train_secondaries_data, val_secondaries_data, test_secondaries_data = split_data_to_identification(np_secondaries)
 
+        print('\ngenerando de labels para training, validación y test...')
         train_principal_labels = labels_generator(1, train_principal_data.shape[0])
         val_principal_labels = labels_generator(1, val_principal_data.shape[0])
         test_principal_labels = labels_generator(1, test_principal_data.shape[0])
@@ -462,7 +466,7 @@ def real_time_identification(group, window, model_name):
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('##################################### window: ', window, ' principal: ', principal, ' group: ', group)
+        print('##################################### principal: ', principal, ' --- group: ', group, ' --- window: ', window,)
         print('################# principal')
         print('shape train: ', train_principal_data.shape)
         print('shape val: ', val_principal_data.shape)
@@ -480,8 +484,8 @@ def real_time_identification(group, window, model_name):
         print('#####################################\n')
 
         print('\n########################################\nidentification model: ', model_name, 
-              '\nprincipal: ', principal, 'grupo: ',group,' window & package numer: ', window)
-        '''
+              '\nprincipal: ', principal, ' --- grupo: ', group,' --- window & package numer: ', window)
+        
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
 
@@ -493,11 +497,15 @@ def real_time_identification(group, window, model_name):
                                         train_secondaries_labels, val_secondaries_labels, test_secondaries_labels, window)
         elif model_name == 2:
             print('comenzando modelo MLP - ANN')
+
+        
+        print('\n##############################\nResultados para principal: ', principal, ' --- grupo: ',group,' --- window & package numer: ', window,
+              '\n',dict_model_results)
         
 
         identifier = ':'.join(list_group)
         dict_identification_results[identifier] = dict_model_results
-        '''
+        
 
     return dict_identification_results
 
@@ -523,8 +531,10 @@ def identification_results(model_name):
     for window in WINDOWS_SIZES_TO_ROUNDS:
         for group in groups:
             general_results[window] = {}  # Inicializar un diccionario para los resultados de esta ventana
-            dict_model_results = real_time_identification(group, window, model_name)
+            dict_model_results = real_time_identification(group, int(window), model_name)
             general_results[window].update(dict_model_results)
+
+            print('\n##############################\nResultados para window: ', window,'\n',dict_model_results)
 
     file_name = 'indetification_results_' + model_name + '.json'
     try:
