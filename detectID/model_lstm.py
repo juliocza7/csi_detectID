@@ -19,6 +19,40 @@ EPOCHS = 100 # 10 ide, 100 pre
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Usando dispositivo: {device}")
 
+
+import matplotlib.pyplot as plt
+
+def plot_window_detailed(X, y, index=0):
+    """
+    Grafica todas las subportadoras dentro de una ventana específica.
+    """
+    window = X[index]  # shape: (window_size, 52)
+    plt.figure(figsize=(14, 6))
+    for subcarrier in range(window.shape[1]):
+        plt.plot(window[:, subcarrier], label=f'Subportadora {subcarrier+1}', alpha=0.5)
+    plt.title(f"Ventana #{index} - Etiqueta: {int(y[index])}")
+    plt.xlabel("Timestep en ventana")
+    plt.ylabel("Valor de subportadora")
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', ncol=2)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_sliding_windows(X, y, num_samples=5):
+    """
+    Muestra algunas ventanas de entrada (X) y su etiqueta correspondiente (y).
+    """
+    print('graficando ventanas')
+    for i in range(num_samples):
+        plt.figure(figsize=(12, 4))
+        plt.title(f"Ventana #{i} - Etiqueta: {int(y[i])}")
+        plt.imshow(X[i].T, aspect='auto', cmap='viridis')
+        plt.colorbar(label='Amplitud')
+        plt.xlabel('Tiempo (pasos en la ventana)')
+        plt.ylabel('Subportadoras')
+        plt.show()
+
+
 # Función para crear ventanas deslizantes
 def create_sliding_windows(data, labels, window_size, stride=1):
     X, y = [], []
@@ -164,7 +198,15 @@ def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullroo
 
     # 2. Crear ventanas deslizantes para secuencias temporales
     X_train, y_train = create_sliding_windows(train_data_np, train_labels_np, window)
+    print('mandando a graficar...')
+    plot_sliding_windows(X_train, y_train, num_samples=5)
+    #plot_window_detailed(X_train, y_train, index=0)
+
+
     X_val, y_val = create_sliding_windows(val_data_np, val_labels_np, window)
+    plot_sliding_windows(X_val, y_val, num_samples=5)
+
+
     # X_test, y_test = create_sliding_windows(test_data_np, test_labels_np, window)
 
     # 3. Convertir a tensores

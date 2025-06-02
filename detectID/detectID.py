@@ -173,9 +173,9 @@ def split_data_emptyrooms_to_presencedetection(train_size, val_size, test_size):
 
 
 def real_time_presencedetection(window, model_name):
-    print('##############################################################')
-    print('\n##############################################################\nEn Detección de presencia... window: ', int(window/8), 
-          ' --- package number: ', window)
+    print('##############################################################',
+          '\n##############################################################\npresence model: ', MODEL_NAMES[model_name],
+          '\nwindow: ', int(window/8), ' --- package number: ', window)
 
     dict_presencedetection_results = {}  # Diccionario para almacenar los 
     participants_training, participants_validate, participants_test = split_data_participants_to_presencedetection() # division de cantidad de participantes 
@@ -194,7 +194,7 @@ def real_time_presencedetection(window, model_name):
     for file_path in data_files.values():
         if not os.path.exists(file_path):
             all_data_files_exist = False
-            print(f"\nArchivo de datos de training para presencia NO encontrado: {file_path}")
+            print(f"\narchivo de datos de training para presencia NO encontrado: {file_path}")
             break
 
     # Si todos los archivos de datos existen, cargarlos
@@ -202,9 +202,9 @@ def real_time_presencedetection(window, model_name):
         print(f"\nArchivos de datos de training para presencia encontrados en '{PROCESSED_DATA_DIR}'. Cargando...")
         np_fullrooms_training = np.loadtxt(data_files['fullrooms_training'], delimiter=',')
         np_emptyrooms_training = np.loadtxt(data_files['emptyrooms_training'], delimiter=',')
-        print("Datos de training de presencia cargados exitosamente. (full & empty)...")
+        print("\ndatos de training de presencia cargados exitosamente. (full & empty)...")
 
-        print('\ngenerando datos de salas llenas para validacion...')
+        print('\ngenerando datos de salas llenas para validación...')
         np_fullrooms_validate = get_processing_fullrooms_data_per_set(participants_validate, True, window)
         print('\ngenerando datos de salas llenas para test...')
         np_fullrooms_test = get_processing_fullrooms_data_per_set(participants_test, True, window)
@@ -213,12 +213,12 @@ def real_time_presencedetection(window, model_name):
                                                 np_fullrooms_validate.shape[0], 
                                                 np_fullrooms_test.shape[0])
 
-        print('\ngenerando datos de salas vacias para validacion...')
+        print('\ngenerando datos de salas vaciías para validación...')
         np_emptyrooms_validate = get_procesing_emptyrooms_data_per_set(val_range, True, window)
-        print('\ngenerando datos de salas vacias para  test...')
+        print('\ngenerando datos de salas vacías para  test...')
         np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
 
-
+        print('\ngenerando labels...')
         targets_fullrooms_training = labels_generator(1,np_fullrooms_training.shape[0])
         targets_fullrooms_validate = labels_generator(1,np_fullrooms_validate.shape[0])
         targets_fullrooms_test = labels_generator(1,np_fullrooms_test.shape[0])
@@ -227,30 +227,22 @@ def real_time_presencedetection(window, model_name):
         targets_emptyrooms_validate = labels_generator(0,np_emptyrooms_validate.shape[0])
         targets_emptyrooms_test = labels_generator(0,np_emptyrooms_test.shape[0])
 
+        print('\ndatos correctamente generados')
+
         
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('##################################### window: ', window)
-        print('################# Salas llenas')
-        print('shape train: ', np_fullrooms_training.shape)
-        print('shape val: ', np_fullrooms_validate.shape)
-        print('shape test: ', np_fullrooms_test.shape)
-        print('shape train label: ', targets_fullrooms_training.shape)
-        print('shape val label: ', targets_fullrooms_validate.shape)
-        print('shape test label: ', targets_fullrooms_test.shape)
-        print('################# Salas vacias')
-        print('shape train: ', np_emptyrooms_training.shape)
-        print('shape val: ', np_emptyrooms_validate.shape)
-        print('shape test: ', np_emptyrooms_test.shape)
-        print('shape train label: ', targets_emptyrooms_training.shape)
-        print('shape val label: ', targets_emptyrooms_validate.shape)
-        print('shape test label: ', targets_emptyrooms_test.shape)
-        print('#####################################\n')
+        print('\n################# Salas llenas')
+        print('shape train: ', np_fullrooms_training.shape, ' --- shape val: ', np_fullrooms_validate.shape, ' ---- shape test: ', np_fullrooms_test.shape)
+        print('shape train label: ', targets_fullrooms_training.shape, ' --- shape val label: ', targets_fullrooms_validate.shape, ' --- shape test label: ', targets_fullrooms_test.shape)
+        print('################# Salas vacías')
+        print('shape train: ', np_emptyrooms_training.shape, ' --- shape val: ', np_emptyrooms_validate.shape, ' --- shape test: ', np_emptyrooms_test.shape)
+        print('shape train label: ', targets_emptyrooms_training.shape, ' --- shape val label: ', targets_emptyrooms_validate.shape, ' --- shape test label: ', targets_emptyrooms_test.shape)
+        print('#####################################')
 
-
-        print('\n##############################################################\nPresence detection model: ', model_name,'\nwindow: ', 
-              int(window/8),' --- package number: ', window)
+        print('\n##############################################################',
+              '\nwindow: ', int(window/8),' --- package number: ', window)
               
         
         if model_name == 0:
@@ -300,7 +292,7 @@ def real_time_presencedetection(window, model_name):
         print('\ngenerando datos de salas vacias para  test...')
         np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
 
-
+        print('\ngenerando labels...')
         targets_fullrooms_training = labels_generator(1,np_fullrooms_training.shape[0])
         targets_fullrooms_validate = labels_generator(1,np_fullrooms_validate.shape[0])
         targets_fullrooms_test = labels_generator(1,np_fullrooms_test.shape[0])
@@ -312,31 +304,22 @@ def real_time_presencedetection(window, model_name):
         # Guardar los arrays de datos en archivos CSV
         np.savetxt(data_files['fullrooms_training'], np_fullrooms_training, delimiter=',')
         np.savetxt(data_files['emptyrooms_training'], np_emptyrooms_training, delimiter=',')
-        print("Datos de presencia generados y guardados exitosamente. Generando etiquetas...")
+        print("\ndatos de presencia generados y guardados exitosamente. Generando etiquetas...")
 
 
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('##################################### window: ', window)
-        print('################# Salas llenas')
-        print('shape train: ', np_fullrooms_training.shape)
-        print('shape val: ', np_fullrooms_validate.shape)
-        print('shape test: ', np_fullrooms_test.shape)
-        print('shape train label: ', targets_fullrooms_training.shape)
-        print('shape val label: ', targets_fullrooms_validate.shape)
-        print('shape test label: ', targets_fullrooms_test.shape)
-        print('################# Salas vacias')
-        print('shape train: ', np_emptyrooms_training.shape)
-        print('shape val: ', np_emptyrooms_validate.shape)
-        print('shape test: ', np_emptyrooms_test.shape)
-        print('shape train label: ', targets_emptyrooms_training.shape)
-        print('shape val label: ', targets_emptyrooms_validate.shape)
-        print('shape test label: ', targets_emptyrooms_test.shape)
-        print('#####################################\n')
+        print('\n################# Salas llenas')
+        print('shape train: ', np_fullrooms_training.shape, ' --- shape val: ', np_fullrooms_validate.shape, ' ---- shape test: ', np_fullrooms_test.shape)
+        print('shape train label: ', targets_fullrooms_training.shape, ' --- shape val label: ', targets_fullrooms_validate.shape, ' --- shape test label: ', targets_fullrooms_test.shape)
+        print('################# Salas vacías')
+        print('shape train: ', np_emptyrooms_training.shape, ' --- shape val: ', np_emptyrooms_validate.shape, ' --- shape test: ', np_emptyrooms_test.shape)
+        print('shape train label: ', targets_emptyrooms_training.shape, ' --- shape val label: ', targets_emptyrooms_validate.shape, ' --- shape test label: ', targets_emptyrooms_test.shape)
+        print('############################################################################################')
         
-        print('\n##############################################################\nPresence detection model: ', model_name,'\nwindow: ', 
-              int(window/8),' --- package number: ', window)
+        print('\n##############################################################', 
+              '\nwindow: ', int(window/8),' --- package number: ', window)
         
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
@@ -359,7 +342,7 @@ def real_time_presencedetection(window, model_name):
 
         if dict_model_results: dict_presencedetection_results.update(dict_model_results)
         else:
-            print("\nNo se agregaron resultados al diccionario principal (dict_model_results era None/vacío).")
+            print("\nNO se agregaron resultados al diccionario principal (dict_model_results era None/vacío).")
 
         
 
@@ -373,7 +356,8 @@ def presence_results(model_name):
         dict_model_results = real_time_presencedetection(int(window)*8, model_name)
         general_results[window].update(dict_model_results)
 
-        print('\n##############################\nResultados para window: ', window,'\n',dict_model_results)
+        print('\n##############################\nResultados para window: ', window,' --- package number: ', int(window)*8)
+        print(json.dumps(dict_model_results, indent=4, ensure_ascii=False))
 
     file_name = f'presence_results_{MODEL_NAMES[model_name]}.json'
 
@@ -436,9 +420,10 @@ def split_data_to_identification(np_matrix):
 def real_time_identification(group, window, model_name):
     dict_identification_results = {} # diccionario para almacenar resultados para todos los modelos del grupo actual
     for principal in group:
-        print('\n########################################',
-              '\n########################################\nGrupo en indetificación: ', group, ' --- principal: ', principal,
-              ' --- window & package numer: ', window)
+        print('\n##########################################################################################',
+              '\n########################################\nidentification model: ', MODEL_NAMES[model_name],
+              '\nGrupo en identificación: ', group, ' --- principal: ', principal,
+              ' --- window & package number: ', window)
         list_group = []
         list_group.append(principal)
         for secondaries in group:
@@ -461,31 +446,22 @@ def real_time_identification(group, window, model_name):
         val_secondaries_labels = labels_generator(0, val_secondaries_data.shape[0])
         test_secondaries_labels = labels_generator(0, test_secondaries_data.shape[0])
         
-        print("Datos generados exitosamente. Generando etiquetas...")
+        print("\ndatos generados exitosamente. Generando etiquetas...")
 
 
         # TODO
         # eliminar es solo para debbugar el codigo
         # descomentar llamadas a modelos
-        print('##################################### principal: ', principal, ' --- group: ', group, ' --- window: ', window,)
-        print('################# principal')
-        print('shape train: ', train_principal_data.shape)
-        print('shape val: ', val_principal_data.shape)
-        print('shape test: ', test_principal_data.shape)
-        print('shape train label: ', train_principal_labels.shape)
-        print('shape val label: ', val_principal_labels.shape)
-        print('shape test label: ', test_principal_labels.shape)
+        print('\n################# principal')
+        print('shape train: ', train_principal_data.shape, ' --- shape val: ', val_principal_data.shape, ' --- shape test: ', test_principal_data.shape)
+        print('shape train label: ', train_principal_labels.shape, ' --- shape val label: ', val_principal_labels.shape, ' --- shape test label: ', test_principal_labels.shape)
         print('################# secundario')
-        print('shape train: ', train_secondaries_data.shape)
-        print('shape val: ', val_secondaries_data.shape)
-        print('shape test: ', test_secondaries_data.shape)
-        print('shape train label: ', train_secondaries_labels.shape)
-        print('shape val label: ', val_secondaries_labels.shape)
-        print('shape test label: ', test_secondaries_labels.shape)
-        print('#####################################\n')
+        print('shape train: ', train_secondaries_data.shape, ' --- shape val: ', val_secondaries_data.shape, ' --- shape test: ', test_secondaries_data.shape)
+        print('shape train label: ', train_secondaries_labels.shape, ' --- shape val label: ', val_secondaries_labels.shape, ' --- shape test label: ', test_secondaries_labels.shape)
+        print('#####################################')
 
-        print('\n########################################\nidentification model: ', model_name, 
-              '\nprincipal: ', principal, ' --- grupo: ', group,' --- window & package numer: ', window)
+        print('\n########################################\nprincipal: ', principal, 
+              ' --- grupo: ', group,' --- window & package number: ', window)
         
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
@@ -500,8 +476,10 @@ def real_time_identification(group, window, model_name):
             print('comenzando modelo MLP - ANN')
 
         
-        print('\n##############################\nResultados para principal: ', principal, ' --- grupo: ',group,' --- window & package numer: ', window,
-              '\n',dict_model_results)
+        print('\nResultados para principal:', principal, 
+              '--- grupo:', group,
+              '--- window & package number:', window,
+              '\n', json.dumps(dict_model_results, indent=4, ensure_ascii=False))
         
 
         identifier = ':'.join(list_group)
@@ -529,13 +507,16 @@ def identification_results(model_name):
     else:
         print(f"No hay suficientes participantes (solo {len(participantes)}) para formar 10 grupos de 6.")
 
-    for window in WINDOWS_SIZES_TO_ROUNDS:
-        for group in groups:
+
+    for group in groups:
+        for window in WINDOWS_SIZES_TO_ROUNDS:
             general_results[window] = {}  # Inicializar un diccionario para los resultados de esta ventana
             dict_model_results = real_time_identification(group, int(window), model_name)
             general_results[window].update(dict_model_results)
 
-            print('\n##############################\nResultados para window: ', window,'\n',dict_model_results)
+            print('\n##############################\nResultados para window:', window,
+                  'grupo inicial:', group,
+                  '\n', json.dumps(dict_model_results, indent=4, ensure_ascii=False))
 
     file_name = f'identification_results_{MODEL_NAMES[model_name]}.json'
 
@@ -591,7 +572,7 @@ def config_scheme():
     PATH_EMPTYROOM_COMPLEX_CSV = 'C:\\Users\\jsoto\\code\\dataset_empty_csv\\' #'/home/jsoto/detecID_CSI/dataset_empty_csv/'
     PROCESSED_DATA_DIR = 'processed_data\\presence\\'
 
-    WINDOWS_SIZES_TO_ROUNDS = ['1','3','5','11','21','30','40','50','60']
+    WINDOWS_SIZES_TO_ROUNDS = ['1','3','5','9','11','21','30','40','50','60']
     #WINDOWS_IDENTIFICATON = ['1','3','5','9','11','21']
 
 if __name__ == "__main__":
