@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-
+import matplotlib.pyplot as plt
 
 # --- Varibles globales de modelo ---
 
@@ -20,45 +20,66 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Usando dispositivo: {device}")
 
 
-import matplotlib.pyplot as plt
+def plot_all_windows_as_waves(X, y, max_windows=40, windows_per_fig=40):
+    """
+    Grafica hasta `max_windows` ventanas como subplots pequeños dentro de figuras grandes.
+    Muestra hasta `windows_per_fig` ventanas por figura.
+    """
+    total_plots = min(max_windows, len(X))
+    plots_per_fig = windows_per_fig
+    num_figs = int(np.ceil(total_plots / plots_per_fig))
 
-def plot_window_detailed(X, y, index=0):
-    """
-    Grafica todas las subportadoras dentro de una ventana específica.
-    """
-    window = X[index]  # shape: (window_size, 52)
-    plt.figure(figsize=(14, 6))
-    for subcarrier in range(window.shape[1]):
-        plt.plot(window[:, subcarrier], label=f'Subportadora {subcarrier+1}', alpha=0.5)
-    plt.title(f"Ventana #{index} - Etiqueta: {int(y[index])}")
-    plt.xlabel("Timestep en ventana")
-    plt.ylabel("Valor de subportadora")
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', ncol=2)
-    plt.tight_layout()
-    plt.show()
+    print(f'Graficando {total_plots} ventanas en {num_figs} figura(s)...')
+    print(f"Forma de X: {X.shape}")
+    print(f"Forma de una ventana: {X[0].shape}")
+    print(f"Forma de las etiquetas por ventana: {y[0].shape}")
 
+    for fig_idx in range(num_figs):
+        fig, axes = plt.subplots(nrows=8, ncols=5, figsize=(20, 16))
+        axes = axes.flatten()
 
-def plot_sliding_windows(X, y, num_samples=5):
-    """
-    Muestra algunas ventanas de entrada (X) y su etiqueta correspondiente (y).
-    """
-    print('graficando ventanas')
-    for i in range(num_samples):
-        plt.figure(figsize=(12, 4))
-        plt.title(f"Ventana #{i} - Etiqueta: {int(y[i])}")
-        plt.imshow(X[i].T, aspect='auto', cmap='viridis')
-        plt.colorbar(label='Amplitud')
-        plt.xlabel('Tiempo (pasos en la ventana)')
-        plt.ylabel('Subportadoras')
+        for i in range(plots_per_fig):
+            idx = fig_idx * plots_per_fig + i
+            if idx >= total_plots:
+                break
+
+            ax = axes[i]
+            window = X[idx]  # (timesteps, subcarriers)
+            labels_window = y[idx]  # (timesteps,)
+
+            if window.shape[0] == 52:
+                window = window.T  # (timesteps, subcarriers)
+
+            for subcarrier in range(window.shape[1]):
+                ax.plot(window[:, subcarrier], alpha=0.3, linewidth=0.5)
+
+            prop_1s = np.mean(labels_window)
+            majority_label = int(np.round(prop_1s))
+
+            ax.set_title(f"#{idx} - Mayoría: {majority_label} - %1s: {prop_1s:.2f}", fontsize=8)
+
+            # Mostrar ticks pequeños
+            ax.tick_params(axis='both', labelsize=6)
+
+        # Eliminar ejes vacíos si hay menos de plots_per_fig
+        for j in range(i + 1, len(axes)):
+            fig.delaxes(axes[j])
+
+        plt.tight_layout()
         plt.show()
+
+
+
+
+
 
 
 # Función para crear ventanas deslizantes
 def create_sliding_windows(data, labels, window_size, stride=1):
     X, y = [], []
     for i in range(0, len(data) - window_size + 1, stride):
-        X.append(data[i:i+window_size, :])                # (window_size, 52)
-        y.append(labels[i + window_size - 1])             # etiqueta del último paso
+        X.append(data[i:i+window_size, :])       # (window_size, features)
+        y.append(labels[i:i+window_size])        # todas las etiquetas
     return np.array(X), np.array(y)
 
 #################################################################################################################################################
@@ -73,13 +94,11 @@ class PresenceLSTM(nn.Module):
         self.fc2 = nn.Linear(50, output_size)
 
     def forward(self, x):
-        out, _ = self.lstm(x)
-        out = out[:, -1, :]
-        #out = self.relu(self.fc1(out))
-        out = self.fc1(out)
+        out, _ = self.lstm(x)                   # out: [batch, seq_len, hidden]
+        out = self.fc1(out)                     # [batch, seq_len, 50]
         out = self.relu(out)
-        out = self.fc2(out)
-        return out
+        out = self.fc2(out)                     # [batch, seq_len, output_size]
+        return out.squeeze(-1)                  # [batch, seq_len]
 
 # --- 2. Funciones de Entrenamiento y Evaluación ---
 def train_model_presence(model, train_loader, val_loader, 
@@ -98,6 +117,7 @@ def train_model_presence(model, train_loader, val_loader,
     model.to(device)
     criterion.to(device)
 
+
     for epoch in range(epochs):
         model.train()
         running_loss = 0.0
@@ -105,16 +125,22 @@ def train_model_presence(model, train_loader, val_loader,
         all_train_labels = []
 
         for inputs, labels in train_loader:
-            inputs, labels = inputs.to(device), labels.to(device)
+            inputs, labels = inputs.to(device), labels.to(device)  # shapes: [batch, seq_len, 52] y [batch, seq_len]
+            labels = labels.squeeze(1)  # <-- agrega esta línea
+
             optimizer.zero_grad()
-            outputs = model(inputs)
-            loss = criterion(outputs, labels.float())
+            outputs = model(inputs)  # shape: [batch, seq_len]
+            loss = criterion(outputs, labels.float())  # shapes must match exactly
             loss.backward()
             optimizer.step()
+
             running_loss += loss.item() * inputs.size(0)
-            preds = (torch.sigmoid(outputs) >= 0.5).float().squeeze(1).cpu().numpy()
-            all_train_preds.extend(preds)
-            all_train_labels.extend(labels.cpu().numpy())
+
+            # Obtener predicciones
+            #preds = (torch.sigmoid(outputs) >= 0.5).float().squeeze(1).cpu().numpy()
+            preds = (torch.sigmoid(outputs) >= 0.5).float().cpu().numpy()  # [batch, seq_len]
+            all_train_preds.extend(preds.reshape(-1))   # Flatten para métricas
+            all_train_labels.extend(labels.cpu().numpy().reshape(-1))  # Flatten también
 
         epoch_loss = running_loss / len(train_loader.dataset)
         epoch_accuracy = accuracy_score(all_train_labels, all_train_preds)
@@ -162,13 +188,17 @@ def evaluate_model_presence(model, data_loader, criterion):
     with torch.no_grad():
         for inputs, labels in data_loader:
             inputs, labels = inputs.to(device), labels.to(device)
-            outputs = model(inputs)
+            labels = labels.squeeze(1)  # elimina dimensión extra si existe
+
+            outputs = model(inputs)  # shape [batch, seq_len]
             loss = criterion(outputs, labels.float())
             losses.append(loss.item() * inputs.size(0))
 
-            preds = (torch.sigmoid(outputs) >= 0.5).float().squeeze(1).cpu().numpy()
-            all_preds.extend(preds)
-            all_labels.extend(labels.cpu().numpy())
+            #preds = (torch.sigmoid(outputs) >= 0.5).float().squeeze(1).cpu().numpy()
+            preds = (torch.sigmoid(outputs) >= 0.5).float().cpu().numpy()
+
+            all_preds.extend(preds.reshape(-1))    # aplanar para métricas
+            all_labels.extend(labels.cpu().numpy().reshape(-1))  # igual
 
     avg_loss = np.sum(losses) / len(data_loader.dataset)
     accuracy = accuracy_score(all_labels, all_preds)
@@ -179,7 +209,6 @@ def evaluate_model_presence(model, data_loader, criterion):
     return avg_loss, accuracy, precision, recall, f1
 
 
-
 # --- Funcion Principal de Detección de Presencia ---
 def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullrooms_test,
                         np_emptyrooms_training, np_emptyrooms_validate, np_emptyrooms_test,
@@ -188,23 +217,33 @@ def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullroo
                         window):
 
     # 1. Concatenar datos llenos y vacíos
-    train_data_np = np.concatenate((np_fullrooms_training, np_emptyrooms_training), axis=0)
-    val_data_np = np.concatenate((np_fullrooms_validate, np_emptyrooms_validate), axis=0)
-    # test_data_np = np.concatenate((np_fullrooms_test, np_emptyrooms_test), axis=0)  # si quieres test luego
+    #train_data_np = np.concatenate((np_fullrooms_training, np_emptyrooms_training), axis=0)
+    #val_data_np = np.concatenate((np_fullrooms_validate, np_emptyrooms_validate), axis=0)
 
-    train_labels_np = np.concatenate((targets_fullrooms_training, targets_emptyrooms_training)).astype(np.float32)
-    val_labels_np = np.concatenate((targets_fullrooms_validate, targets_emptyrooms_validate)).astype(np.float32)
-    # test_labels_np = np.concatenate((targets_fullrooms_test, targets_emptyrooms_test)).astype(np.float32)
+    #train_labels_np = np.concatenate((targets_fullrooms_training, targets_emptyrooms_training)).astype(np.float32)
+    #val_labels_np = np.concatenate((targets_fullrooms_validate, targets_emptyrooms_validate)).astype(np.float32)
+
+
+    X_full, y_full = create_sliding_windows(np_fullrooms_training, targets_fullrooms_training, window)
+    X_empty, y_empty = create_sliding_windows(np_emptyrooms_training, targets_emptyrooms_training, window)
+
+    X_train = np.concatenate((X_full, X_empty), axis=0)
+    y_train = np.concatenate((y_full, y_empty), axis=0)
 
     # 2. Crear ventanas deslizantes para secuencias temporales
-    X_train, y_train = create_sliding_windows(train_data_np, train_labels_np, window)
-    print('mandando a graficar...')
-    plot_sliding_windows(X_train, y_train, num_samples=5)
-    #plot_window_detailed(X_train, y_train, index=0)
+    #X_train, y_train = create_sliding_windows(train_data_np, train_labels_np, window)
+    #print('mandando a graficar...')
+    #plot_all_windows_as_waves(X_train, y_train, max_windows=80)
 
+    X_val_full, y_val_full = create_sliding_windows(np_fullrooms_validate, targets_fullrooms_validate, window)
+    X_val_empty, y_val_empty = create_sliding_windows(np_emptyrooms_validate, targets_emptyrooms_validate, window)
 
-    X_val, y_val = create_sliding_windows(val_data_np, val_labels_np, window)
-    plot_sliding_windows(X_val, y_val, num_samples=5)
+    X_val = np.concatenate((X_val_full, X_val_empty), axis=0)
+    y_val = np.concatenate((y_val_full, y_val_empty), axis=0)
+
+    #X_val, y_val = create_sliding_windows(val_data_np, val_labels_np, window)
+    #plot_all_windows_as_waves(X_val, y_val, max_windows=80)
+
 
 
     # X_test, y_test = create_sliding_windows(test_data_np, test_labels_np, window)
@@ -221,7 +260,7 @@ def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullroo
     train_dataset = TensorDataset(train_data_tensor, train_labels_tensor)
     val_dataset = TensorDataset(val_data_tensor, val_labels_tensor)
 
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=False)
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
     # 5. Definir modelo, criterio y optimizador
@@ -282,11 +321,19 @@ def get_results_presence_lstm(np_fullrooms_training, np_fullrooms_validate, np_f
     
 
     # Preparar datos de prueba
-    test_data_np = np.concatenate((np_fullrooms_test, np_emptyrooms_test), axis=0)
-    test_labels_np = np.concatenate((targets_fullrooms_test, targets_emptyrooms_test)).astype(np.float32)
+    #test_data_np = np.concatenate((np_fullrooms_test, np_emptyrooms_test), axis=0)
+    #test_labels_np = np.concatenate((targets_fullrooms_test, targets_emptyrooms_test)).astype(np.float32)
 
     # Crear ventanas deslizantes para test
-    X_test, y_test = create_sliding_windows(test_data_np, test_labels_np, window)
+    #X_test, y_test = create_sliding_windows(test_data_np, test_labels_np, window)
+
+
+    X_test_full, y_test_full = create_sliding_windows(np_fullrooms_test, targets_fullrooms_test, window)
+    X_test_empty, y_test_empty = create_sliding_windows(np_emptyrooms_test, targets_emptyrooms_test, window)
+
+    X_test = np.concatenate((X_test_full, X_test_empty), axis=0)
+    y_test = np.concatenate((y_test_full, y_test_empty), axis=0)
+
     test_data_tensor = torch.tensor(X_test, dtype=torch.float32)
     test_labels_tensor = torch.tensor(y_test, dtype=torch.float32).unsqueeze(1)
     test_dataset = TensorDataset(test_data_tensor, test_labels_tensor)

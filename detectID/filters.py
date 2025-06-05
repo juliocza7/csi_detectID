@@ -98,7 +98,8 @@ def hampel_filter_complex(series):
 def hampel_filter(series):
     filtered = {}
     for key in series.keys():
-        filtered[key] = hampel(series[key], window_size=31, n=3, imputation=True)
+        filtered[key] = hampel(series[key], window_size=31).filtered_data
+        #filtered[key] = hampel(series[key], window_size=31, n=3, imputation=True)
     filtered = pd.DataFrame(filtered)
 
     return filtered

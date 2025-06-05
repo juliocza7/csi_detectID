@@ -185,8 +185,8 @@ def real_time_presencedetection(window, model_name):
 
     # Definir los nombres de archivo SOLO para los datos
     data_files = {
-        'fullrooms_training': os.path.join(PROCESSED_DATA_DIR, 'fullrooms_training.csv'),
-        'emptyrooms_training': os.path.join(PROCESSED_DATA_DIR, 'emptyrooms_training.csv'),
+        'fullrooms_training': os.path.join(PROCESSED_DATA_DIR, f'fullrooms_training_{window}.csv'),
+        'emptyrooms_training': os.path.join(PROCESSED_DATA_DIR, f'emptyrooms_training_{window}.csv'),
     }
 
     # Verificar si todos los archivos de datos existen
@@ -213,7 +213,7 @@ def real_time_presencedetection(window, model_name):
                                                 np_fullrooms_validate.shape[0], 
                                                 np_fullrooms_test.shape[0])
 
-        print('\ngenerando datos de salas vaciías para validación...')
+        print('\ngenerando datos de salas vacías para validación...')
         np_emptyrooms_validate = get_procesing_emptyrooms_data_per_set(val_range, True, window)
         print('\ngenerando datos de salas vacías para  test...')
         np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
@@ -249,7 +249,7 @@ def real_time_presencedetection(window, model_name):
             print('comenzando modelo RANDOM FOREST')
         elif model_name == 1:
             print('comenzando modelo LSTM')
-            window = 1
+            #window = 1
             dict_model_results = get_results_presence_lstm(np_fullrooms_training, np_fullrooms_validate, np_fullrooms_test,
                                                         np_emptyrooms_training, np_emptyrooms_validate, np_emptyrooms_test,
                                                         targets_fullrooms_training, targets_fullrooms_validate, targets_fullrooms_test,
@@ -272,7 +272,7 @@ def real_time_presencedetection(window, model_name):
 
     else:
         print('\ngenerando datos de salas llenas para training...')
-        np_fullrooms_training = get_processing_fullrooms_data_per_set(participants_training)
+        np_fullrooms_training = get_processing_fullrooms_data_per_set(participants_training, True, window)
         print('\ngenerando datos de salas llenas para validacion...')
         np_fullrooms_validate = get_processing_fullrooms_data_per_set(participants_validate, True, window)
         print('\ngenerando datos de salas llenas para test...')
@@ -285,11 +285,11 @@ def real_time_presencedetection(window, model_name):
                                                 np_fullrooms_validate.shape[0], 
                                                 np_fullrooms_test.shape[0])
 
-        print('\ngenerando datos de salas vacias para training...')
+        print('\ngenerando datos de salas vacías para training...')
         np_emptyrooms_training = get_procesing_emptyrooms_data_per_set(train_range)
-        print('\ngenerando datos de salas vacias para validacion...')
+        print('\ngenerando datos de salas vacías para validacion...')
         np_emptyrooms_validate = get_procesing_emptyrooms_data_per_set(val_range, True, window)
-        print('\ngenerando datos de salas vacias para  test...')
+        print('\ngenerando datos de salas vacías para  test...')
         np_emptyrooms_test = get_procesing_emptyrooms_data_per_set(test_range, True, window)
 
         print('\ngenerando labels...')
