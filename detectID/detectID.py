@@ -185,8 +185,8 @@ def real_time_presencedetection(window, model_name):
 
     # Definir los nombres de archivo SOLO para los datos
     data_files = {
-        'fullrooms_training': os.path.join(PROCESSED_DATA_DIR, f'fullrooms_training_{window}.csv'),
-        'emptyrooms_training': os.path.join(PROCESSED_DATA_DIR, f'emptyrooms_training_{window}.csv'),
+        'fullrooms_training': os.path.join(PROCESSED_DATA_DIR, f'fullrooms_training_{int(window/8)}.csv'),
+        'emptyrooms_training': os.path.join(PROCESSED_DATA_DIR, f'emptyrooms_training_{int(window/8)}.csv'),
     }
 
     # Verificar si todos los archivos de datos existen

@@ -71,7 +71,7 @@ def cargar_archivos(path, num_archivos=17, modo='primero'):
         df = iq_samples_abs(df)
         #lista_porcentajes.append(calcular_outliers_zscore(df))
         #df = hampel_filter(df)     
-        #df = moving_avg_filter(df)
+        df = moving_avg_filter(df)
 
         # Guardar como matriz real de amplitudes
         #señal = np.abs(df.values)  # shape: (muestras, 51)
@@ -139,31 +139,39 @@ def graficar_diferencia_potencia(salas_llenas, salas_vacias):
     plt.legend()
     plt.grid(True)
     plt.show()
+def graficar_diferencia_maximo(salas_llenas, salas_vacias, indices_reales=None):
+    """
+    Graficar máximos promedio por subportadora (relleno o vacío) y su diferencia.
+    
+    - salas_llenas / salas_vacias: shape (archivos, muestras, subportadoras)
+    - indices_reales: opcional, lista con los índices originales de subportadoras. Si no se da, usa 0, 1, 2, ...
+    """
+    max_llenas = np.max(salas_llenas, axis=1)   # (archivos, subportadoras)
+    max_vacias = np.max(salas_vacias, axis=1)
 
-def graficar_diferencia_maximo(salas_llenas, salas_vacias):
-    # salas_llenas y salas_vacias tienen forma (num_archivos, muestras, subportadoras)
-    
-    # Maximo por archivo y subportadora (axis=1 sobre muestras)
-    maximos_llenas = np.max(salas_llenas, axis=1)  # shape: (num_archivos, subportadoras)
-    maximos_vacias = np.max(salas_vacias, axis=1)
-    
-    # Promedio de máximos sobre archivos (axis=0)
-    prom_max_llenas = np.mean(maximos_llenas, axis=0)  # shape: (subportadoras,)
-    prom_max_vacias = np.mean(maximos_vacias, axis=0)
-    
-    # Diferencia entre máximos promedio
-    diferencia = prom_max_llenas - prom_max_vacias
+    prom_llenas = np.mean(max_llenas, axis=0)
+    prom_vacias = np.mean(max_vacias, axis=0)
+    diferencia = prom_llenas - prom_vacias
+
+    n_subs = prom_llenas.shape[0]
+    x_labels = indices_reales if indices_reales is not None else np.arange(n_subs)
 
     plt.figure(figsize=(12, 6))
-    plt.plot(prom_max_llenas, label='Salas llenas (máximo promedio)', linewidth=2)
-    plt.plot(prom_max_vacias, label='Salas vacías (máximo promedio)', linewidth=2)
+    plt.plot(prom_llenas, label='Salas llenas', linewidth=2)
+    plt.plot(prom_vacias, label='Salas vacías', linewidth=2)
     plt.plot(diferencia, label='Diferencia', linestyle='--', color='black')
+
+    plt.xticks(ticks=np.arange(n_subs), labels=x_labels, rotation=90)
+
     plt.title('Comparación de amplitud máxima promedio por subportadora')
-    plt.xlabel('Subportadora')
+    plt.xlabel('Índice de subportadora')
     plt.ylabel('Amplitud máxima promedio')
     plt.legend()
     plt.grid(True)
+    plt.tight_layout()
     plt.show()
+
+
 
 
 def graficar_fft_comparativa(señales_full, señales_empty, titulo_full='Salas Llenas', titulo_empty='Salas Vacías'):
@@ -286,6 +294,41 @@ def matriz_entropia_fft(señales):
     return np.array(entropias)
 
 
+
+def matriz_entropia_fft_filtrada(señales, umbral_percentil=70):
+    """
+    Calcula entropía espectral y retorna solo las subportadoras con mayor entropía promedio.
+
+    Parámetros:
+    - señales: array de shape (n_archivos, n_muestras, n_subportadoras)
+    - umbral_percentil: percentil de corte para conservar las subportadoras más entropicas
+
+    Retorna:
+    - señales_filtradas: array reducido (n_archivos, n_muestras, n_subs_filtradas)
+    - indices_subs_filtradas: indices de subportadoras seleccionadas
+    """
+    entropias = []
+
+    for señal in señales:  # señal shape: (n_muestras, n_subportadoras)
+        fft = np.abs(np.fft.fft(señal, axis=0))
+        fft_norm = fft / np.sum(fft, axis=0, keepdims=True)
+        entr = entropy(fft_norm + 1e-12, axis=0)  # (n_subportadoras,)
+        entropias.append(entr)
+
+    entropias = np.array(entropias)  # shape: (n_archivos, n_subportadoras)
+    entropia_promedio = np.mean(entropias, axis=0)
+
+    # Filtrar subportadoras con mayor entropía (por percentil)
+    umbral = np.percentile(entropia_promedio, umbral_percentil)
+    indices_filtrados = np.where(entropia_promedio >= umbral)[0]
+
+    # Filtrar las señales en base a esas subportadoras
+    señales_filtradas = señales[:, :, indices_filtrados]  # reduce subportadoras
+
+    return señales_filtradas, indices_filtrados
+
+
+
 def graficar_heatmap_entropia(matriz_llenas, matriz_vacias):
     fig, axes = plt.subplots(1, 2, figsize=(20, 6), sharey=True, constrained_layout=True)
 
@@ -302,6 +345,42 @@ def graficar_heatmap_entropia(matriz_llenas, matriz_vacias):
 
     fig.suptitle("Comparativa de Entropía espectral por Subportadora", fontsize=16)
     plt.show()
+
+
+
+def graficar_heatmap_entropia_subportadoras(entropia_llenas, entropia_vacias, indices_subs):
+    """
+    Grafica dos heatmaps lado a lado donde:
+    - Eje X: subportadoras seleccionadas (índices reales)
+    - Eje Y: número de sala (archivo)
+    - Color: entropía espectral
+    """
+    fig, axes = plt.subplots(1, 2, figsize=(18, 6), sharey=True)
+
+    # Heatmap - Salas llenas
+    im0 = axes[0].imshow(entropia_llenas, aspect='auto', cmap='YlGnBu', origin='lower')
+    axes[0].set_title("Entropía por Subportadora - Salas Llenas")
+    axes[0].set_xlabel("Índice de Subportadora")
+    axes[0].set_ylabel("Sala (archivo)")
+    axes[0].set_xticks(np.arange(len(indices_subs)))
+    axes[0].set_xticklabels(indices_subs, rotation=90)
+    fig.colorbar(im0, ax=axes[0], label="Entropía")
+
+    # Heatmap - Salas vacías
+    im1 = axes[1].imshow(entropia_vacias, aspect='auto', cmap='YlOrRd', origin='lower')
+    axes[1].set_title("Entropía por Subportadora - Salas Vacías")
+    axes[1].set_xlabel("Índice de Subportadora")
+    axes[1].set_xticks(np.arange(len(indices_subs)))
+    axes[1].set_xticklabels(indices_subs, rotation=90)
+    fig.colorbar(im1, ax=axes[1], label="Entropía")
+
+    plt.suptitle("Heatmap de Entropía por Sala y Subportadora", fontsize=16)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.show()
+
+
+
+
 
 
 
@@ -361,15 +440,18 @@ def aplicar_pca_y_concatenar(matriz_3d):
 
 
 def graficar_pca(pca_llenas, pca_vacias):
-    # Graficar
     plt.figure(figsize=(16, 6))
-
+    
     plt.plot(pca_llenas, label='Salas llenas', color='blue')
     plt.plot(pca_vacias, label='Salas vacías', color='orange')
 
-    # Opcional: marcar separación entre archivos con líneas verticales
-    for i in range(1, 17):
-        plt.axvline(x=i*500, color='gray', linestyle='--', alpha=0.5)
+    # Líneas verticales cada 500 muestras
+    num_archivos = len(pca_llenas) // 500
+    for i in range(1, num_archivos):
+        plt.axvline(x=i * 500, color='gray', linestyle='--', alpha=0.5)
+
+    # Ticks del eje X cada 500 muestras
+    plt.xticks(ticks=np.arange(0, len(pca_llenas) + 1, 500))
 
     plt.title("Señales PCA concatenadas de 17 archivos (500 muestras c/u)")
     plt.xlabel("Tiempo concatenado (muestras)")
@@ -378,6 +460,7 @@ def graficar_pca(pca_llenas, pca_vacias):
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+
 
 # ==== RUTINA PRINCIPAL ====
 participante = f"{random.randint(1, 125):03}"
@@ -388,7 +471,7 @@ PATH_EMPTY = 'C:\\Users\\jsoto\\code\\dataset_empty_csv\\'
 # Cargar datos
 print('>>>>>> participante: ',participante)
 salas_llenas = cargar_archivos(PATH_FULL, num_archivos=17, modo='ultimo') # primero, ultimo, aleatorio
-salas_vacias = cargar_archivos(PATH_EMPTY, num_archivos=17, modo='aleatorio')
+salas_vacias = cargar_archivos(PATH_EMPTY, num_archivos=17, modo='ultimo')
 
 print('shape salas llenas: ',salas_llenas.shape)
 print('shape salas vacías: ',salas_vacias.shape)
@@ -418,7 +501,7 @@ graficar_metricas_misma_figura(pot_llenas, pot_vacias, 'potencia')
 
 
 
-'''
+
 # Visualizaciones
 print('graficando las 17 señales de salas llenas y vacías...')
 graficar_comparativa_17_archivos(salas_llenas, salas_vacias)
@@ -455,4 +538,33 @@ matriz_llenas = matriz_entropia_fft(salas_llenas)
 matriz_vacias = matriz_entropia_fft(salas_vacias)
 
 graficar_heatmap_entropia(matriz_llenas, matriz_vacias)
-'''
+
+# 1. Filtrar señales con alta entropía
+señales_llenas_filtradas, subs_llenas = matriz_entropia_fft_filtrada(salas_llenas, umbral_percentil=55)
+señales_vacias_filtradas, subs_vacias = matriz_entropia_fft_filtrada(salas_vacias, umbral_percentil=55)
+
+# 2. Obtener subportadoras comunes
+indices_comunes = np.intersect1d(subs_llenas, subs_vacias)
+print("Subportadoras comunes seleccionadas:", indices_comunes)
+
+# 3. Convertir índices absolutos a relativos en cada conjunto
+rel_idx_llenas = [i for i, val in enumerate(subs_llenas) if val in indices_comunes]
+rel_idx_vacias = [i for i, val in enumerate(subs_vacias) if val in indices_comunes]
+
+# 4. Filtrar matrices 3D con índices relativos
+salas_llenas_comunes = señales_llenas_filtradas[:, :, rel_idx_llenas]
+salas_vacias_comunes = señales_vacias_filtradas[:, :, rel_idx_vacias]
+
+# 5. Calcular entropía de esas subportadoras comunes
+ent_llenas = matriz_entropia_fft(salas_llenas_comunes)
+ent_vacias = matriz_entropia_fft(salas_vacias_comunes)
+
+# 6. Graficar heatmap con etiquetas reales
+graficar_heatmap_entropia_subportadoras(ent_llenas, ent_vacias, indices_comunes)
+
+graficar_diferencia_promedio(salas_llenas_comunes, salas_vacias_comunes)
+graficar_diferencia_potencia(salas_llenas_comunes, salas_vacias_comunes)
+graficar_diferencia_maximo(salas_llenas_comunes, salas_vacias_comunes, indices_comunes)
+
+
+
