@@ -5,10 +5,11 @@ from scipy.signal import butter, lfilter, stft
 from hampel import hampel
 from sklearn.decomposition import PCA
 from scipy.fftpack import fft, fftfreq
+from scipy.ndimage import median_filter
 #from ssqueezepy import ssq_cwt, ssq_stft, extract_ridges
 #from fastdtw import fastdtw
 #from scipy.spatial.distance import euclidean
-import random
+
 
 #from dtaidistance import dtw
 #from dtaidistance import dtw_visualisation as dtwvis
@@ -143,6 +144,44 @@ def moving_avg_filter(series):
 
     moving_avg = pd.DataFrame(moving_avg)
     return moving_avg
+
+def moving_median_filter(series, window=3):
+    """
+    Aplica un filtro de mediana móvil a cada columna del DataFrame.
+    
+    Parámetros:
+    - series: DataFrame de entrada (ej. 500x234)
+    - window: tamaño de la ventana (debe ser impar, típicamente 3, 5, 7...)
+
+    Retorna:
+    - DataFrame filtrado con mediana móvil aplicada por columna
+    """
+    mediana_movil = {}
+
+    for col in series.columns:
+        mediana_movil[col] = series[col].rolling(window=window, min_periods=1, center=True).median()
+
+    return pd.DataFrame(mediana_movil)
+
+'''
+def aplicar_mediana_movil(df, window=3):
+    """
+    Aplica filtro de mediana móvil sobre cada columna de un DataFrame.
+
+    Parámetros:
+    - df: DataFrame de forma (filas, columnas) — filas: tiempo, columnas: subportadoras
+    - window: tamaño de la ventana (debe ser impar)
+
+    Retorna:
+    - DataFrame suavizado (misma forma)
+    """
+    if window % 2 == 0:
+        raise ValueError("El tamaño de ventana debe ser impar.")
+
+    # Convertir a array, aplicar filtro y reconstruir DataFrame
+    datos_filtrados = median_filter(df.values, size=(window, 1))  # aplica solo sobre el tiempo
+    return pd.DataFrame(datos_filtrados, columns=df.columns, index=df.index)
+'''
 
 
 def band_pass_filter(series):

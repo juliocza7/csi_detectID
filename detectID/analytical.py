@@ -4,12 +4,22 @@ import os
 import pandas as pd
 import random
 import seaborn as sns
+import time
+import re
 from scipy.stats import entropy
 from scipy.stats import zscore
 from sklearn.decomposition import PCA
 from detectID import get_selected_subcarries
-from filters import hampel_filter, moving_avg_filter, iq_samples_abs
+from filters import hampel_filter, moving_avg_filter, iq_samples_abs, moving_median_filter
+from sklearn.covariance import MinCovDet
+from scipy.stats import chi2
 
+random.seed(time.time())
+
+def extraer_numero(nombre_archivo):
+    # Busca el primer número en el nombre del archivo
+    numeros = re.findall(r'\d+', nombre_archivo)
+    return int(numeros[0]) if numeros else -1
 
 def calcular_outliers_zscore(df, umbral=3):
 
@@ -18,6 +28,17 @@ def calcular_outliers_zscore(df, umbral=3):
     outliers = (z_scores_abs > 3)
     porcentaje_outliers = outliers.sum().sum() / df.size * 100
 
+    return float(porcentaje_outliers)
+
+def calcular_outliers_rc(df, alpha=0.99):
+    mcd = MinCovDet().fit(df)
+    mahal_dist = mcd.mahalanobis(df)
+
+    # Usamos la distribución chi-cuadrado para el umbral (p=0.975 típico)
+    umbral = chi2.ppf(alpha, df.shape[1])
+    outliers = mahal_dist > umbral
+
+    porcentaje_outliers = outliers.sum() / df.shape[0] * 100
     return float(porcentaje_outliers)
 
 def cargar_archivos(path, num_archivos=17, modo='primero'):
@@ -36,7 +57,8 @@ def cargar_archivos(path, num_archivos=17, modo='primero'):
         os.path.join(path, f) for f in os.listdir(path)
         if f.endswith('.csv')
     ]
-    archivos = sorted(archivos)  # ordenar alfabéticamente
+    #archivos = sorted(archivos)  # ordenar alfabéticamente
+    archivos = sorted(archivos, key=extraer_numero)
 
     if modo == 'primero':
         archivos_csv = archivos[:num_archivos]
@@ -45,15 +67,27 @@ def cargar_archivos(path, num_archivos=17, modo='primero'):
     elif modo == 'aleatorio':
         if num_archivos > len(archivos):
             raise ValueError("num_archivos excede la cantidad de archivos disponibles")
-        archivos_csv = random.sample(archivos, num_archivos)
+
+        # Seleccionar aleatoriamente el índice del primer archivo
+        max_inicio = len(archivos) - num_archivos
+        inicio = random.randint(0, max_inicio)
+        archivos_csv = archivos[inicio:inicio + num_archivos]
     else:
         raise ValueError("El parámetro 'modo' debe ser 'primero', 'ultimo' o 'aleatorio'.")
+    
+    '''
+    elif modo == 'aleatorio':
+        if num_archivos > len(archivos):
+            raise ValueError("num_archivos excede la cantidad de archivos disponibles")
+        archivos_csv = random.sample(archivos, num_archivos)
+    '''
 
     señales = []
 
     print('>>>>>>>> archivos nombres: ', [os.path.splitext(os.path.basename(f))[0] for f in archivos_csv])
 
-    #lista_porcentajes = []
+    lista_porcentajes_zscore = []
+    lista_porcentajes_rc = []
 
     for archivo in archivos_csv:
         df = pd.read_csv(archivo)
@@ -69,15 +103,44 @@ def cargar_archivos(path, num_archivos=17, modo='primero'):
         df = df.apply(lambda col: col.apply(lambda val: complex(val.strip('()')) if isinstance(val, str) else val))
 
         df = iq_samples_abs(df)
-        #lista_porcentajes.append(calcular_outliers_zscore(df))
-        #df = hampel_filter(df)     
+        sns.heatmap(df.corr(), cmap='coolwarm')
+        
+        lista_porcentajes_zscore.append(calcular_outliers_zscore(df))
+        lista_porcentajes_rc.append(calcular_outliers_rc(df))
+        
+        #df = hampel_filter(df) 
+        '''
+        df = moving_median_filter(df)
+        media_columnas = df.mean(axis=0)  # resultado: vector de 234 valores
+        plt.figure(figsize=(14,8))
+        plt.plot(media_columnas, alpha=0.3)  # todas las columnas con transparencia
+        plt.title('Señales filtradas con mediana móvil (todas las subportadoras)')
+        plt.xlabel('Índice de fila')
+        plt.ylabel('Valor filtrado')
+        plt.grid(True)
+        plt.show()
+        '''
+        
         df = moving_avg_filter(df)
+        '''
+        media_columnas = df.mean(axis=0)  # resultado: vector de 234 valoresedia_columnas
+        plt.figure(figsize=(14,8))
+        plt.plot(media_columnas, alpha=0.3)  # todas las columnas con transparencia
+        plt.title('Señales filtradas con media móvil (todas las subportadoras)')
+        plt.xlabel('Índice de fila')
+        plt.ylabel('Valor filtrado')
+        plt.grid(True)
+        plt.show()
+        '''
 
         # Guardar como matriz real de amplitudes
         #señal = np.abs(df.values)  # shape: (muestras, 51)
         señales.append(df.values)
 
-    #print('lista de % de outliers: ', lista_porcentajes)
+    #print('\nlista de % de outliers zscore: ', lista_porcentajes_zscore)
+    print("\nlista de % de outliers zscore:".join(f"{v:.4f}" for v in lista_porcentajes_zscore))
+    #print('lista de % de outliers rc: ', lista_porcentajes_rc)
+    print("\nlista de % de outliers rc:".join(f"{v:.4f}" for v in lista_porcentajes_rc))
 
     return np.array(señales)  # shape: (num_archivos, muestras, 51)
 
@@ -462,6 +525,49 @@ def graficar_pca(pca_llenas, pca_vacias):
     plt.show()
 
 
+
+def graficar_maximos_por_archivo(salas_llenas, salas_vacias, indices_reales=None):
+    """
+    Grafica los máximos por subportadora de cada archivo individual para salas llenas y vacías.
+
+    - salas_llenas / salas_vacias: shape (archivos, muestras, subportadoras)
+    - indices_reales: lista opcional con los índices originales de subportadoras.
+    """
+    max_llenas = np.max(salas_llenas, axis=1)   # (archivos, subportadoras)
+    max_vacias = np.max(salas_vacias, axis=1)
+
+    n_archivos, n_subs = max_llenas.shape
+    x_labels = indices_reales if indices_reales is not None else np.arange(n_subs)
+
+    fig, axes = plt.subplots(1, 2, figsize=(16, 6), sharey=True)
+
+    # --- Salas llenas ---
+    for i in range(n_archivos):
+        axes[0].plot(x_labels, max_llenas[i], label=f'Archivo {i+1}')
+    axes[0].set_title("Máximos por archivo - Salas Llenas")
+    axes[0].set_xlabel("Índice de Subportadora")
+    axes[0].set_ylabel("Amplitud máxima")
+    axes[0].grid(True)
+    axes[0].legend(loc='upper right', fontsize='small', ncol=2)
+    axes[0].set_xticks(x_labels)
+    axes[0].tick_params(axis='x', rotation=90)
+
+    # --- Salas vacías ---
+    for i in range(n_archivos):
+        axes[1].plot(x_labels, max_vacias[i], label=f'Archivo {i+1}')
+    axes[1].set_title("Máximos por archivo - Salas Vacías")
+    axes[1].set_xlabel("Índice de Subportadora")
+    axes[1].grid(True)
+    axes[1].legend(loc='upper right', fontsize='small', ncol=2)
+    axes[1].set_xticks(x_labels)
+    axes[1].tick_params(axis='x', rotation=90)
+
+    fig.suptitle("Comparación de amplitudes máximas por subportadora (archivo por archivo)", fontsize=14)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.show()
+
+
+
 # ==== RUTINA PRINCIPAL ====
 participante = f"{random.randint(1, 125):03}"
 #participante = '007'
@@ -471,7 +577,7 @@ PATH_EMPTY = 'C:\\Users\\jsoto\\code\\dataset_empty_csv\\'
 # Cargar datos
 print('>>>>>> participante: ',participante)
 salas_llenas = cargar_archivos(PATH_FULL, num_archivos=17, modo='ultimo') # primero, ultimo, aleatorio
-salas_vacias = cargar_archivos(PATH_EMPTY, num_archivos=17, modo='ultimo')
+salas_vacias = cargar_archivos(PATH_EMPTY, num_archivos=17, modo='aleatorio')
 
 print('shape salas llenas: ',salas_llenas.shape)
 print('shape salas vacías: ',salas_vacias.shape)
@@ -519,18 +625,23 @@ print('graficando magnitud de fft...')
 graficar_fft_comparativa(salas_llenas, salas_vacias)
 
 
+graficar_maximos_por_archivo(salas_llenas, salas_vacias)
+
 res_full = medir_concentracion_fft(salas_llenas)
 res_empty = medir_concentracion_fft(salas_vacias)
 
 graficar_concentracion_fft(res_full, res_empty)
 
-print(">> Salas llenas:")
+print("\n>> Salas llenas:")
 for k, v in res_full.items():
     print(f"{k}: {v:.4f}")
 
 print("\n>> Salas vacías:")
 for k, v in res_empty.items():
     print(f"{k}: {v:.4f}")
+
+
+
 
 
 # Obtener matriz de entropía
@@ -540,8 +651,8 @@ matriz_vacias = matriz_entropia_fft(salas_vacias)
 graficar_heatmap_entropia(matriz_llenas, matriz_vacias)
 
 # 1. Filtrar señales con alta entropía
-señales_llenas_filtradas, subs_llenas = matriz_entropia_fft_filtrada(salas_llenas, umbral_percentil=55)
-señales_vacias_filtradas, subs_vacias = matriz_entropia_fft_filtrada(salas_vacias, umbral_percentil=55)
+señales_llenas_filtradas, subs_llenas = matriz_entropia_fft_filtrada(salas_llenas, umbral_percentil=65)
+señales_vacias_filtradas, subs_vacias = matriz_entropia_fft_filtrada(salas_vacias, umbral_percentil=65)
 
 # 2. Obtener subportadoras comunes
 indices_comunes = np.intersect1d(subs_llenas, subs_vacias)

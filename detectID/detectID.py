@@ -4,7 +4,7 @@ import pandas as pd
 import random
 import argparse
 #from decoders import interleaved as decoder #descomentar si procesa archivos pcap
-from filters import iq_samples_abs, hampel_filter_complex, moving_avg_filter_complex
+from filters import iq_samples_abs, hampel_filter_complex, moving_avg_filter_complex, moving_avg_filter
 from model_lstm import get_results_presence_lstm, get_results_identification_lstm
 from model_mlp import get_results_presence_mlp
 import json
@@ -23,9 +23,9 @@ def get_amplitudes(df_csi_data):
 
 def get_data_from_filters(df_csi_data):
     #df_csi_data = hampel_filter_complex(df_csi_data)
-    #df_csi_data = moving_avg_filter_complex(df_csi_data)
-    df_csi_data = df_csi_data.apply(hampel_filter_complex)
-    df_csi_data = df_csi_data.apply(moving_avg_filter_complex)
+    df_csi_data = moving_avg_filter(df_csi_data)
+    #df_csi_data = df_csi_data.apply(hampel_filter_complex)
+    #df_csi_data = df_csi_data.apply(moving_avg_filter_complex)
 
     return df_csi_data
 
@@ -42,10 +42,12 @@ def get_processing_csi_data_x_participant_from_csv_pcap(participant, position, f
 
     df_csi_data = pd.read_csv(PATH_PARTICIPANT_COMPLEX_CSV + participant + '/' + position + '.csv') # comentar si se usa datos csi del pcap
     
-    df_csi_data = get_selected_subcarries(df_csi_data)
+    #df_csi_data = get_selected_subcarries(df_csi_data)
 
     df_csi_data = df_csi_data.drop(['Unnamed: 0'], axis=1)
     df_csi_data = df_csi_data.apply(lambda col: col.apply(lambda val: complex(val.strip('()'))))
+
+    df_csi_data = get_amplitudes(df_csi_data)
 
     if df_csi_data.shape[0] > 500:
         if flag_window:
@@ -61,7 +63,7 @@ def get_processing_csi_data_x_participant_from_csv_pcap(participant, position, f
             df_csi_data = df_csi_data.iloc[0:SAMPLES]
 
     df_csi_data = get_data_from_filters(df_csi_data)
-    df_csi_data = get_amplitudes(df_csi_data)
+    #df_csi_data = get_amplitudes(df_csi_data)
 
     return df_csi_data.to_numpy()
 
@@ -75,10 +77,12 @@ def labels_generator(label, shapedim): # genera los labels binarios 0 o 1
 def get_processing_csi_data_x_room_from_csv_pcap(room, flag_window, window):
     df_csi_data = pd.read_csv(PATH_EMPTYROOM_COMPLEX_CSV + room + '.csv') # comentar si se usa datos csi del pcap
 
-    df_csi_data = get_selected_subcarries(df_csi_data)
+    #df_csi_data = get_selected_subcarries(df_csi_data)
 
     df_csi_data = df_csi_data.drop(['Unnamed: 0'], axis=1)
     df_csi_data = df_csi_data.apply(lambda col: col.apply(lambda val: complex(val.strip('()'))))
+
+    df_csi_data = get_amplitudes(df_csi_data)
 
     if df_csi_data.shape[0] > 500:
         if flag_window:
@@ -94,7 +98,7 @@ def get_processing_csi_data_x_room_from_csv_pcap(room, flag_window, window):
             df_csi_data = df_csi_data.iloc[0:SAMPLES]
 
     df_csi_data = get_data_from_filters(df_csi_data)
-    df_csi_data = get_amplitudes(df_csi_data)
+    #df_csi_data = get_amplitudes(df_csi_data)
 
     return df_csi_data.to_numpy()
 
@@ -111,26 +115,26 @@ def get_max_amplitude_per_position(np_matrix):
 
 def get_csi_data_from_emptyrooms_to_presencedetection(room, flag_window=False, window=None):
     # obtiene informacion y amplitud maxima de la sala vacia seleccionada
-    np_emptyrooms = np.empty((0, 52))
+    np_emptyrooms = np.empty((0, 234))
     arrayemptyrooms_maxamplitudes = get_max_amplitude_per_position(
                                     get_processing_csi_data_x_room_from_csv_pcap(room, flag_window, window))
-    np_emptyrooms = np.array(arrayemptyrooms_maxamplitudes).reshape(1,52)
+    np_emptyrooms = np.array(arrayemptyrooms_maxamplitudes).reshape(1,234)
 
     return np_emptyrooms
 
 def get_csi_data_from_participant_to_presencedetection(participant, flag_window=False, window=None):
     # obtiene informacion y amplitud maxima del participante seleccionado
-    np_fullroom_participant = np.empty((0, 52))
+    np_fullroom_participant = np.empty((0, 234))
     for position in POSITIONS_PARTICIPANT:
         #print('participant: ', participant, ' position: ', position)
         arrayparticipants_maxamplitudes = get_max_amplitude_per_position(
                                     get_processing_csi_data_x_participant_from_csv_pcap(participant, position, flag_window, window))
-        np_fullroom_participant = np.concatenate((np_fullroom_participant, np.array(arrayparticipants_maxamplitudes).reshape(1,52)), axis=0)
+        np_fullroom_participant = np.concatenate((np_fullroom_participant, np.array(arrayparticipants_maxamplitudes).reshape(1,234)), axis=0)
 
     return np_fullroom_participant
 
 def get_procesing_emptyrooms_data_per_set(range_data, flag_window = False, window = None):
-    np_emptyrooms = np.empty((0, 52))
+    np_emptyrooms = np.empty((0, 234))
     start_num, end_num = range_data
     for room in range(start_num + 1, end_num + 1):
         #print('room: ', room)
@@ -140,7 +144,7 @@ def get_procesing_emptyrooms_data_per_set(range_data, flag_window = False, windo
     return np_emptyrooms
 
 def get_processing_fullrooms_data_per_set(participants_set, flag_window = False, window = None):
-    np_fullrooms = np.empty((0, 52))
+    np_fullrooms = np.empty((0, 234))
     for participant in participants_set:
         np_fullrooms_tmp = get_csi_data_from_participant_to_presencedetection(participant, flag_window, window)
         np_fullrooms = np.concatenate((np_fullrooms, np_fullrooms_tmp), axis=0)
@@ -376,7 +380,7 @@ def presence_results(model_name):
 ############################################ IDENTIFICACION EN TIEMPO REAL ################################################  
 def get_csi_data_group_identification(participant): #retorna las amplitudes de todas las posiciones de un participante
 
-    position_matrix = np.empty((0, 52))
+    position_matrix = np.empty((0, 234))
     for position in POSITIONS_PARTICIPANT:
         #print('participant: ', participant, ' position: ', position)
         tmp_matrix = get_processing_csi_data_x_participant_from_csv_pcap(participant, position)
@@ -389,7 +393,7 @@ def get_csi_data_to_indentification(group): # retorna las dos matrices, una con 
 
     np_principal = get_csi_data_group_identification(group[0])
 
-    np_secondaries = np.empty((0, 52))
+    np_secondaries = np.empty((0, 234))
     for participant in group[1:]:
         tmp_matrix_participant = get_csi_data_group_identification(participant)
         random_number = random.randint(0, 13)

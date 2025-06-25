@@ -10,11 +10,11 @@ sys.path.append(project_root)
 
 from csiexplorer.decoders import interleaved as decoder
 
-diretorio = 'D:\\ULima\\PosDoc\\code\\dataset_empty_csv\\500_coletas_vazias\\'
+diretorio = 'C:\\Users\\jsoto\\dataset\\scans_ds2\\sala_vazia\\'
 
 contenido = os.listdir(diretorio)
 print('Quant_file: ', len(contenido), '\n')
-name_fil = 1710
+name_fil = 0
 
 for i in contenido:
     print('obteniendo dados CSI del pcap: ', i)
@@ -23,4 +23,4 @@ for i in contenido:
 
     name_fil += 1
     print('creando archivo csv: ', name_fil)
-    csi_data.to_csv('D:\\ULima\\PosDoc\\code\\dataset_empty_csv\\csv_newemptyrooms\\' + str(name_fil) + '.csv', sep=',')
+    csi_data.to_csv('C:\\Users\\jsoto\\dataset\\emptyroom_2000\\' + str(name_fil) + '.csv', sep=',')

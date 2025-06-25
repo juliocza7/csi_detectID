@@ -5,10 +5,11 @@ import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
 
 # --- Varibles globales de modelo ---
 
-INPUT_SIZE = 52
+INPUT_SIZE = 234
 HIDDEN_SIZE = 64
 OUTPUT_SIZE = 1
 
@@ -223,7 +224,25 @@ def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullroo
     #train_labels_np = np.concatenate((targets_fullrooms_training, targets_emptyrooms_training)).astype(np.float32)
     #val_labels_np = np.concatenate((targets_fullrooms_validate, targets_emptyrooms_validate)).astype(np.float32)
 
+    # --- Normalización por subportadora (feature-wise) ---
+    scaler = StandardScaler()
+    
+    # Concatenar datos de entrenamiento (en 2D: samples, features)
+    X_train_all = np.concatenate((np_fullrooms_training, np_emptyrooms_training), axis=0)
+    scaler.fit(X_train_all)  # Ajustar solo con entrenamiento
 
+    def normalize(data):
+        return scaler.transform(data)
+
+    # Normalizar todos los conjuntos
+    np_fullrooms_training = normalize(np_fullrooms_training)
+    np_emptyrooms_training = normalize(np_emptyrooms_training)
+    np_fullrooms_validate = normalize(np_fullrooms_validate)
+    np_emptyrooms_validate = normalize(np_emptyrooms_validate)
+    np_fullrooms_test = normalize(np_fullrooms_test)
+    np_emptyrooms_test = normalize(np_emptyrooms_test)
+
+    # Luego creas las ventanas deslizantes normalmente
     X_full, y_full = create_sliding_windows(np_fullrooms_training, targets_fullrooms_training, window)
     X_empty, y_empty = create_sliding_windows(np_emptyrooms_training, targets_emptyrooms_training, window)
 
@@ -279,7 +298,7 @@ def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullroo
                                    criterion, optimizer, EPOCHS, callbacks, 
                                    save_path='best_presence_model_lstm.pth')
 
-    return model, history
+    return model, history, np_fullrooms_test, np_emptyrooms_test
 
 
 def get_results_presence_lstm(np_fullrooms_training, np_fullrooms_validate, np_fullrooms_test,
@@ -288,7 +307,7 @@ def get_results_presence_lstm(np_fullrooms_training, np_fullrooms_validate, np_f
                               targets_emptyrooms_training, targets_emptyrooms_validate, targets_emptyrooms_test,
                               window):
 
-    model, history = presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullrooms_test,
+    model, history, np_fullrooms_test, np_emptyrooms_test = presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullrooms_test,
                                                      np_emptyrooms_training, np_emptyrooms_validate, np_emptyrooms_test,
                                                      targets_fullrooms_training, targets_fullrooms_validate, targets_fullrooms_test,
                                                      targets_emptyrooms_training, targets_emptyrooms_validate, targets_emptyrooms_test,
