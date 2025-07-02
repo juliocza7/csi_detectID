@@ -3,13 +3,13 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
 # --- Varibles globales de modelo ---
 
-INPUT_SIZE = 234
+INPUT_SIZE = 238
 HIDDEN_SIZE = 64
 OUTPUT_SIZE = 1
 
@@ -74,7 +74,82 @@ def plot_all_windows_as_waves(X, y, max_windows=40, windows_per_fig=40):
 
 
 
+def positional_encoding(window_size, d_pos):
+    pos = np.arange(window_size)[:, np.newaxis]
+    i = np.arange(d_pos)[np.newaxis, :]
+    angle_rates = 1 / np.power(10000, (2 * (i // 2)) / d_pos)
+    angle_rads = pos * angle_rates
 
+    pe = np.zeros((window_size, d_pos))
+    pe[:, 0::2] = np.sin(angle_rads[:, 0::2])
+    pe[:, 1::2] = np.cos(angle_rads[:, 1::2])
+    return pe
+
+'''
+def create_sliding_windows(data, labels, window_size, stride=1, d_pos=4): #codificación posicional sinusoidal
+    X, y = [], []
+    pe = positional_encoding(window_size, d_pos)  # (window_size, d_pos)
+
+    for i in range(0, len(data) - window_size + 1, stride):
+        window = data[i:i+window_size, :]          # (window_size, features)
+        window_labels = labels[i:i+window_size]    # (window_size,)
+
+        # Concatenar codificación posicional como nueva feature
+        window_with_pos = np.concatenate([window, pe], axis=1)  # (window_size, features + d_pos)
+
+        X.append(window_with_pos)
+        y.append(window_labels)
+
+    return np.array(X), np.array(y)
+'''
+
+def create_sliding_windows(data, labels, window_size, stride=1, d_pos=4, many_to_many=True):
+    """
+    Crea ventanas deslizantes con codificación posicional sinusoidal.
+
+    Parámetros:
+    - data: np.array de forma (N, features)
+    - labels: np.array de forma (N,) o (N, 1)
+    - window_size: tamaño de cada ventana
+    - stride: paso de la ventana deslizante
+    - d_pos: dimensión de la codificación posicional
+    - many_to_many: si True, devuelve una secuencia de etiquetas por ventana; si False, solo una etiqueta por ventana
+
+    Retorna:
+    - X: np.array de forma (num_ventanas, window_size, features + d_pos)
+    - y: np.array de forma (num_ventanas, window_size) o (num_ventanas,)
+    """
+    X, y = [], []
+
+    if len(data) < window_size:
+        print(f"⚠️ No se pueden crear ventanas: len(data)={len(data)} < window_size={window_size}")
+        return np.empty((0, window_size, data.shape[1] + d_pos)), np.empty((0,))
+
+    pe = positional_encoding(window_size, d_pos)  # (window_size, d_pos)
+
+    for i in range(0, len(data) - window_size + 1, stride):
+        window = data[i:i+window_size, :]           # (window_size, features)
+        window_labels = labels[i:i+window_size]     # (window_size,)
+
+        # Concatenar codificación posicional como nuevas features
+        window_with_pos = np.concatenate([window, pe], axis=1)  # (window_size, features + d_pos)
+
+        X.append(window_with_pos)
+
+        if many_to_many:
+            y.append(window_labels)
+        else:
+            y.append(labels[i + window_size - 1])  # etiqueta del último paso
+
+    X = np.array(X)
+    y = np.array(y)
+
+    print(f"✅ Ventanas creadas: {X.shape[0]} ventanas de tamaño {window_size}")
+    return X, y
+
+
+
+'''
 # Función para crear ventanas deslizantes
 def create_sliding_windows(data, labels, window_size, stride=1):
     X, y = [], []
@@ -82,6 +157,9 @@ def create_sliding_windows(data, labels, window_size, stride=1):
         X.append(data[i:i+window_size, :])       # (window_size, features)
         y.append(labels[i:i+window_size])        # todas las etiquetas
     return np.array(X), np.array(y)
+'''
+
+
 
 #################################################################################################################################################
 ######################################## PRESENCE DETECTION######################################################################################
@@ -106,10 +184,13 @@ def train_model_presence(model, train_loader, val_loader,
                          criterion, optimizer, epochs, callbacks, 
                          save_path='best_model.pth'):
 
-    history = {'loss': [], 'val_loss': [], 'accuracy': [], 'val_accuracy': [], 
-               'precision': [], 'val_precision': [], 
-               'recall': [], 'val_recall': [], 
-               'f1_score': [], 'val_f1_score': []}
+    history = {
+        'loss': [], 'val_loss': [], 'accuracy': [], 'val_accuracy': [],
+        'precision': [], 'val_precision': [],
+        'recall': [], 'val_recall': [],
+        'f1_score': [], 'val_f1_score': [],
+        'conf_matrix': [], 'val_conf_matrix': []  # ← Matrices de confusión
+    }
     
     best_val_loss = float('inf')
     patience_counter = 0
@@ -148,20 +229,24 @@ def train_model_presence(model, train_loader, val_loader,
         epoch_precision = precision_score(all_train_labels, all_train_preds, zero_division=0)
         epoch_recall = recall_score(all_train_labels, all_train_preds, zero_division=0)
         epoch_f1_score = f1_score(all_train_labels, all_train_preds, zero_division=0)
+        conf_matrix = confusion_matrix(all_train_labels, all_train_preds)
 
         history['loss'].append(epoch_loss)
         history['accuracy'].append(epoch_accuracy)
         history['precision'].append(epoch_precision)
         history['recall'].append(epoch_recall)
         history['f1_score'].append(epoch_f1_score)
+        history['conf_matrix'].append(conf_matrix)
 
         # VALIDACIÓN
-        val_loss, val_accuracy, val_precision, val_recall, val_f1_score = evaluate_model_presence(model, val_loader, criterion)
+        val_loss, val_accuracy, val_precision, val_recall, val_f1_score, val_conf_matrix = evaluate_model_presence(
+            model, val_loader, criterion)
         history['val_loss'].append(val_loss)
         history['val_accuracy'].append(val_accuracy)
         history['val_precision'].append(val_precision)
         history['val_recall'].append(val_recall)
         history['val_f1_score'].append(val_f1_score)
+        history['val_conf_matrix'].append(val_conf_matrix)
 
         print(f"Epoch {epoch+1}/{epochs}, Loss: {epoch_loss:.4f}, Acc: {epoch_accuracy:.4f}, "
               f"Val Loss: {val_loss:.4f}, Val Acc: {val_accuracy:.4f}")
@@ -186,28 +271,62 @@ def evaluate_model_presence(model, data_loader, criterion):
     all_labels = []
     losses = []
 
+    # Asegurar que device esté definido
+    device = next(model.parameters()).device
+
+    print(f"Número de batches en el dataloader: {len(data_loader)}")
+    print(f"Tamaño total del dataset: {len(data_loader.dataset)}")
+
+    # Función auxiliar para verificar NaNs e Infs
+    def check_for_nans(tensor, name="tensor"):
+        if torch.isnan(tensor).any():
+            print(f"⚠️ {name} contiene NaNs")
+        if torch.isinf(tensor).any():
+            print(f"⚠️ {name} contiene infs")
+
+    # Verificar entradas y salidas antes de evaluar
+    for inputs, labels in data_loader:
+        inputs, labels = inputs.to(device), labels.to(device)
+        check_for_nans(inputs, "inputs")
+
+        outputs = model(inputs)
+        check_for_nans(outputs, "outputs")
+
+    # Evaluación real (sin gradientes)
     with torch.no_grad():
         for inputs, labels in data_loader:
             inputs, labels = inputs.to(device), labels.to(device)
-            labels = labels.squeeze(1)  # elimina dimensión extra si existe
+            labels = labels.squeeze(1)
 
-            outputs = model(inputs)  # shape [batch, seq_len]
+            outputs = model(inputs)
             loss = criterion(outputs, labels.float())
             losses.append(loss.item() * inputs.size(0))
 
-            #preds = (torch.sigmoid(outputs) >= 0.5).float().squeeze(1).cpu().numpy()
             preds = (torch.sigmoid(outputs) >= 0.5).float().cpu().numpy()
+            all_preds.extend(preds.reshape(-1))
+            all_labels.extend(labels.cpu().numpy().reshape(-1))
 
-            all_preds.extend(preds.reshape(-1))    # aplanar para métricas
-            all_labels.extend(labels.cpu().numpy().reshape(-1))  # igual
+    # Calcular pérdida promedio de forma segura
+    losses = np.array(losses)
 
-    avg_loss = np.sum(losses) / len(data_loader.dataset)
+    if len(data_loader.dataset) == 0:
+        print("⚠️ Dataset vacío. No se puede calcular la pérdida promedio.")
+        avg_loss = float('nan')
+    elif np.any(np.isnan(losses)) or np.any(np.isinf(losses)):
+        print("⚠️ Se encontraron valores inválidos en las pérdidas.")
+        avg_loss = float('nan')
+    else:
+        avg_loss = np.sum(losses) / len(data_loader.dataset)
+
+    # Métricas
     accuracy = accuracy_score(all_labels, all_preds)
     precision = precision_score(all_labels, all_preds, zero_division=0)
     recall = recall_score(all_labels, all_preds, zero_division=0)
     f1 = f1_score(all_labels, all_preds, zero_division=0)
+    conf_matrix = confusion_matrix(all_labels, all_preds)
 
-    return avg_loss, accuracy, precision, recall, f1
+    return avg_loss, accuracy, precision, recall, f1, conf_matrix
+
 
 
 # --- Funcion Principal de Detección de Presencia ---
@@ -248,6 +367,15 @@ def presence_lstm_model(np_fullrooms_training, np_fullrooms_validate, np_fullroo
 
     X_train = np.concatenate((X_full, X_empty), axis=0)
     y_train = np.concatenate((y_full, y_empty), axis=0)
+
+    print("X_full shape:", X_full.shape)
+    print("X_empty shape:", X_empty.shape)
+
+    print("X_train shape:", X_train.shape)
+    print("y_train shape:", y_train.shape)
+    print("X_val shape:", X_val.shape)
+    print("y_val shape:", y_val.shape)
+
 
     # 2. Crear ventanas deslizantes para secuencias temporales
     #X_train, y_train = create_sliding_windows(train_data_np, train_labels_np, window)
@@ -315,21 +443,23 @@ def get_results_presence_lstm(np_fullrooms_training, np_fullrooms_validate, np_f
 
     results_dict_of_metrics = {}
 
-    results_dict_of_metrics['training'] = [
-    float(history['loss'][-1]),
-    float(history['accuracy'][-1]),
-    float(history['precision'][-1]),
-    float(history['recall'][-1]),
-    float(history['f1_score'][-1])
-    ]
+    results_dict_of_metrics['training'] = {
+        'loss': float(history['loss'][-1]),
+        'accuracy': float(history['accuracy'][-1]),
+        'precision': float(history['precision'][-1]),
+        'recall': float(history['recall'][-1]),
+        'f1': float(history['f1_score'][-1]),
+        'confusion_matrix': history['conf_matrix'][-1].tolist()
+    }
 
-    results_dict_of_metrics['validate'] = [
-    float(history['val_loss'][-1]),
-    float(history['val_accuracy'][-1]),
-    float(history['val_precision'][-1]),
-    float(history['val_recall'][-1]),
-    float(history['val_f1_score'][-1])
-    ]
+    results_dict_of_metrics['validate'] = {
+        'loss': float(history['val_loss'][-1]),
+        'accuracy': float(history['val_accuracy'][-1]),
+        'precision': float(history['val_precision'][-1]),
+        'recall': float(history['val_recall'][-1]),
+        'f1': float(history['val_f1_score'][-1]),
+        'confusion_matrix': history['val_conf_matrix'][-1].tolist()
+    }
 
 
     # Cargar el mejor modelo
@@ -360,17 +490,34 @@ def get_results_presence_lstm(np_fullrooms_training, np_fullrooms_validate, np_f
 
     # Evaluar en test_loader
     criterion = nn.BCEWithLogitsLoss()
-    test_loss, test_accuracy, test_precision, test_recall, test_f1 = evaluate_model_presence(best_model, test_loader, criterion)
+    test_loss, test_accuracy, test_precision, test_recall, test_f1, test_conf_matrix = evaluate_model_presence(best_model, test_loader, criterion)
 
-    results_dict_of_metrics['test'] = [
-    float(test_loss),
-    float(test_accuracy),
-    float(test_precision),
-    float(test_recall),
-    float(test_f1)
-    ]
+    results_dict_of_metrics['test'] = {
+        'loss': float(test_loss),
+        'accuracy': float(test_accuracy),
+        'precision': float(test_precision),
+        'recall': float(test_recall),
+        'f1': float(test_f1),
+        'confusion_matrix': test_conf_matrix.tolist()
+    }
 
     return results_dict_of_metrics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

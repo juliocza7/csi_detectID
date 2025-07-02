@@ -116,6 +116,7 @@ def get_max_amplitude_per_position(np_matrix):
 def get_csi_data_from_emptyrooms_to_presencedetection(room, flag_window=False, window=None):
     # obtiene informacion y amplitud maxima de la sala vacia seleccionada
     np_emptyrooms = np.empty((0, 234))
+    #arrayemptyrooms_maxamplitudes = get_processing_csi_data_x_room_from_csv_pcap(room, flag_window, window)
     arrayemptyrooms_maxamplitudes = get_max_amplitude_per_position(
                                     get_processing_csi_data_x_room_from_csv_pcap(room, flag_window, window))
     np_emptyrooms = np.array(arrayemptyrooms_maxamplitudes).reshape(1,234)
@@ -127,6 +128,7 @@ def get_csi_data_from_participant_to_presencedetection(participant, flag_window=
     np_fullroom_participant = np.empty((0, 234))
     for position in POSITIONS_PARTICIPANT:
         #print('participant: ', participant, ' position: ', position)
+        #arrayparticipants_maxamplitudes = get_processing_csi_data_x_participant_from_csv_pcap(participant,     position, flag_window, window)
         arrayparticipants_maxamplitudes = get_max_amplitude_per_position(
                                     get_processing_csi_data_x_participant_from_csv_pcap(participant, position, flag_window, window))
         np_fullroom_participant = np.concatenate((np_fullroom_participant, np.array(arrayparticipants_maxamplitudes).reshape(1,234)), axis=0)
@@ -248,7 +250,6 @@ def real_time_presencedetection(window, model_name):
         print('\n##############################################################',
               '\nwindow: ', int(window/8),' --- package number: ', window)
               
-        
         if model_name == 0:
             print('comenzando modelo RANDOM FOREST')
         elif model_name == 1:

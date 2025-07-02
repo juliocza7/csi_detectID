@@ -1,9 +1,11 @@
 import json
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
 # Cargar el archivo JSON desde una carpeta anterior
-file_path = os.path.join('..', 'presence_results_LSTM.json')
+#file_path = os.path.join('..', 'presence_results_LSTM.json') #archivo esta una carpeta antes
+file_path = os.path.join('C:\\Users\\jsoto\\code\\csi_detectID\\detectID\\processed_data\\presence_conCPS\\', 'presence_results_LSTM.json')
 with open(file_path, 'r') as f:
     data = json.load(f)
 
@@ -40,12 +42,14 @@ def plot_metrics(metrics, title):
     plt.title(f'{title} por Ventana de Tiempo')
     plt.xlabel('Ventana de Tiempo')
     plt.ylabel('Valor')
-    plt.xticks(windows)  # ← Mostrar los valores de ventana como etiquetas
+    plt.xticks(windows)  # Mostrar los valores de ventana como etiquetas
+    plt.yticks(np.arange(0, 1.1 + 0.01, 0.1))  # ← Aquí defines el espaciado Y
     plt.ylim(0, 1.1)
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+
 
 
 

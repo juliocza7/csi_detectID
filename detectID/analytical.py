@@ -29,12 +29,23 @@ def calcular_outliers_zscore(df, umbral=3):
     porcentaje_outliers = outliers.sum().sum() / df.size * 100
 
     return float(porcentaje_outliers)
-
+'''
 def calcular_outliers_rc(df, alpha=0.99):
     mcd = MinCovDet().fit(df)
     mahal_dist = mcd.mahalanobis(df)
 
     # Usamos la distribución chi-cuadrado para el umbral (p=0.975 típico)
+    umbral = chi2.ppf(alpha, df.shape[1])
+    outliers = mahal_dist > umbral
+
+    porcentaje_outliers = outliers.sum() / df.shape[0] * 100
+    return float(porcentaje_outliers)
+'''
+def calcular_outliers_rc(df, alpha=0.99, support_fraction=0.75):
+    mcd = MinCovDet(support_fraction=support_fraction, random_state=42).fit(df)
+    mahal_dist = mcd.mahalanobis(df)
+
+    # Umbral chi-cuadrado
     umbral = chi2.ppf(alpha, df.shape[1])
     outliers = mahal_dist > umbral
 
@@ -106,7 +117,7 @@ def cargar_archivos(path, num_archivos=17, modo='primero'):
         sns.heatmap(df.corr(), cmap='coolwarm')
         
         lista_porcentajes_zscore.append(calcular_outliers_zscore(df))
-        lista_porcentajes_rc.append(calcular_outliers_rc(df))
+        #lista_porcentajes_rc.append(calcular_outliers_rc(df))
         
         #df = hampel_filter(df) 
         '''
@@ -569,13 +580,13 @@ def graficar_maximos_por_archivo(salas_llenas, salas_vacias, indices_reales=None
 
 
 # ==== RUTINA PRINCIPAL ====
-participante = f"{random.randint(1, 125):03}"
-#participante = '007'
-PATH_FULL = 'C:\\Users\\jsoto\\code\\dataset_full_csv\\' + participante + '\\'
-PATH_EMPTY = 'C:\\Users\\jsoto\\code\\dataset_empty_csv\\'
+#participante = f"{random.randint(1, 125):03}"
+#participante = '001'
+PATH_FULL = 'C:\\Users\\jsoto\\code\\fullroom_2000\\' #+ participante + '\\'
+PATH_EMPTY = 'C:\\Users\\jsoto\\code\\emptyroom_2000\\'
 
 # Cargar datos
-print('>>>>>> participante: ',participante)
+#print('>>>>>> participante: ',participante)
 salas_llenas = cargar_archivos(PATH_FULL, num_archivos=17, modo='ultimo') # primero, ultimo, aleatorio
 salas_vacias = cargar_archivos(PATH_EMPTY, num_archivos=17, modo='aleatorio')
 
